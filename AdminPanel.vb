@@ -1,4 +1,4 @@
-﻿Imports System.Data
+Imports System.Data
 Imports System.Linq
 
 Public Class AdminPanel
@@ -94,7 +94,7 @@ Public Class AdminPanel
         AppState.Aircrafts.Add(newPlane)
         AppState.SaveAircraftToDatabase(newPlane)
 
-        MessageBox.Show("Aircraft " & id & " added successfully!", "Aircraft Added", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        CustomMessageBox.Show("Aircraft " & id & " added successfully to fleet inventory!", "Aircraft Added", MessageBoxButtons.OK, MessageBoxIcon.Information)
         RefreshAllAdminData()
     End Sub
 
@@ -149,7 +149,7 @@ Public Class AdminPanel
         AppState.Users.Add(newUser)
         AppState.SaveUserToDatabase(newUser)
 
-        MessageBox.Show("Customer " & username & " registered successfully!", "Customer Added", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        CustomMessageBox.Show("Customer account '" & username & "' registered successfully!", "Customer Added", MessageBoxButtons.OK, MessageBoxIcon.Information)
         RefreshAllAdminData()
     End Sub
 
@@ -200,7 +200,7 @@ Public Class AdminPanel
         AppState.Pilots.Add(newPilot)
         AppState.SavePilotToDatabase(newPilot)
 
-        MessageBox.Show("Pilot " & name & " added successfully!", "Pilot Registered", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        CustomMessageBox.Show("Flight Captain / Pilot '" & name & "' added successfully!", "Pilot Registered", MessageBoxButtons.OK, MessageBoxIcon.Information)
         RefreshAllAdminData()
     End Sub
 
@@ -262,7 +262,7 @@ Public Class AdminPanel
         AppState.Flights.Add(newFlight)
         AppState.SaveFlightToDatabase(newFlight)
 
-        MessageBox.Show("Flight Schedule " & id & " to " & dest & " added successfully!", "Flight Added", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        CustomMessageBox.Show("Flight Schedule " & id & " to " & dest & " added successfully!", "Flight Schedule Created", MessageBoxButtons.OK, MessageBoxIcon.Information)
         RefreshAllAdminData()
     End Sub
 

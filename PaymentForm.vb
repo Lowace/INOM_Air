@@ -82,7 +82,7 @@ Public Class PaymentForm
         Dim f1 = txtPayField1.Text.Trim()
         Dim f2 = txtPayField2.Text.Trim()
         If String.IsNullOrWhiteSpace(f1) OrElse String.IsNullOrWhiteSpace(f2) Then
-            MessageBox.Show("Please fill in the required payment details.", "Required Fields", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            CustomMessageBox.Show("Please fill in the required payment details.", "Required Fields", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Return
         End If
 
@@ -97,11 +97,11 @@ Public Class PaymentForm
         AppState.Bookings.Add(b)
         AppState.SaveBookingToDatabase(b)
 
-        MessageBox.Show("Payment Successful!" & vbCrLf &
-                        "Your flight has been officially confirmed." & vbCrLf &
-                        "Ticket Number: " & ticketNo & vbCrLf &
-                        "Seat: " & b.SeatNumber & " | Gate: " & b.Gate,
-                        "Booking Confirmed", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        CustomMessageBox.Show("Payment Successful!" & vbCrLf & vbCrLf &
+                              "Your flight has been officially confirmed." & vbCrLf &
+                              "Ticket Number: " & ticketNo & vbCrLf &
+                              "Seat: " & b.SeatNumber & " | Gate: " & b.Gate,
+                              "Booking Confirmed", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
         Dim formsToClose As New List(Of Form)()
         Dim custForm As CustomerForm = Nothing

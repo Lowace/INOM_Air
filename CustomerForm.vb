@@ -54,12 +54,12 @@ Public Class CustomerForm
     End Sub
 
     Private Sub btnEditBooking_Click(sender As Object, e As EventArgs) Handles btnEditBooking.Click
-        Dim res = MessageBox.Show("Do you want to rebook or reschedule this flight?", "Rebooking Request", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+        Dim res = CustomMessageBox.Show("Do you want to rebook or reschedule this flight?", "Rebooking Request", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
         If res = DialogResult.Yes Then btnStartBooking_Click(Nothing, Nothing)
     End Sub
 
     Private Sub btnCancelBooking_Click(sender As Object, e As EventArgs) Handles btnCancelBooking.Click
-        Dim res = MessageBox.Show("Are you sure you want to cancel this booking and submit a refund request?" & vbCrLf & "(Per policy, refund will be credited based on refundability option chosen)", "Cancel & Refund Request", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
+        Dim res = CustomMessageBox.Show("Are you sure you want to cancel this booking and submit a refund request?" & vbCrLf & vbCrLf & "(Per airline policy, refund will be credited based on refundability option chosen)", "Cancel & Refund Request", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
         If res = DialogResult.Yes Then
             Dim userBookings = AppState.Bookings.Where(Function(b) b.Username.Equals(AppState.CurrentUser.Username, StringComparison.OrdinalIgnoreCase) AndAlso b.Status = "Confirmed").ToList()
             Dim lastBooking = userBookings.LastOrDefault()
@@ -67,20 +67,20 @@ Public Class CustomerForm
                 lastBooking.Status = "Cancelled"
                 AppState.UpdateBookingStatusInDatabase(lastBooking.TicketNumber, "Cancelled")
             End If
-            MessageBox.Show("Flight successfully cancelled. Refund request has been recorded.", "Cancellation Processed", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            CustomMessageBox.Show("Flight successfully cancelled. Refund request has been recorded.", "Cancellation Processed", MessageBoxButtons.OK, MessageBoxIcon.Information)
             RefreshDashboard()
         End If
     End Sub
 
     Private Sub btnViewProfileInfo_Click(sender As Object, e As EventArgs) Handles btnViewProfileInfo.Click
         Dim u = AppState.CurrentUser
-        MessageBox.Show("Customer Profile Details:" & vbCrLf &
-                        "• Full Name: " & u.FullName & vbCrLf &
-                        "• Gender: " & u.Gender & vbCrLf &
-                        "• Contact: " & u.ContactNumber & vbCrLf &
-                        "• Date of Birth: " & u.DateOfBirth.ToString("MMMM dd, yyyy") & vbCrLf &
-                        "• Senior Citizen (60+): " & If(u.IsSenior, "Yes", "No") & vbCrLf &
-                        "• PWD: " & If(u.IsPwd, "Yes", "No"), "Profile Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        CustomMessageBox.Show("Customer Profile Details:" & vbCrLf & vbCrLf &
+                              "• Full Name: " & u.FullName & vbCrLf &
+                              "• Gender: " & u.Gender & vbCrLf &
+                              "• Contact: " & u.ContactNumber & vbCrLf &
+                              "• Date of Birth: " & u.DateOfBirth.ToString("MMMM dd, yyyy") & vbCrLf &
+                              "• Senior Citizen (60+): " & If(u.IsSenior, "Yes", "No") & vbCrLf &
+                              "• PWD: " & If(u.IsPwd, "Yes", "No"), "Profile Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
     End Sub
 
     Private Sub btnLogout_Click(sender As Object, e As EventArgs) Handles btnLogout.Click

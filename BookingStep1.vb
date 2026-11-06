@@ -22,14 +22,14 @@ Public Class BookingStep1
 
     Private Sub btnB1Next_Click(sender As Object, e As EventArgs) Handles btnB1Next.Click
         If cmbB1Origin.SelectedIndex = -1 Or cmbB1Dest.SelectedIndex = -1 Then
-            MessageBox.Show("Please select both origin and destination.", "Selection Required", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            CustomMessageBox.Show("Please select both origin and destination.", "Selection Required", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Return
         End If
 
         Dim origin = cmbB1Origin.SelectedItem.ToString()
         Dim dest = cmbB1Dest.SelectedItem.ToString()
         If origin.Equals(dest, StringComparison.OrdinalIgnoreCase) Then
-            MessageBox.Show("Origin and destination cannot be the same.", "Invalid Selection", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            CustomMessageBox.Show("Origin and destination cannot be the same.", "Invalid Selection", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Return
         End If
 

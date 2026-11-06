@@ -1,4 +1,4 @@
-﻿Imports System.Linq
+Imports System.Linq
 
 Public Class SignInPage
 
@@ -7,7 +7,7 @@ Public Class SignInPage
         Dim enteredPassword = txtPassword.Text.Trim()
 
         If String.IsNullOrWhiteSpace(enteredUsername) OrElse String.IsNullOrWhiteSpace(enteredPassword) Then
-            MessageBox.Show("Please enter both username and password.", "Missing Fields", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            CustomMessageBox.Show("Please enter both username and password.", "Missing Fields", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Return
         End If
 
@@ -26,7 +26,7 @@ Public Class SignInPage
                 Me.Close()
             End If
         Else
-            MessageBox.Show("Invalid username or password. Please try again." & vbCrLf & "(Hint: Naruto / password or admin / admin123)", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            CustomMessageBox.Show("Invalid username or password. Please try again." & vbCrLf & vbCrLf & "(Hint: Naruto / password or admin / admin123)", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End If
     End Sub
 

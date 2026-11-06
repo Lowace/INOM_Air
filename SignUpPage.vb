@@ -1,4 +1,4 @@
-﻿Imports System.Linq
+Imports System.Linq
 
 Public Class SignUpPage
 
@@ -8,17 +8,17 @@ Public Class SignUpPage
         Dim confirmPass = txtRegConfirmPassword.Text.Trim()
 
         If String.IsNullOrWhiteSpace(username) OrElse String.IsNullOrWhiteSpace(password) Then
-            MessageBox.Show("Please enter a valid username and password.", "Required Fields", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            CustomMessageBox.Show("Please enter a valid username and password.", "Required Fields", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Return
         End If
 
         If password <> confirmPass Then
-            MessageBox.Show("Passwords do not match. Please re-check.", "Password Mismatch", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            CustomMessageBox.Show("Passwords do not match. Please re-check.", "Password Mismatch", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Return
         End If
 
         If AppState.Users.Any(Function(u) u.Username.Equals(username, StringComparison.OrdinalIgnoreCase)) Then
-            MessageBox.Show("That username is already taken. Please choose another.", "Username Unavailable", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            CustomMessageBox.Show("That username is already taken. Please choose another.", "Username Unavailable", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Return
         End If
 
@@ -49,7 +49,7 @@ Public Class SignUpPage
         Dim contact = txtContactNumber.Text.Trim()
 
         If String.IsNullOrWhiteSpace(givenName) OrElse String.IsNullOrWhiteSpace(surname) Then
-            MessageBox.Show("Please enter your given name and surname.", "Missing Information", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            CustomMessageBox.Show("Please enter your given name and surname.", "Missing Information", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Return
         End If
 
@@ -78,7 +78,7 @@ Public Class SignUpPage
         AppState.SaveUserToDatabase(newUser)
         AppState.CurrentUser = newUser
 
-        MessageBox.Show("Account successfully created!" & vbCrLf & "Welcome to INOM Air, " & newUser.GivenName & "!", "Registration Complete", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        CustomMessageBox.Show("Account successfully created!" & vbCrLf & vbCrLf & "Welcome to INOM Air, " & newUser.GivenName & "!", "Registration Complete", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
         Dim custForm As New CustomerForm()
         custForm.Show()

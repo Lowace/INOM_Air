@@ -4,7 +4,10 @@ Public Class BookingStep3
     <System.ComponentModel.DesignerSerializationVisibility(System.ComponentModel.DesignerSerializationVisibility.Hidden)>
     Public Property PreviousForm As Form
 
+    Private epSenior As New ErrorProvider()
+
     Private Sub BookingStep3_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        epSenior.BlinkStyle = ErrorBlinkStyle.NeverBlink
         txtB3GivenName.Text = AppState.GuestGivenName
         txtB3Surname.Text = AppState.GuestSurname
         cmbB3Gender.SelectedItem = AppState.GuestGender
@@ -20,10 +23,33 @@ Public Class BookingStep3
         RecalculateCurrentPrice()
     End Sub
 
+    Private Function ValidateSeniorConcession() As Boolean
+        Dim ageVal As Integer = 0
+        Dim parsed = Integer.TryParse(txtB3Age.Text.Trim(), ageVal)
+        Dim isSeniorGroup = (cmbB3AgeGroup.SelectedIndex = 1)
+
+        If Not parsed OrElse ageVal <= 0 OrElse ageVal > 120 Then
+            epSenior.SetError(txtB3Age, "Please enter a valid age between 1 and 120.")
+            epSenior.SetError(cmbB3AgeGroup, "")
+            Return False
+        End If
+
+        If isSeniorGroup AndAlso ageVal < 60 Then
+            epSenior.SetError(txtB3Age, "Passenger is not a Senior Citizen (Age must be 60 or above).")
+            epSenior.SetError(cmbB3AgeGroup, "Senior Citizen concession requires passenger age to be 60 or above.")
+            Return False
+        Else
+            epSenior.SetError(txtB3Age, "")
+            epSenior.SetError(cmbB3AgeGroup, "")
+            Return True
+        End If
+    End Function
+
     Private Sub RecalculateCurrentPrice()
+        ValidateSeniorConcession()
         Dim ageVal As Integer = 25
         Integer.TryParse(txtB3Age.Text.Trim(), ageVal)
-        Dim isSenior = (ageVal >= 60) OrElse (cmbB3AgeGroup.SelectedIndex = 1)
+        Dim isSenior = (ageVal >= 60) AndAlso (cmbB3AgeGroup.SelectedIndex = 1)
         Dim isPwd = rbB3DisabledYes.Checked
         AppState.RecalculateActiveBookingPrice(isSenior, isPwd, AppState.ActiveBooking.CheckedBaggageKg, AppState.ActiveBooking.IsRefundable)
         UpdateSummary()
@@ -49,9 +75,28 @@ Public Class BookingStep3
         Dim given = txtB3GivenName.Text.Trim()
         Dim surname = txtB3Surname.Text.Trim()
         If String.IsNullOrWhiteSpace(given) OrElse String.IsNullOrWhiteSpace(surname) Then
-            MessageBox.Show("Please enter guest given name and surname.", "Required", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            CustomMessageBox.Show("Please enter guest given name and surname.", "Required", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Return
         End If
+
+        Dim ageVal As Integer = 0
+        Integer.TryParse(txtB3Age.Text.Trim(), ageVal)
+        If cmbB3AgeGroup.SelectedIndex = 1 AndAlso ageVal < 60 Then
+            CustomMessageBox.Show("The passenger does not qualify for the Senior Citizen discount." & vbCrLf &
+                                  "Senior Citizen concession is strictly reserved for passengers aged 60 and above." & vbCrLf & vbCrLf &
+                                  "Entered age: " & ageVal.ToString() & " years old." & vbCrLf &
+                                  "Please verify the entered age or select the Adult category.",
+                                  "Senior Concession Ineligible", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            txtB3Age.Focus()
+            Return
+        End If
+
+        If Not ValidateSeniorConcession() Then
+            CustomMessageBox.Show("Please check passenger age before proceeding.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            txtB3Age.Focus()
+            Return
+        End If
+
         AppState.ActiveBooking.PassengerName = given & " " & surname
         RecalculateCurrentPrice()
 

@@ -134,9 +134,16 @@ Namespace Global.INOM_Air
             If isInitialized Then
                 If showStatusMessage Then
                     If IsDatabaseConnected Then
-                        MessageBox.Show("XAMPP MySQL database (inomairtest_db) is CONNECTED and ONLINE!" & vbCrLf & "Host: localhost:3306" & vbCrLf & "Live database synchronization is active.", "Database Connection: Online", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                        CustomMessageBox.Show("XAMPP MySQL database (inomairtest_db) is CONNECTED and ONLINE!" & vbCrLf & vbCrLf &
+                                               "• Host: localhost:3306" & vbCrLf &
+                                               "• Database: inomairtest_db" & vbCrLf &
+                                               "• Synchronization: Real-time Live MySQL active.",
+                                               "Database Connection: Online", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     Else
-                        MessageBox.Show("XAMPP MySQL is currently CLOSED or OFFLINE." & vbCrLf & "The application will run in Offline Mode with default data." & vbCrLf & "To connect to MySQL, please start Apache and MySQL in XAMPP Control Panel.", "Database Connection: Offline", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                        CustomMessageBox.Show("XAMPP MySQL is currently CLOSED or OFFLINE." & vbCrLf & vbCrLf &
+                                               "The application will run in Offline Mode with local memory data." & vbCrLf &
+                                               "To synchronize with MySQL, start Apache and MySQL in your XAMPP Control Panel.",
+                                               "Database Connection: Offline", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                     End If
                 End If
                 Return
@@ -160,7 +167,11 @@ Namespace Global.INOM_Air
                 End Using
 
                 If showStatusMessage Then
-                    MessageBox.Show("XAMPP MySQL database (inomairtest_db) is CONNECTED and ONLINE!" & vbCrLf & "Host: localhost:3306" & vbCrLf & "Live database synchronization is active.", "Database Connection: Online", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    CustomMessageBox.Show("XAMPP MySQL database (inomairtest_db) is CONNECTED and ONLINE!" & vbCrLf & vbCrLf &
+                                           "• Host: localhost:3306" & vbCrLf &
+                                           "• Database: inomairtest_db" & vbCrLf &
+                                           "• Synchronization: Real-time Live MySQL active.",
+                                           "Database Connection: Online", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 End If
 
             Catch ex As Exception
@@ -169,7 +180,10 @@ Namespace Global.INOM_Air
                 isInitialized = True
 
                 If showStatusMessage Then
-                    MessageBox.Show("XAMPP MySQL is currently CLOSED or OFFLINE." & vbCrLf & "The application will run in Offline Mode with default data." & vbCrLf & "To connect to MySQL, please start Apache and MySQL in XAMPP Control Panel.", "Database Connection: Offline", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                    CustomMessageBox.Show("XAMPP MySQL is currently CLOSED or OFFLINE." & vbCrLf & vbCrLf &
+                                           "The application will run in Offline Mode with local memory data." & vbCrLf &
+                                           "To synchronize with MySQL, start Apache and MySQL in your XAMPP Control Panel.",
+                                           "Database Connection: Offline", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                 End If
             End Try
         End Sub

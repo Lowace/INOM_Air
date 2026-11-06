@@ -65,17 +65,21 @@ Public Class BookingStep5
     End Sub
 
     Private Sub btnB5ViewMeals_Click(sender As Object, e As EventArgs) Handles btnB5ViewMeals.Click
-        MessageBox.Show("Selected: " & cmbB5Meals.SelectedItem.ToString() & vbCrLf &
-                        "All meals are prepared fresh with complimentary beverage.", "Meal Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        CustomMessageBox.Show("Selected In-Flight Meal:" & vbCrLf &
+                              cmbB5Meals.SelectedItem.ToString() & vbCrLf & vbCrLf &
+                              "All INOM Air meals are freshly prepared on the day of flight and served with a complimentary hot or cold beverage.",
+                              "Meal Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
     End Sub
 
     Private Sub btnB5PriceList_Click(sender As Object, e As EventArgs) Handles btnB5PriceList.Click
-        MessageBox.Show("INOM Air Baggage Allowance Matrix:" & vbCrLf &
-                        "• Carry-on (7kg): Free" & vbCrLf &
-                        "• 10kg Checked: Free included" & vbCrLf &
-                        "• 20kg Checked: +₱500.00" & vbCrLf &
-                        "• 30kg Checked: +₱1,000.00" & vbCrLf &
-                        "• 40kg Checked: +₱1,500.00", "Baggage Rates", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        CustomMessageBox.Show("INOM Air Baggage Allowance & Rates Matrix:" & vbCrLf & vbCrLf &
+                              "• Carry-on (7kg): Free included" & vbCrLf &
+                              "• 10kg Checked: Free standard allowance" & vbCrLf &
+                              "• 20kg Checked: +₱500.00" & vbCrLf &
+                              "• 30kg Checked: +₱1,000.00" & vbCrLf &
+                              "• 40kg Checked: +₱1,500.00" & vbCrLf & vbCrLf &
+                              "Excess weight at airport counter: ₱250.00/kg.",
+                              "Baggage Rates Matrix", MessageBoxButtons.OK, MessageBoxIcon.Information)
     End Sub
 
     Private Sub btnB5Back_Click(sender As Object, e As EventArgs) Handles btnB5Back.Click
