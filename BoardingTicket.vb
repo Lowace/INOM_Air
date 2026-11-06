@@ -12,11 +12,15 @@ Public Class BoardingTicket
     End Sub
 
     Private Sub btnBack_Click(sender As Object, e As EventArgs) Handles btnBack.Click, btnClose.Click
-
+        Dim dashb As New CustomerForm
+        dashb.Show()
+        Me.Hide()
     End Sub
 
     Private Sub lblFromValue_Click(sender As Object, e As EventArgs) Handles lblFromValue.Click
 
     End Sub
+
+
 
 End Class

@@ -9,7 +9,9 @@ Public Class CustomerForm
     End Sub
 
     Private Sub btnStartBooking_Click(sender As Object, e As EventArgs) Handles btnStartBooking.Click
-
+        Dim book1 As New BookingStep1
+        book1.Show()
+        Me.Hide()
     End Sub
 
     Private Sub btnViewFullDetails_Click(sender As Object, e As EventArgs) Handles btnViewFullDetails.Click
@@ -29,7 +31,9 @@ Public Class CustomerForm
     End Sub
 
     Private Sub btnLogout_Click(sender As Object, e As EventArgs) Handles btnLogout.Click
-
+        Dim startpage As New StartingPage
+        startpage.Show()
+        Me.Hide()
     End Sub
 
     Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
