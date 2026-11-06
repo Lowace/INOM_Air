@@ -23,16 +23,14 @@ Partial Class StartingPage
         Dim CustomizableEdges8 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges5 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges6 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges18 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges19 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges16 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges17 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges10 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges11 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges12 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges13 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges14 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges15 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges16 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges17 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges3 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges4 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges1 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
@@ -42,8 +40,6 @@ Partial Class StartingPage
         pnlDecoShape2 = New Guna.UI2.WinForms.Guna2Panel()
         pnlDecoShape3 = New Guna.UI2.WinForms.Guna2Panel()
         pnlMainCard = New Guna.UI2.WinForms.Guna2Panel()
-        pnlLogoBox = New Guna.UI2.WinForms.Guna2Panel()
-        lblPlaneIcon = New Label()
         lblLogoTitle = New Label()
         lblTagline = New Label()
         btnLogin = New Guna.UI2.WinForms.Guna2Button()
@@ -52,13 +48,20 @@ Partial Class StartingPage
         lblVersion = New Label()
         Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
         Guna2Panel2 = New Guna.UI2.WinForms.Guna2Panel()
+        PictureBox1 = New PictureBox()
         pnlMainCard.SuspendLayout()
-        pnlLogoBox.SuspendLayout()
+        CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
+        ' 
+        ' Guna2BorderlessForm1
+        ' 
         Guna2BorderlessForm1.BorderRadius = 30
         Guna2BorderlessForm1.ContainerControl = Me
         Guna2BorderlessForm1.DockIndicatorTransparencyValue = 0.6R
         Guna2BorderlessForm1.TransparentWhileDrag = True
+        ' 
+        ' btnClose
+        ' 
         btnClose.Animated = True
         btnClose.BackColor = Color.Transparent
         btnClose.Cursor = Cursors.Hand
@@ -76,6 +79,9 @@ Partial Class StartingPage
         btnClose.Size = New Size(34, 34)
         btnClose.TabIndex = 10
         btnClose.Text = "✕"
+        ' 
+        ' pnlDecoShape2
+        ' 
         pnlDecoShape2.BackColor = Color.FromArgb(CByte(237), CByte(229), CByte(216))
         pnlDecoShape2.BorderRadius = 55
         pnlDecoShape2.CustomizableEdges = CustomizableEdges7
@@ -85,6 +91,9 @@ Partial Class StartingPage
         pnlDecoShape2.ShadowDecoration.CustomizableEdges = CustomizableEdges8
         pnlDecoShape2.Size = New Size(140, 140)
         pnlDecoShape2.TabIndex = 1
+        ' 
+        ' pnlDecoShape3
+        ' 
         pnlDecoShape3.BackColor = Color.FromArgb(CByte(237), CByte(229), CByte(216))
         pnlDecoShape3.BorderRadius = 25
         pnlDecoShape3.CustomizableEdges = CustomizableEdges5
@@ -94,46 +103,33 @@ Partial Class StartingPage
         pnlDecoShape3.ShadowDecoration.CustomizableEdges = CustomizableEdges6
         pnlDecoShape3.Size = New Size(125, 178)
         pnlDecoShape3.TabIndex = 2
+        ' 
+        ' pnlMainCard
+        ' 
         pnlMainCard.BackColor = Color.Transparent
         pnlMainCard.BorderColor = Color.FromArgb(CByte(220), CByte(220), CByte(225))
         pnlMainCard.BorderRadius = 24
         pnlMainCard.BorderThickness = 1
-        pnlMainCard.Controls.Add(pnlLogoBox)
+        pnlMainCard.Controls.Add(PictureBox1)
         pnlMainCard.Controls.Add(lblLogoTitle)
         pnlMainCard.Controls.Add(lblTagline)
         pnlMainCard.Controls.Add(btnLogin)
         pnlMainCard.Controls.Add(btnSignup)
         pnlMainCard.Controls.Add(btnExit)
-        pnlMainCard.CustomizableEdges = CustomizableEdges18
+        pnlMainCard.CustomizableEdges = CustomizableEdges16
         pnlMainCard.FillColor = Color.FromArgb(CByte(237), CByte(229), CByte(216))
         pnlMainCard.Location = New Point(32, 60)
         pnlMainCard.Name = "pnlMainCard"
         pnlMainCard.ShadowDecoration.BorderRadius = 24
         pnlMainCard.ShadowDecoration.Color = Color.FromArgb(CByte(180), CByte(180), CByte(190))
-        pnlMainCard.ShadowDecoration.CustomizableEdges = CustomizableEdges19
+        pnlMainCard.ShadowDecoration.CustomizableEdges = CustomizableEdges17
         pnlMainCard.ShadowDecoration.Depth = 15
         pnlMainCard.ShadowDecoration.Enabled = True
         pnlMainCard.Size = New Size(420, 520)
         pnlMainCard.TabIndex = 3
-        pnlLogoBox.BackColor = Color.Transparent
-        pnlLogoBox.BorderRadius = 24
-        pnlLogoBox.Controls.Add(lblPlaneIcon)
-        pnlLogoBox.CustomizableEdges = CustomizableEdges10
-        pnlLogoBox.FillColor = Color.FromArgb(CByte(237), CByte(229), CByte(216))
-        pnlLogoBox.Location = New Point(125, 40)
-        pnlLogoBox.Name = "pnlLogoBox"
-        pnlLogoBox.ShadowDecoration.CustomizableEdges = CustomizableEdges11
-        pnlLogoBox.Size = New Size(170, 160)
-        pnlLogoBox.TabIndex = 0
-        lblPlaneIcon.Dock = DockStyle.Fill
-        lblPlaneIcon.Font = New Font("Segoe UI Emoji", 14.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        lblPlaneIcon.ForeColor = Color.FromArgb(CByte(1), CByte(123), CByte(128))
-        lblPlaneIcon.Location = New Point(0, 0)
-        lblPlaneIcon.Name = "lblPlaneIcon"
-        lblPlaneIcon.Size = New Size(170, 160)
-        lblPlaneIcon.TabIndex = 0
-        lblPlaneIcon.Text = "LOGO"
-        lblPlaneIcon.TextAlign = ContentAlignment.MiddleCenter
+        ' 
+        ' lblLogoTitle
+        ' 
         lblLogoTitle.Font = New Font("Segoe UI", 18F, FontStyle.Bold)
         lblLogoTitle.ForeColor = Color.FromArgb(CByte(105), CByte(105), CByte(105))
         lblLogoTitle.Location = New Point(20, 215)
@@ -142,6 +138,9 @@ Partial Class StartingPage
         lblLogoTitle.TabIndex = 1
         lblLogoTitle.Text = "International NOM Air"
         lblLogoTitle.TextAlign = ContentAlignment.MiddleCenter
+        ' 
+        ' lblTagline
+        ' 
         lblTagline.Font = New Font("Segoe UI", 10F, FontStyle.Italic)
         lblTagline.ForeColor = Color.FromArgb(CByte(100), CByte(100), CByte(115))
         lblTagline.Location = New Point(20, 252)
@@ -150,49 +149,61 @@ Partial Class StartingPage
         lblTagline.TabIndex = 2
         lblTagline.Text = "Fly Near, Fly Far, Fly NOM"
         lblTagline.TextAlign = ContentAlignment.MiddleCenter
+        ' 
+        ' btnLogin
+        ' 
         btnLogin.Animated = True
         btnLogin.BorderRadius = 16
         btnLogin.Cursor = Cursors.Hand
-        btnLogin.CustomizableEdges = CustomizableEdges12
+        btnLogin.CustomizableEdges = CustomizableEdges10
         btnLogin.FillColor = Color.FromArgb(CByte(1), CByte(123), CByte(128))
         btnLogin.Font = New Font("Segoe UI", 12F, FontStyle.Bold)
         btnLogin.ForeColor = Color.FromArgb(CByte(237), CByte(229), CByte(216))
         btnLogin.Location = New Point(40, 320)
         btnLogin.Name = "btnLogin"
-        btnLogin.ShadowDecoration.CustomizableEdges = CustomizableEdges13
+        btnLogin.ShadowDecoration.CustomizableEdges = CustomizableEdges11
         btnLogin.Size = New Size(160, 52)
         btnLogin.TabIndex = 3
         btnLogin.Text = "Login"
+        ' 
+        ' btnSignup
+        ' 
         btnSignup.Animated = True
         btnSignup.BorderColor = Color.FromArgb(CByte(1), CByte(123), CByte(128))
         btnSignup.BorderRadius = 16
         btnSignup.BorderThickness = 2
         btnSignup.Cursor = Cursors.Hand
-        btnSignup.CustomizableEdges = CustomizableEdges14
+        btnSignup.CustomizableEdges = CustomizableEdges12
         btnSignup.FillColor = Color.FromArgb(CByte(254), CByte(115), CByte(73))
         btnSignup.Font = New Font("Segoe UI", 12F, FontStyle.Bold)
         btnSignup.ForeColor = Color.FromArgb(CByte(237), CByte(229), CByte(216))
         btnSignup.Location = New Point(220, 320)
         btnSignup.Name = "btnSignup"
-        btnSignup.ShadowDecoration.CustomizableEdges = CustomizableEdges15
+        btnSignup.ShadowDecoration.CustomizableEdges = CustomizableEdges13
         btnSignup.Size = New Size(160, 52)
         btnSignup.TabIndex = 4
         btnSignup.Text = "Signup"
+        ' 
+        ' btnExit
+        ' 
         btnExit.Animated = True
         btnExit.BorderColor = Color.FromArgb(CByte(210), CByte(210), CByte(215))
         btnExit.BorderRadius = 16
         btnExit.BorderThickness = 1
         btnExit.Cursor = Cursors.Hand
-        btnExit.CustomizableEdges = CustomizableEdges16
+        btnExit.CustomizableEdges = CustomizableEdges14
         btnExit.FillColor = Color.FromArgb(CByte(237), CByte(229), CByte(216))
         btnExit.Font = New Font("Segoe UI", 11F, FontStyle.Bold)
         btnExit.ForeColor = Color.FromArgb(CByte(80), CByte(80), CByte(90))
         btnExit.Location = New Point(130, 400)
         btnExit.Name = "btnExit"
-        btnExit.ShadowDecoration.CustomizableEdges = CustomizableEdges17
+        btnExit.ShadowDecoration.CustomizableEdges = CustomizableEdges15
         btnExit.Size = New Size(160, 48)
         btnExit.TabIndex = 5
         btnExit.Text = "Exit"
+        ' 
+        ' lblVersion
+        ' 
         lblVersion.Font = New Font("Segoe UI", 8F)
         lblVersion.ForeColor = Color.FromArgb(CByte(140), CByte(140), CByte(150))
         lblVersion.Location = New Point(32, 595)
@@ -201,6 +212,9 @@ Partial Class StartingPage
         lblVersion.TabIndex = 4
         lblVersion.Text = "INOM Air v1.0.1"
         lblVersion.TextAlign = ContentAlignment.MiddleCenter
+        ' 
+        ' Guna2Panel1
+        ' 
         Guna2Panel1.BackColor = Color.FromArgb(CByte(237), CByte(229), CByte(216))
         Guna2Panel1.BorderRadius = 55
         Guna2Panel1.CustomizableEdges = CustomizableEdges3
@@ -210,6 +224,9 @@ Partial Class StartingPage
         Guna2Panel1.ShadowDecoration.CustomizableEdges = CustomizableEdges4
         Guna2Panel1.Size = New Size(185, 151)
         Guna2Panel1.TabIndex = 2
+        ' 
+        ' Guna2Panel2
+        ' 
         Guna2Panel2.BackColor = Color.FromArgb(CByte(237), CByte(229), CByte(216))
         Guna2Panel2.BorderRadius = 25
         Guna2Panel2.CustomizableEdges = CustomizableEdges1
@@ -219,6 +236,19 @@ Partial Class StartingPage
         Guna2Panel2.ShadowDecoration.CustomizableEdges = CustomizableEdges2
         Guna2Panel2.Size = New Size(125, 112)
         Guna2Panel2.TabIndex = 3
+        ' 
+        ' PictureBox1
+        ' 
+        PictureBox1.Image = My.Resources.Resources._66ba3ddf_8faf_4108_a1e3_2e78fb6e00b3NOBG
+        PictureBox1.Location = New Point(72, 47)
+        PictureBox1.Name = "PictureBox1"
+        PictureBox1.Size = New Size(279, 165)
+        PictureBox1.SizeMode = PictureBoxSizeMode.StretchImage
+        PictureBox1.TabIndex = 6
+        PictureBox1.TabStop = False
+        ' 
+        ' StartingPage
+        ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.FromArgb(CByte(237), CByte(229), CByte(216))
@@ -235,7 +265,7 @@ Partial Class StartingPage
         StartPosition = FormStartPosition.CenterScreen
         Text = "INOM Air - Welcome"
         pnlMainCard.ResumeLayout(False)
-        pnlLogoBox.ResumeLayout(False)
+        CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
     End Sub
 
@@ -244,8 +274,6 @@ Partial Class StartingPage
     Friend WithEvents pnlDecoShape2 As Guna.UI2.WinForms.Guna2Panel
     Friend WithEvents pnlDecoShape3 As Guna.UI2.WinForms.Guna2Panel
     Friend WithEvents pnlMainCard As Guna.UI2.WinForms.Guna2Panel
-    Friend WithEvents pnlLogoBox As Guna.UI2.WinForms.Guna2Panel
-    Friend WithEvents lblPlaneIcon As Label
     Friend WithEvents lblLogoTitle As Label
     Friend WithEvents lblTagline As Label
     Friend WithEvents btnLogin As Guna.UI2.WinForms.Guna2Button
@@ -254,5 +282,6 @@ Partial Class StartingPage
     Friend WithEvents lblVersion As Label
     Friend WithEvents Guna2Panel2 As Guna.UI2.WinForms.Guna2Panel
     Friend WithEvents Guna2Panel1 As Guna.UI2.WinForms.Guna2Panel
+    Friend WithEvents PictureBox1 As PictureBox
 
 End Class
