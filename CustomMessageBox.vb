@@ -34,64 +34,72 @@ Public Class CustomMessageBox
     Private Class MessageBoxDialog
         Inherits Form
 
-        Private pnlCard As Guna2Panel
+        Private pnlBorder As Guna2Panel
+        Private pnlHeader As Panel
         Private lblTitle As Label
+        Private btnCloseHeader As Guna2CircleButton
+        Private iconCircle As Guna2Panel
+        Private lblIconSymbol As Label
         Private lblMessage As Label
+        Private pnlFooter As Panel
+        Private pnlDivider As Panel
         Private btnPrimary As Guna2Button
         Private btnSecondary As Guna2Button
-        Private btnCloseHeader As Guna2CircleButton
-        Private badgeIcon As Guna2CircleButton
         Private shadowForm As Guna2ShadowForm
         Private dragCtrl As Guna2DragControl
+        Private formElipse As Guna2Elipse
 
         Public Sub New(message As String, title As String, buttons As MessageBoxButtons, icon As MessageBoxIcon)
             Me.FormBorderStyle = FormBorderStyle.None
             Me.StartPosition = FormStartPosition.CenterParent
             Me.ShowInTaskbar = False
-            Me.BackColor = Color.FromArgb(237, 229, 216)
-            Me.Padding = New Padding(10)
+            Me.BackColor = Color.White
+
+            formElipse = New Guna2Elipse()
+            formElipse.TargetControl = Me
+            formElipse.BorderRadius = 18
 
             shadowForm = New Guna2ShadowForm()
             shadowForm.TargetForm = Me
             shadowForm.BorderRadius = 18
 
-            pnlCard = New Guna2Panel With {
+            pnlBorder = New Guna2Panel With {
                 .Dock = DockStyle.Fill,
                 .FillColor = Color.White,
-                .BorderRadius = 16,
+                .BorderRadius = 18,
                 .BorderThickness = 1,
-                .BorderColor = Color.FromArgb(220, 215, 205),
-                .Padding = New Padding(20, 14, 20, 16)
-            }
-            Me.Controls.Add(pnlCard)
-
-            Dim pnlHeader As New Panel With {
-                .Dock = DockStyle.Top,
-                .Height = 40,
+                .BorderColor = Color.FromArgb(220, 224, 230),
                 .BackColor = Color.Transparent
             }
-            pnlCard.Controls.Add(pnlHeader)
+            Me.Controls.Add(pnlBorder)
+
+            pnlHeader = New Panel With {
+                .Dock = DockStyle.Top,
+                .Height = 50,
+                .BackColor = Color.White
+            }
+            pnlBorder.Controls.Add(pnlHeader)
 
             dragCtrl = New Guna2DragControl()
             dragCtrl.TargetControl = pnlHeader
 
             lblTitle = New Label With {
                 .Text = If(String.IsNullOrWhiteSpace(title), "INOM Air", title),
-                .Font = New Font("Segoe UI", 11.0F, FontStyle.Bold),
+                .Font = New Font("Segoe UI", 11.5F, FontStyle.Bold),
                 .ForeColor = Color.FromArgb(1, 123, 128),
-                .Location = New Point(0, 6),
-                .AutoSize = True
+                .Location = New Point(24, 16),
+                .AutoSize = True,
+                .BackColor = Color.Transparent
             }
             pnlHeader.Controls.Add(lblTitle)
 
             btnCloseHeader = New Guna2CircleButton With {
                 .Text = "✕",
-                .Size = New Size(26, 26),
-                .Location = New Point(pnlHeader.Width - 28, 4),
+                .Size = New Size(28, 28),
                 .Anchor = AnchorStyles.Top Or AnchorStyles.Right,
-                .FillColor = Color.FromArgb(242, 238, 230),
-                .ForeColor = Color.FromArgb(120, 120, 120),
-                .Font = New Font("Segoe UI", 8.5F, FontStyle.Bold),
+                .FillColor = Color.FromArgb(245, 245, 248),
+                .ForeColor = Color.FromArgb(120, 125, 135),
+                .Font = New Font("Segoe UI", 9.0F, FontStyle.Bold),
                 .Cursor = Cursors.Hand
             }
             AddHandler btnCloseHeader.Click, Sub(s, e)
@@ -100,50 +108,65 @@ Public Class CustomMessageBox
                                              End Sub
             pnlHeader.Controls.Add(btnCloseHeader)
 
-            badgeIcon = New Guna2CircleButton With {
-                .Size = New Size(40, 40),
-                .Location = New Point(20, 58),
-                .Enabled = False,
-                .Font = New Font("Segoe UI", 13.0F, FontStyle.Bold),
-                .Cursor = Cursors.Default
+            iconCircle = New Guna2Panel With {
+                .Size = New Size(44, 44),
+                .BorderRadius = 22,
+                .Location = New Point(24, 62),
+                .BackColor = Color.Transparent
             }
-            pnlCard.Controls.Add(badgeIcon)
+            pnlBorder.Controls.Add(iconCircle)
+
+            lblIconSymbol = New Label With {
+                .Dock = DockStyle.Fill,
+                .TextAlign = ContentAlignment.MiddleCenter,
+                .Font = New Font("Segoe UI", 15.0F, FontStyle.Bold),
+                .BackColor = Color.Transparent
+            }
+            iconCircle.Controls.Add(lblIconSymbol)
 
             Select Case icon
                 Case MessageBoxIcon.Error, MessageBoxIcon.Hand, MessageBoxIcon.Stop
-                    badgeIcon.FillColor = Color.FromArgb(220, 53, 69)
-                    badgeIcon.ForeColor = Color.White
-                    badgeIcon.Text = "✕"
+                    iconCircle.FillColor = Color.FromArgb(254, 240, 240)
+                    lblIconSymbol.ForeColor = Color.FromArgb(220, 53, 69)
+                    lblIconSymbol.Text = "✕"
                 Case MessageBoxIcon.Warning, MessageBoxIcon.Exclamation
-                    badgeIcon.FillColor = Color.FromArgb(254, 115, 73)
-                    badgeIcon.ForeColor = Color.White
-                    badgeIcon.Text = "!"
+                    iconCircle.FillColor = Color.FromArgb(255, 244, 235)
+                    lblIconSymbol.ForeColor = Color.FromArgb(254, 115, 73)
+                    lblIconSymbol.Text = "!"
                 Case MessageBoxIcon.Question
-                    badgeIcon.FillColor = Color.FromArgb(1, 123, 128)
-                    badgeIcon.ForeColor = Color.White
-                    badgeIcon.Text = "?"
+                    iconCircle.FillColor = Color.FromArgb(232, 243, 252)
+                    lblIconSymbol.ForeColor = Color.FromArgb(13, 110, 253)
+                    lblIconSymbol.Text = "?"
                 Case Else
-                    badgeIcon.FillColor = Color.FromArgb(1, 123, 128)
-                    badgeIcon.ForeColor = Color.White
-                    badgeIcon.Text = "✓"
+                    iconCircle.FillColor = Color.FromArgb(230, 246, 245)
+                    lblIconSymbol.ForeColor = Color.FromArgb(1, 123, 128)
+                    lblIconSymbol.Text = "✓"
             End Select
 
             lblMessage = New Label With {
                 .Text = message,
-                .Font = New Font("Segoe UI", 9.5F, FontStyle.Regular),
-                .ForeColor = Color.FromArgb(60, 60, 65),
-                .Location = New Point(72, 60),
+                .Font = New Font("Segoe UI", 9.75F, FontStyle.Regular),
+                .ForeColor = Color.FromArgb(45, 50, 58),
+                .Location = New Point(82, 64),
                 .AutoSize = True,
-                .MaximumSize = New Size(430, 0)
-            }
-            pnlCard.Controls.Add(lblMessage)
-
-            Dim pnlButtons As New Panel With {
-                .Dock = DockStyle.Bottom,
-                .Height = 46,
+                .MaximumSize = New Size(420, 0),
                 .BackColor = Color.Transparent
             }
-            pnlCard.Controls.Add(pnlButtons)
+            pnlBorder.Controls.Add(lblMessage)
+
+            pnlFooter = New Panel With {
+                .Dock = DockStyle.Bottom,
+                .Height = 58,
+                .BackColor = Color.FromArgb(250, 251, 253)
+            }
+            pnlBorder.Controls.Add(pnlFooter)
+
+            pnlDivider = New Panel With {
+                .Dock = DockStyle.Bottom,
+                .Height = 1,
+                .BackColor = Color.FromArgb(235, 238, 242)
+            }
+            pnlBorder.Controls.Add(pnlDivider)
 
             btnPrimary = New Guna2Button With {
                 .BorderRadius = 10,
@@ -152,25 +175,23 @@ Public Class CustomMessageBox
                 .ForeColor = Color.White,
                 .FillColor = Color.FromArgb(1, 123, 128),
                 .Size = New Size(96, 36),
-                .Location = New Point(pnlButtons.Width - 96, 5),
                 .Anchor = AnchorStyles.Bottom Or AnchorStyles.Right
             }
-            pnlButtons.Controls.Add(btnPrimary)
+            pnlFooter.Controls.Add(btnPrimary)
 
             btnSecondary = New Guna2Button With {
                 .BorderRadius = 10,
                 .Cursor = Cursors.Hand,
                 .Font = New Font("Segoe UI", 9.5F, FontStyle.Bold),
-                .ForeColor = Color.FromArgb(105, 105, 105),
-                .FillColor = Color.FromArgb(242, 238, 230),
+                .ForeColor = Color.FromArgb(90, 95, 105),
+                .FillColor = Color.White,
                 .BorderThickness = 1,
-                .BorderColor = Color.FromArgb(215, 208, 198),
-                .Size = New Size(88, 36),
-                .Location = New Point(pnlButtons.Width - 192, 5),
+                .BorderColor = Color.FromArgb(215, 218, 225),
+                .Size = New Size(90, 36),
                 .Anchor = AnchorStyles.Bottom Or AnchorStyles.Right,
                 .Visible = False
             }
-            pnlButtons.Controls.Add(btnSecondary)
+            pnlFooter.Controls.Add(btnSecondary)
 
             If buttons = MessageBoxButtons.YesNo Then
                 btnPrimary.Text = "Yes"
@@ -210,10 +231,17 @@ Public Class CustomMessageBox
                 Me.CancelButton = btnPrimary
             End If
 
-            Dim contentHeight = Math.Max(badgeIcon.Height, lblMessage.PreferredHeight)
-            Dim calculatedHeight = 40 + contentHeight + 46 + 40
-            Dim calculatedWidth = Math.Max(420, Math.Min(560, lblMessage.PreferredWidth + 110))
-            Me.ClientSize = New Size(calculatedWidth, Math.Max(175, calculatedHeight))
+            Dim textWidth = lblMessage.PreferredWidth
+            Dim calculatedWidth = Math.Max(480, Math.Min(600, textWidth + 120))
+            Dim textHeight = lblMessage.PreferredHeight
+            Dim contentHeight = Math.Max(iconCircle.Height, textHeight)
+            Dim calculatedHeight = 50 + contentHeight + 36 + 1 + 58
+
+            Me.ClientSize = New Size(calculatedWidth, Math.Max(190, calculatedHeight))
+
+            btnCloseHeader.Location = New Point(calculatedWidth - 42, 12)
+            btnPrimary.Location = New Point(calculatedWidth - 116, 11)
+            btnSecondary.Location = New Point(calculatedWidth - 216, 11)
         End Sub
     End Class
 End Class
