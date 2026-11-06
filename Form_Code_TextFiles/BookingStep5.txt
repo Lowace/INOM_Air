@@ -1,0 +1,70 @@
+﻿Imports System.Linq
+
+Public Class BookingStep5
+    Private Sub BookingStep5_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        txtB5SeatDisplay.Text = "Seat " & AppState.ActiveBooking.SeatNumber
+        txtB5CarryOnKg.Text = "7kg (Free Included)"
+        cmbB5Meals.SelectedIndex = 0
+        cmbB5CheckedKg.SelectedIndex = 0
+        UpdateSummary()
+    End Sub
+
+    Private Sub UpdateSummary()
+        Dim b = AppState.ActiveBooking
+        If b.Flight Is Nothing Then Return
+        lblB5SummaryDate.Text = b.Flight.FlightDate
+        lblB5SummaryRoute.Text = b.Flight.RouteDisplay
+        lblB5SummaryTime.Text = b.Flight.TimeDisplay & " (" & b.Flight.Duration & ")"
+        lblB5SummaryTotalAmount.Text = "PHP " & b.TotalAmount.ToString("N2")
+    End Sub
+
+    Private Sub btnB5ChooseSeat_Click(sender As Object, e As EventArgs) Handles btnB5ChooseSeat.Click
+        Dim seatPicker As New PickSeats()
+        seatPicker.SelectedSeatCode = AppState.ActiveBooking.SeatNumber
+        If seatPicker.ShowDialog() = DialogResult.OK Then
+            txtB5SeatDisplay.Text = "Seat " & AppState.ActiveBooking.SeatNumber
+        End If
+    End Sub
+
+    Private Sub btnB5ViewMeals_Click(sender As Object, e As EventArgs) Handles btnB5ViewMeals.Click
+        MessageBox.Show("Selected: " & cmbB5Meals.SelectedItem.ToString() & vbCrLf &
+                        "All meals are prepared fresh with complimentary beverage.", "Meal Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
+    End Sub
+
+    Private Sub btnB5PriceList_Click(sender As Object, e As EventArgs) Handles btnB5PriceList.Click
+        MessageBox.Show("INOM Air Baggage Allowance Matrix:" & vbCrLf &
+                        "• Carry-on (7kg): Free" & vbCrLf &
+                        "• 10kg Checked: Free included" & vbCrLf &
+                        "• 20kg Checked: +₱500.00" & vbCrLf &
+                        "• 30kg Checked: +₱1,000.00" & vbCrLf &
+                        "• 40kg Checked: +₱1,500.00", "Baggage Rates", MessageBoxButtons.OK, MessageBoxIcon.Information)
+    End Sub
+
+    Private Sub btnB5Back_Click(sender As Object, e As EventArgs) Handles btnB5Back.Click
+        Me.Close()
+    End Sub
+
+    Private Sub btnB5Next_Click(sender As Object, e As EventArgs) Handles btnB5Next.Click
+        Dim checkedKg As Integer = 0
+        Select Case cmbB5CheckedKg.SelectedIndex
+            Case 0 : checkedKg = 0
+            Case 1 : checkedKg = 10
+            Case 2 : checkedKg = 20
+            Case 3 : checkedKg = 30
+            Case 4 : checkedKg = 40
+        End Select
+        AppState.ActiveBooking.SelectedMeal = cmbB5Meals.SelectedItem.ToString()
+        Dim isSenior = AppState.ActiveBooking.DiscountReason.Contains("Senior")
+        Dim isPwd = AppState.ActiveBooking.DiscountReason.Contains("PWD")
+        AppState.RecalculateActiveBookingPrice(isSenior, isPwd, checkedKg, False)
+
+        Dim f As New BookingStep6()
+        AddHandler f.FormClosed, Sub(s, ev) Me.Show()
+        Me.Hide()
+        f.Show()
+    End Sub
+
+    Private Sub btnCloseX_Click(sender As Object, e As EventArgs) Handles btnCloseX.Click
+        Application.Exit()
+    End Sub
+End Class
