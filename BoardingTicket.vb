@@ -1,4 +1,4 @@
-﻿Imports System.Linq
+Imports System.Linq
 
 Public Class BoardingTicket
 
@@ -25,7 +25,7 @@ Public Class BoardingTicket
             lblGateValue.Text = booking.Gate
             lblSeatValue.Text = booking.SeatNumber
             lblTicketId.Text = "Ticket: " & booking.TicketNumber
-            lblClassValue.Text = booking.CabinClass & " Class"
+            lblClassValue.Text = If(booking.CabinClass.EndsWith("Class", StringComparison.OrdinalIgnoreCase), booking.CabinClass, booking.CabinClass & " Class")
 
             If booking.Flight IsNot Nothing Then
                 lblFlightNoValue.Text = booking.Flight.FlightId & " (" & booking.Flight.AircraftModel & ")"

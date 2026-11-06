@@ -1,4 +1,4 @@
-﻿Imports System.Linq
+Imports System.Linq
 
 Public Class CustomerForm
     Private Sub CustomerForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -23,7 +23,12 @@ Public Class CustomerForm
             lblTicketTag.Text = "Ticket-#: " & activeBooking.TicketNumber
             If activeBooking.Flight IsNot Nothing Then
                 lblTicketRoute.Text = "Origin: " & activeBooking.Flight.Origin & vbCrLf & "To: " & activeBooking.Flight.Destination
-                lblTicketTime.Text = "Time: " & activeBooking.Flight.DepartureTime
+                lblTicketTime.Text = "Schedule: " & activeBooking.Flight.FlightDate & " • " & activeBooking.Flight.DepartureTime & vbCrLf &
+                                     "Passenger: " & activeBooking.PassengerName & vbCrLf &
+                                     "Seat: " & activeBooking.SeatNumber & " (" & activeBooking.CabinClass & ") • Gate: " & activeBooking.Gate & vbCrLf &
+                                     "Baggage: " & activeBooking.CheckedBaggageKg & "kg Checked (" & activeBooking.CarryOnBaggageKg & "kg Carry-on)" & vbCrLf &
+                                     "Meal: " & activeBooking.SelectedMeal & vbCrLf &
+                                     "Total Paid: PHP " & activeBooking.TotalAmount.ToString("N2") & " (" & activeBooking.DiscountReason & ")"
             End If
         Else
             pnlNoBookings.Visible = True
@@ -33,12 +38,7 @@ Public Class CustomerForm
 
     Private Sub btnStartBooking_Click(sender As Object, e As EventArgs) Handles btnStartBooking.Click
         Dim f As New BookingStep1()
-        AddHandler f.FormClosed, Sub(s, ev)
-                                     If Not Me.IsDisposed AndAlso Not Me.Disposing Then
-                                         Me.Show()
-                                         RefreshDashboard()
-                                     End If
-                                 End Sub
+        f.PreviousForm = Me
         Me.Hide()
         f.Show()
     End Sub

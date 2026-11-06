@@ -1,6 +1,9 @@
-﻿Imports System.Linq
+Imports System.Linq
 
 Public Class BookingStep3
+    <System.ComponentModel.DesignerSerializationVisibility(System.ComponentModel.DesignerSerializationVisibility.Hidden)>
+    Public Property PreviousForm As Form
+
     Private Sub BookingStep3_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         txtB3GivenName.Text = AppState.GuestGivenName
         txtB3Surname.Text = AppState.GuestSurname
@@ -10,6 +13,19 @@ Public Class BookingStep3
         cmbB3AgeGroup.SelectedIndex = If(AppState.GuestAge >= 60, 1, 0)
         rbB3DisabledYes.Checked = AppState.GuestIsPwd
         rbB3DisabledNo.Checked = Not AppState.GuestIsPwd
+        RecalculateCurrentPrice()
+    End Sub
+
+    Private Sub ConcessionChanged(sender As Object, e As EventArgs) Handles rbB3DisabledYes.CheckedChanged, rbB3DisabledNo.CheckedChanged, cmbB3AgeGroup.SelectedIndexChanged, txtB3Age.TextChanged
+        RecalculateCurrentPrice()
+    End Sub
+
+    Private Sub RecalculateCurrentPrice()
+        Dim ageVal As Integer = 25
+        Integer.TryParse(txtB3Age.Text.Trim(), ageVal)
+        Dim isSenior = (ageVal >= 60) OrElse (cmbB3AgeGroup.SelectedIndex = 1)
+        Dim isPwd = rbB3DisabledYes.Checked
+        AppState.RecalculateActiveBookingPrice(isSenior, isPwd, AppState.ActiveBooking.CheckedBaggageKg, AppState.ActiveBooking.IsRefundable)
         UpdateSummary()
     End Sub
 
@@ -23,6 +39,9 @@ Public Class BookingStep3
     End Sub
 
     Private Sub btnB3Back_Click(sender As Object, e As EventArgs) Handles btnB3Back.Click
+        If PreviousForm IsNot Nothing AndAlso Not PreviousForm.IsDisposed AndAlso Not PreviousForm.Disposing Then
+            PreviousForm.Show()
+        End If
         Me.Close()
     End Sub
 
@@ -34,18 +53,10 @@ Public Class BookingStep3
             Return
         End If
         AppState.ActiveBooking.PassengerName = given & " " & surname
-        Dim ageVal As Integer = 25
-        Integer.TryParse(txtB3Age.Text, ageVal)
-        Dim isSenior = (ageVal >= 60) OrElse (cmbB3AgeGroup.SelectedIndex = 1)
-        Dim isPwd = rbB3DisabledYes.Checked
-        AppState.RecalculateActiveBookingPrice(isSenior, isPwd, 0, False)
+        RecalculateCurrentPrice()
 
         Dim f As New BookingStep5()
-        AddHandler f.FormClosed, Sub(s, ev)
-                                     If Not Me.IsDisposed AndAlso Not Me.Disposing Then
-                                         Me.Show()
-                                     End If
-                                 End Sub
+        f.PreviousForm = Me
         Me.Hide()
         f.Show()
     End Sub

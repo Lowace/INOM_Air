@@ -1,11 +1,42 @@
-﻿Imports System.Linq
+Imports System.Linq
 
 Public Class BookingStep5
+    <System.ComponentModel.DesignerSerializationVisibility(System.ComponentModel.DesignerSerializationVisibility.Hidden)>
+    Public Property PreviousForm As Form
+
     Private Sub BookingStep5_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         txtB5SeatDisplay.Text = "Seat " & AppState.ActiveBooking.SeatNumber
         txtB5CarryOnKg.Text = "7kg (Free Included)"
         cmbB5Meals.SelectedIndex = 0
         cmbB5CheckedKg.SelectedIndex = 0
+        RecalculateCurrentPrice()
+    End Sub
+
+    Private Sub cmbB5CheckedKg_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbB5CheckedKg.SelectedIndexChanged
+        RecalculateCurrentPrice()
+    End Sub
+
+    Private Sub cmbB5Meals_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbB5Meals.SelectedIndexChanged
+        If cmbB5Meals.SelectedItem IsNot Nothing Then
+            AppState.ActiveBooking.SelectedMeal = cmbB5Meals.SelectedItem.ToString()
+        End If
+    End Sub
+
+    Private Sub RecalculateCurrentPrice()
+        Dim checkedKg As Integer = 0
+        Select Case cmbB5CheckedKg.SelectedIndex
+            Case 0 : checkedKg = 0
+            Case 1 : checkedKg = 10
+            Case 2 : checkedKg = 20
+            Case 3 : checkedKg = 30
+            Case 4 : checkedKg = 40
+        End Select
+        If cmbB5Meals.SelectedItem IsNot Nothing Then
+            AppState.ActiveBooking.SelectedMeal = cmbB5Meals.SelectedItem.ToString()
+        End If
+        Dim isSenior = AppState.ActiveBooking.DiscountReason.Contains("Senior")
+        Dim isPwd = AppState.ActiveBooking.DiscountReason.Contains("PWD")
+        AppState.RecalculateActiveBookingPrice(isSenior, isPwd, checkedKg, AppState.ActiveBooking.IsRefundable)
         UpdateSummary()
     End Sub
 
@@ -23,6 +54,13 @@ Public Class BookingStep5
         seatPicker.SelectedSeatCode = AppState.ActiveBooking.SeatNumber
         If seatPicker.ShowDialog() = DialogResult.OK Then
             txtB5SeatDisplay.Text = "Seat " & AppState.ActiveBooking.SeatNumber
+            Dim seat = AppState.ActiveBooking.SeatNumber
+            If seat.StartsWith("1") OrElse seat.StartsWith("2") Then
+                AppState.ActiveBooking.CabinClass = "Business Class"
+            Else
+                AppState.ActiveBooking.CabinClass = "Economy Class"
+            End If
+            RecalculateCurrentPrice()
         End If
     End Sub
 
@@ -41,29 +79,17 @@ Public Class BookingStep5
     End Sub
 
     Private Sub btnB5Back_Click(sender As Object, e As EventArgs) Handles btnB5Back.Click
+        If PreviousForm IsNot Nothing AndAlso Not PreviousForm.IsDisposed AndAlso Not PreviousForm.Disposing Then
+            PreviousForm.Show()
+        End If
         Me.Close()
     End Sub
 
     Private Sub btnB5Next_Click(sender As Object, e As EventArgs) Handles btnB5Next.Click
-        Dim checkedKg As Integer = 0
-        Select Case cmbB5CheckedKg.SelectedIndex
-            Case 0 : checkedKg = 0
-            Case 1 : checkedKg = 10
-            Case 2 : checkedKg = 20
-            Case 3 : checkedKg = 30
-            Case 4 : checkedKg = 40
-        End Select
-        AppState.ActiveBooking.SelectedMeal = cmbB5Meals.SelectedItem.ToString()
-        Dim isSenior = AppState.ActiveBooking.DiscountReason.Contains("Senior")
-        Dim isPwd = AppState.ActiveBooking.DiscountReason.Contains("PWD")
-        AppState.RecalculateActiveBookingPrice(isSenior, isPwd, checkedKg, False)
+        RecalculateCurrentPrice()
 
         Dim f As New BookingStep6()
-        AddHandler f.FormClosed, Sub(s, ev)
-                                     If Not Me.IsDisposed AndAlso Not Me.Disposing Then
-                                         Me.Show()
-                                     End If
-                                 End Sub
+        f.PreviousForm = Me
         Me.Hide()
         f.Show()
     End Sub

@@ -1,6 +1,9 @@
-﻿Imports System.Linq
+Imports System.Linq
 
 Public Class PaymentForm
+    <System.ComponentModel.DesignerSerializationVisibility(System.ComponentModel.DesignerSerializationVisibility.Hidden)>
+    Public Property PreviousForm As Form
+
     Private currentPaymentMode As String = "Card"
 
     Private Sub PaymentForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -69,6 +72,9 @@ Public Class PaymentForm
     End Sub
 
     Private Sub btnCancelPayment_Click(sender As Object, e As EventArgs) Handles btnCancelPayment.Click
+        If PreviousForm IsNot Nothing AndAlso Not PreviousForm.IsDisposed AndAlso Not PreviousForm.Disposing Then
+            PreviousForm.Show()
+        End If
         Me.Close()
     End Sub
 
@@ -97,14 +103,26 @@ Public Class PaymentForm
                         "Seat: " & b.SeatNumber & " | Gate: " & b.Gate,
                         "Booking Confirmed", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
-        For Each frm As Form In Application.OpenForms.Cast(Of Form)().ToList()
+        Dim formsToClose As New List(Of Form)()
+        Dim custForm As CustomerForm = Nothing
+
+        For Each frm As Form In Application.OpenForms
             If TypeOf frm Is CustomerForm Then
-                frm.Show()
-                CType(frm, CustomerForm).RefreshDashboard()
+                custForm = CType(frm, CustomerForm)
             ElseIf Not (TypeOf frm Is StartingPage) AndAlso Not (TypeOf frm Is SignInPage) Then
-                frm.Close()
+                formsToClose.Add(frm)
             End If
         Next
+
+        For Each frm In formsToClose
+            frm.Close()
+        Next
+
+        If custForm IsNot Nothing AndAlso Not custForm.IsDisposed AndAlso Not custForm.Disposing Then
+            custForm.Show()
+            custForm.RefreshDashboard()
+            custForm.BringToFront()
+        End If
     End Sub
 
     Private Sub btnCloseX_Click(sender As Object, e As EventArgs) Handles btnCloseX.Click

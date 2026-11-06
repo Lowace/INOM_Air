@@ -1,6 +1,9 @@
-﻿Imports System.Linq
+Imports System.Linq
 
 Public Class BookingStep1
+    <System.ComponentModel.DesignerSerializationVisibility(System.ComponentModel.DesignerSerializationVisibility.Hidden)>
+    Public Property PreviousForm As Form
+
     Private Sub BookingStep1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         cmbB1Origin.SelectedIndex = 0
         cmbB1Dest.SelectedIndex = 1
@@ -8,6 +11,12 @@ Public Class BookingStep1
     End Sub
 
     Private Sub btnB1Back_Click(sender As Object, e As EventArgs) Handles btnB1Back.Click
+        If PreviousForm IsNot Nothing AndAlso Not PreviousForm.IsDisposed AndAlso Not PreviousForm.Disposing Then
+            PreviousForm.Show()
+            If TypeOf PreviousForm Is CustomerForm Then
+                CType(PreviousForm, CustomerForm).RefreshDashboard()
+            End If
+        End If
         Me.Close()
     End Sub
 
@@ -35,11 +44,7 @@ Public Class BookingStep1
         AppState.SearchTripType = cmbB1TripType.SelectedItem.ToString()
 
         Dim step2 As New BookingStep2()
-        AddHandler step2.FormClosed, Sub(s, ev)
-                                         If Not Me.IsDisposed AndAlso Not Me.Disposing Then
-                                             Me.Show()
-                                         End If
-                                     End Sub
+        step2.PreviousForm = Me
         step2.Show()
         Me.Hide()
     End Sub

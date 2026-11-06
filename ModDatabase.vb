@@ -1,4 +1,4 @@
-﻿Imports System.Collections.Generic
+Imports System.Collections.Generic
 Imports System.Data
 Imports MySql.Data.MySqlClient
 
@@ -679,7 +679,8 @@ ON DUPLICATE KEY UPDATE `status` = @st;
             If ActiveBooking.Flight Is Nothing Then Return
 
             Dim base = ActiveBooking.Flight.BaseFare
-            Dim cabinMultiplier = If(ActiveBooking.CabinClass = "Business", 1.8D, 1.0D)
+            Dim isBusiness = ActiveBooking.CabinClass IsNot Nothing AndAlso (ActiveBooking.CabinClass.IndexOf("Business", StringComparison.OrdinalIgnoreCase) >= 0 OrElse ActiveBooking.SeatNumber.StartsWith("1") OrElse ActiveBooking.SeatNumber.StartsWith("2"))
+            Dim cabinMultiplier = If(isBusiness, 1.8D, 1.0D)
             Dim adjustedBase = base * cabinMultiplier
 
             Dim baggageFee As Decimal = 0D
@@ -689,7 +690,11 @@ ON DUPLICATE KEY UPDATE `status` = @st;
             ActiveBooking.CheckedBaggageKg = checkedKg
             ActiveBooking.BaggageFee = baggageFee
 
-            Dim taxes As Decimal = 350D
+            Dim adminFee As Decimal = 100D
+            Dim fuelFee As Decimal = 150D
+            Dim vatFee As Decimal = adjustedBase * 0.12D
+            Dim terminalFee As Decimal = 200D
+            Dim taxes As Decimal = adminFee + fuelFee + vatFee + terminalFee
             ActiveBooking.TaxesAndSurcharges = taxes
 
             Dim refundProtection As Decimal = If(isRefundable, 350D, 0D)

@@ -1,4 +1,4 @@
-﻿Imports Guna.UI2.WinForms
+Imports Guna.UI2.WinForms
 
 Public Class PickSeats
 
@@ -106,6 +106,12 @@ Public Class PickSeats
 
     Private Sub btnConfirmSeat_Click(sender As Object, e As EventArgs) Handles btnConfirmSeat.Click
         AppState.ActiveBooking.SeatNumber = SelectedSeatCode
+        Dim isBusiness = SelectedSeatCode.StartsWith("1") OrElse SelectedSeatCode.StartsWith("2")
+        If isBusiness Then
+            AppState.ActiveBooking.CabinClass = "Business Class"
+        Else
+            AppState.ActiveBooking.CabinClass = "Economy Class"
+        End If
         Me.DialogResult = DialogResult.OK
         Me.Close()
     End Sub

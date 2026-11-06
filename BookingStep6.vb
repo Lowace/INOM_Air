@@ -1,6 +1,9 @@
-﻿Imports System.Linq
+Imports System.Linq
 
 Public Class BookingStep6
+    <System.ComponentModel.DesignerSerializationVisibility(System.ComponentModel.DesignerSerializationVisibility.Hidden)>
+    Public Property PreviousForm As Form
+
     Private Sub BookingStep6_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         rbB6NonRefundable.Checked = True
         UpdateSummary()
@@ -25,6 +28,9 @@ Public Class BookingStep6
     End Sub
 
     Private Sub btnB6Back_Click(sender As Object, e As EventArgs) Handles btnB6Back.Click
+        If PreviousForm IsNot Nothing AndAlso Not PreviousForm.IsDisposed AndAlso Not PreviousForm.Disposing Then
+            PreviousForm.Show()
+        End If
         Me.Close()
     End Sub
 
@@ -34,11 +40,7 @@ Public Class BookingStep6
         AppState.RecalculateActiveBookingPrice(isSenior, isPwd, AppState.ActiveBooking.CheckedBaggageKg, rbB6Refundable.Checked)
 
         Dim f As New CheckoutForm()
-        AddHandler f.FormClosed, Sub(s, ev)
-                                     If Not Me.IsDisposed AndAlso Not Me.Disposing Then
-                                         Me.Show()
-                                     End If
-                                 End Sub
+        f.PreviousForm = Me
         Me.Hide()
         f.Show()
     End Sub
