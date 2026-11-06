@@ -21,6 +21,6 @@
     End Sub
 
     Private Sub lblVersion_Click(sender As Object, e As EventArgs) Handles lblVersion.Click
-
+        AppState.ReconnectDatabase(True)
     End Sub
 End Class

@@ -36,6 +36,7 @@ Partial Class PickSeats
         pnlAirplaneFuselage = New Guna.UI2.WinForms.Guna2Panel()
         lblCockpit = New Label()
         flpSeatGrid = New FlowLayoutPanel()
+        PictureBox1 = New PictureBox()
         pnlRightDetails = New Guna.UI2.WinForms.Guna2Panel()
         lblSelectedSeatTitle = New Label()
         lblSelectedSeatDisplay = New Label()
@@ -48,6 +49,7 @@ Partial Class PickSeats
         btnCancel = New Guna.UI2.WinForms.Guna2Button()
         pnlTopBar.SuspendLayout()
         pnlAirplaneFuselage.SuspendLayout()
+        CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         pnlRightDetails.SuspendLayout()
         SuspendLayout()
         Guna2BorderlessForm1.BorderRadius = 24
@@ -90,8 +92,9 @@ Partial Class PickSeats
         pnlAirplaneFuselage.BorderColor = Color.FromArgb(CByte(200), CByte(200), CByte(215))
         pnlAirplaneFuselage.BorderRadius = 30
         pnlAirplaneFuselage.BorderThickness = 2
-        pnlAirplaneFuselage.Controls.Add(lblCockpit)
         pnlAirplaneFuselage.Controls.Add(flpSeatGrid)
+        pnlAirplaneFuselage.Controls.Add(PictureBox1)
+        pnlAirplaneFuselage.Controls.Add(lblCockpit)
         pnlAirplaneFuselage.CustomizableEdges = CustomizableEdges7
         pnlAirplaneFuselage.FillColor = Color.White
         pnlAirplaneFuselage.Location = New Point(30, 70)
@@ -116,6 +119,13 @@ Partial Class PickSeats
         flpSeatGrid.Padding = New Padding(10)
         flpSeatGrid.Size = New Size(500, 350)
         flpSeatGrid.TabIndex = 1
+        PictureBox1.Image = My.Resources.Resources._66ba3ddf_8faf_4108_a1e3_2e78fb6e00b3NOBG
+        PictureBox1.Location = New Point(398, -14)
+        PictureBox1.Name = "PictureBox1"
+        PictureBox1.Size = New Size(122, 76)
+        PictureBox1.SizeMode = PictureBoxSizeMode.StretchImage
+        PictureBox1.TabIndex = 13
+        PictureBox1.TabStop = False
         pnlRightDetails.BackColor = Color.Transparent
         pnlRightDetails.BorderColor = Color.FromArgb(CByte(215), CByte(215), CByte(220))
         pnlRightDetails.BorderRadius = 24
@@ -237,6 +247,7 @@ Partial Class PickSeats
         pnlTopBar.ResumeLayout(False)
         pnlTopBar.PerformLayout()
         pnlAirplaneFuselage.ResumeLayout(False)
+        CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
         pnlRightDetails.ResumeLayout(False)
         pnlRightDetails.PerformLayout()
         ResumeLayout(False)
@@ -259,5 +270,6 @@ Partial Class PickSeats
     Friend WithEvents lblLegendOccupied As Label
     Friend WithEvents btnConfirmSeat As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents btnCancel As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents PictureBox1 As PictureBox
 
 End Class

@@ -82,7 +82,7 @@ Partial Class BookingStep1
         lblBrandHeader.AutoSize = True
         lblBrandHeader.Font = New Font("Segoe UI", 11F, FontStyle.Bold)
         lblBrandHeader.ForeColor = Color.White
-        lblBrandHeader.Location = New Point(58, 10)
+        lblBrandHeader.Location = New Point(14, 7)
         lblBrandHeader.Name = "lblBrandHeader"
         lblBrandHeader.Size = New Size(76, 20)
         lblBrandHeader.TabIndex = 1
@@ -90,7 +90,7 @@ Partial Class BookingStep1
         lblStepTitle.AutoSize = True
         lblStepTitle.Font = New Font("Segoe UI", 10.5F, FontStyle.Bold)
         lblStepTitle.ForeColor = Color.FromArgb(CByte(237), CByte(229), CByte(216))
-        lblStepTitle.Location = New Point(58, 30)
+        lblStepTitle.Location = New Point(14, 27)
         lblStepTitle.Name = "lblStepTitle"
         lblStepTitle.Size = New Size(208, 19)
         lblStepTitle.TabIndex = 2
@@ -291,9 +291,9 @@ Partial Class BookingStep1
         btnB1Next.TabIndex = 12
         btnB1Next.Text = "Search Flights →"
         PictureBox1.Image = My.Resources.Resources._66ba3ddf_8faf_4108_a1e3_2e78fb6e00b3NOBG
-        PictureBox1.Location = New Point(3, 0)
+        PictureBox1.Location = New Point(236, 240)
         PictureBox1.Name = "PictureBox1"
-        PictureBox1.Size = New Size(884, 482)
+        PictureBox1.Size = New Size(421, 218)
         PictureBox1.SizeMode = PictureBoxSizeMode.StretchImage
         PictureBox1.TabIndex = 13
         PictureBox1.TabStop = False

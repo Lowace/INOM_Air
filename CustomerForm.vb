@@ -34,8 +34,10 @@ Public Class CustomerForm
     Private Sub btnStartBooking_Click(sender As Object, e As EventArgs) Handles btnStartBooking.Click
         Dim f As New BookingStep1()
         AddHandler f.FormClosed, Sub(s, ev)
-                                     Me.Show()
-                                     RefreshDashboard()
+                                     If Not Me.IsDisposed AndAlso Not Me.Disposing Then
+                                         Me.Show()
+                                         RefreshDashboard()
+                                     End If
                                  End Sub
         Me.Hide()
         f.Show()

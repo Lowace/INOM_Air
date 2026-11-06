@@ -35,7 +35,11 @@ Public Class BookingStep1
         AppState.SearchTripType = cmbB1TripType.SelectedItem.ToString()
 
         Dim step2 As New BookingStep2()
-        AddHandler step2.FormClosed, Sub(s, ev) Me.Show()
+        AddHandler step2.FormClosed, Sub(s, ev)
+                                         If Not Me.IsDisposed AndAlso Not Me.Disposing Then
+                                             Me.Show()
+                                         End If
+                                     End Sub
         step2.Show()
         Me.Hide()
     End Sub

@@ -32,7 +32,11 @@ Public Class BookingStep2
         AppState.GuestIsPwd = u.IsPwd
 
         Dim f As New BookingStep3()
-        AddHandler f.FormClosed, Sub(s, ev) Me.Show()
+        AddHandler f.FormClosed, Sub(s, ev)
+                                     If Not Me.IsDisposed AndAlso Not Me.Disposing Then
+                                         Me.Show()
+                                     End If
+                                 End Sub
         Me.Hide()
         f.Show()
     End Sub
