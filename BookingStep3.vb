@@ -1,5 +1,8 @@
 Public Class BookingStep3
 
+    <System.ComponentModel.DesignerSerializationVisibility(System.ComponentModel.DesignerSerializationVisibility.Hidden)>
+    Public Property lblB3Origin As String = ""
+
     Private Sub BookingStep3_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
     End Sub
