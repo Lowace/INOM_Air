@@ -1,4 +1,4 @@
-Public Class StartingPage
+﻿Public Class StartingPage
 
     Private Sub StartingPage_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         AppState.InitializeDefaultData()

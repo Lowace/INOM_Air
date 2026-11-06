@@ -82,16 +82,10 @@ Partial Class CheckoutForm
         pnlCheckoutLeft.SuspendLayout()
         pnlCheckoutRight.SuspendLayout()
         SuspendLayout()
-        ' 
-        ' Guna2BorderlessForm1
-        ' 
         Guna2BorderlessForm1.BorderRadius = 24
         Guna2BorderlessForm1.ContainerControl = Me
         Guna2BorderlessForm1.DockIndicatorTransparencyValue = 0.6R
         Guna2BorderlessForm1.TransparentWhileDrag = True
-        ' 
-        ' pnlTopBar
-        ' 
         pnlTopBar.BackColor = Color.FromArgb(CByte(1), CByte(123), CByte(128))
         pnlTopBar.Controls.Add(lblPlaneLogo)
         pnlTopBar.Controls.Add(lblBrandHeader)
@@ -106,9 +100,6 @@ Partial Class CheckoutForm
         pnlTopBar.ShadowDecoration.CustomizableEdges = CustomizableEdges19
         pnlTopBar.Size = New Size(1500, 93)
         pnlTopBar.TabIndex = 0
-        ' 
-        ' lblPlaneLogo
-        ' 
         lblPlaneLogo.Font = New Font("Segoe UI Emoji", 18F)
         lblPlaneLogo.ForeColor = Color.White
         lblPlaneLogo.Location = New Point(21, 17)
@@ -118,9 +109,6 @@ Partial Class CheckoutForm
         lblPlaneLogo.TabIndex = 0
         lblPlaneLogo.Text = "✈"
         lblPlaneLogo.TextAlign = ContentAlignment.MiddleCenter
-        ' 
-        ' lblBrandHeader
-        ' 
         lblBrandHeader.AutoSize = True
         lblBrandHeader.Font = New Font("Segoe UI", 11F, FontStyle.Bold)
         lblBrandHeader.ForeColor = Color.White
@@ -130,9 +118,6 @@ Partial Class CheckoutForm
         lblBrandHeader.Size = New Size(111, 30)
         lblBrandHeader.TabIndex = 1
         lblBrandHeader.Text = "INOM Air"
-        ' 
-        ' lblStepTitle
-        ' 
         lblStepTitle.AutoSize = True
         lblStepTitle.Font = New Font("Segoe UI", 10.5F, FontStyle.Bold)
         lblStepTitle.ForeColor = Color.FromArgb(CByte(237), CByte(229), CByte(216))
@@ -142,9 +127,6 @@ Partial Class CheckoutForm
         lblStepTitle.Size = New Size(376, 30)
         lblStepTitle.TabIndex = 2
         lblStepTitle.Text = "CHECKOUT SUMMARY — Step 6 of 6"
-        ' 
-        ' btnCloseX
-        ' 
         btnCloseX.Animated = True
         btnCloseX.BackColor = Color.Transparent
         btnCloseX.Cursor = Cursors.Hand
@@ -159,9 +141,6 @@ Partial Class CheckoutForm
         btnCloseX.Size = New Size(43, 50)
         btnCloseX.TabIndex = 3
         btnCloseX.Text = "✕"
-        ' 
-        ' pnlBody
-        ' 
         pnlBody.BackColor = Color.FromArgb(CByte(237), CByte(229), CByte(216))
         pnlBody.Controls.Add(pnlBreakdownModal)
         pnlBody.Controls.Add(pnlCheckoutLeft)
@@ -175,9 +154,6 @@ Partial Class CheckoutForm
         pnlBody.ShadowDecoration.CustomizableEdges = CustomizableEdges16
         pnlBody.Size = New Size(1500, 990)
         pnlBody.TabIndex = 1
-        ' 
-        ' pnlBreakdownModal
-        ' 
         pnlBreakdownModal.BackColor = Color.Transparent
         pnlBreakdownModal.BorderRadius = 18
         pnlBreakdownModal.Controls.Add(lblModalHeader)
@@ -204,9 +180,6 @@ Partial Class CheckoutForm
         pnlBreakdownModal.Size = New Size(900, 800)
         pnlBreakdownModal.TabIndex = 2
         pnlBreakdownModal.Visible = False
-        ' 
-        ' lblModalHeader
-        ' 
         lblModalHeader.AutoSize = True
         lblModalHeader.Font = New Font("Segoe UI", 14F, FontStyle.Bold)
         lblModalHeader.ForeColor = Color.FromArgb(CByte(1), CByte(123), CByte(128))
@@ -216,9 +189,6 @@ Partial Class CheckoutForm
         lblModalHeader.Size = New Size(346, 38)
         lblModalHeader.TabIndex = 0
         lblModalHeader.Text = "Detailed Fare Breakdown"
-        ' 
-        ' lblModBaseFare
-        ' 
         lblModBaseFare.AutoSize = True
         lblModBaseFare.Font = New Font("Segoe UI", 10F)
         lblModBaseFare.ForeColor = Color.FromArgb(CByte(60), CByte(60), CByte(70))
@@ -228,9 +198,6 @@ Partial Class CheckoutForm
         lblModBaseFare.Size = New Size(524, 28)
         lblModBaseFare.TabIndex = 1
         lblModBaseFare.Text = "Base fare                                                                PHP 3,000.00"
-        ' 
-        ' lblModAdminFee
-        ' 
         lblModAdminFee.AutoSize = True
         lblModAdminFee.Font = New Font("Segoe UI", 10F)
         lblModAdminFee.ForeColor = Color.FromArgb(CByte(60), CByte(60), CByte(70))
@@ -240,9 +207,6 @@ Partial Class CheckoutForm
         lblModAdminFee.Size = New Size(532, 28)
         lblModAdminFee.TabIndex = 2
         lblModAdminFee.Text = "• Administrative Fee                                                 PHP 100.00"
-        ' 
-        ' lblModFuel
-        ' 
         lblModFuel.AutoSize = True
         lblModFuel.Font = New Font("Segoe UI", 10F)
         lblModFuel.ForeColor = Color.FromArgb(CByte(60), CByte(60), CByte(70))
@@ -252,9 +216,6 @@ Partial Class CheckoutForm
         lblModFuel.Size = New Size(519, 28)
         lblModFuel.TabIndex = 3
         lblModFuel.Text = "• Fuel Surcharge                                                     PHP 150.00"
-        ' 
-        ' lblModVAT
-        ' 
         lblModVAT.AutoSize = True
         lblModVAT.Font = New Font("Segoe UI", 10F)
         lblModVAT.ForeColor = Color.FromArgb(CByte(60), CByte(60), CByte(70))
@@ -264,9 +225,6 @@ Partial Class CheckoutForm
         lblModVAT.Size = New Size(521, 28)
         lblModVAT.TabIndex = 4
         lblModVAT.Text = "• Value Added Tax (VAT 12%)                                PHP 240.00"
-        ' 
-        ' lblModTerminalFee
-        ' 
         lblModTerminalFee.AutoSize = True
         lblModTerminalFee.Font = New Font("Segoe UI", 10F)
         lblModTerminalFee.ForeColor = Color.FromArgb(CByte(60), CByte(60), CByte(70))
@@ -276,9 +234,6 @@ Partial Class CheckoutForm
         lblModTerminalFee.Size = New Size(511, 28)
         lblModTerminalFee.TabIndex = 5
         lblModTerminalFee.Text = "• Domestic Passenger Terminal Fee                    PHP 200.00"
-        ' 
-        ' lblModAddons
-        ' 
         lblModAddons.AutoSize = True
         lblModAddons.Font = New Font("Segoe UI", 10F)
         lblModAddons.ForeColor = Color.FromArgb(CByte(60), CByte(60), CByte(70))
@@ -288,9 +243,6 @@ Partial Class CheckoutForm
         lblModAddons.Size = New Size(493, 28)
         lblModAddons.TabIndex = 6
         lblModAddons.Text = "Add-ons (Baggage / Refundability)                    PHP 0.00"
-        ' 
-        ' lblModDiscount
-        ' 
         lblModDiscount.AutoSize = True
         lblModDiscount.Font = New Font("Segoe UI", 10F, FontStyle.Bold)
         lblModDiscount.ForeColor = Color.FromArgb(CByte(254), CByte(115), CByte(73))
@@ -300,18 +252,12 @@ Partial Class CheckoutForm
         lblModDiscount.Size = New Size(565, 28)
         lblModDiscount.TabIndex = 7
         lblModDiscount.Text = "Discount (20% Senior/PWD)                               - PHP 0.00"
-        ' 
-        ' pnlModDivider
-        ' 
         pnlModDivider.BackColor = Color.FromArgb(CByte(230), CByte(230), CByte(235))
         pnlModDivider.Location = New Point(43, 533)
         pnlModDivider.Margin = New Padding(4, 5, 4, 5)
         pnlModDivider.Name = "pnlModDivider"
         pnlModDivider.Size = New Size(814, 2)
         pnlModDivider.TabIndex = 8
-        ' 
-        ' lblModTotal
-        ' 
         lblModTotal.AutoSize = True
         lblModTotal.Font = New Font("Segoe UI", 13F, FontStyle.Bold)
         lblModTotal.ForeColor = Color.FromArgb(CByte(1), CByte(123), CByte(128))
@@ -321,9 +267,6 @@ Partial Class CheckoutForm
         lblModTotal.Size = New Size(460, 36)
         lblModTotal.TabIndex = 9
         lblModTotal.Text = "Total Amount Payable: PHP 3,690.00"
-        ' 
-        ' btnModalClose
-        ' 
         btnModalClose.Animated = True
         btnModalClose.BorderRadius = 12
         btnModalClose.Cursor = Cursors.Hand
@@ -338,9 +281,6 @@ Partial Class CheckoutForm
         btnModalClose.Size = New Size(243, 75)
         btnModalClose.TabIndex = 10
         btnModalClose.Text = "Close Breakdown"
-        ' 
-        ' pnlCheckoutLeft
-        ' 
         pnlCheckoutLeft.BackColor = Color.Transparent
         pnlCheckoutLeft.BorderRadius = 18
         pnlCheckoutLeft.Controls.Add(lblCheckoutTitle)
@@ -366,9 +306,6 @@ Partial Class CheckoutForm
         pnlCheckoutLeft.ShadowDecoration.Enabled = True
         pnlCheckoutLeft.Size = New Size(900, 900)
         pnlCheckoutLeft.TabIndex = 0
-        ' 
-        ' lblCheckoutTitle
-        ' 
         lblCheckoutTitle.AutoSize = True
         lblCheckoutTitle.Font = New Font("Segoe UI", 15F, FontStyle.Bold)
         lblCheckoutTitle.ForeColor = Color.FromArgb(CByte(1), CByte(123), CByte(128))
@@ -378,9 +315,6 @@ Partial Class CheckoutForm
         lblCheckoutTitle.Size = New Size(458, 41)
         lblCheckoutTitle.TabIndex = 0
         lblCheckoutTitle.Text = "Booking Summary & Fare Details"
-        ' 
-        ' lblCheckoutRoute
-        ' 
         lblCheckoutRoute.AutoSize = True
         lblCheckoutRoute.Font = New Font("Segoe UI", 12F, FontStyle.Bold)
         lblCheckoutRoute.ForeColor = Color.FromArgb(CByte(50), CByte(50), CByte(60))
@@ -390,9 +324,6 @@ Partial Class CheckoutForm
         lblCheckoutRoute.Size = New Size(533, 32)
         lblCheckoutRoute.TabIndex = 1
         lblCheckoutRoute.Text = "Manila (MNL) → Cebu (CEB)  (Economy Class)"
-        ' 
-        ' lblCheckoutStats
-        ' 
         lblCheckoutStats.AutoSize = True
         lblCheckoutStats.Font = New Font("Segoe UI", 9.5F)
         lblCheckoutStats.ForeColor = Color.FromArgb(CByte(105), CByte(105), CByte(105))
@@ -402,9 +333,6 @@ Partial Class CheckoutForm
         lblCheckoutStats.Size = New Size(439, 25)
         lblCheckoutStats.TabIndex = 2
         lblCheckoutStats.Text = "October 24, 2026 | 08:00 AM - 09:20 AM | Non-Stop"
-        ' 
-        ' lblCheckoutPassenger
-        ' 
         lblCheckoutPassenger.AutoSize = True
         lblCheckoutPassenger.Font = New Font("Segoe UI", 9.5F, FontStyle.Italic)
         lblCheckoutPassenger.ForeColor = Color.FromArgb(CByte(1), CByte(123), CByte(128))
@@ -414,18 +342,12 @@ Partial Class CheckoutForm
         lblCheckoutPassenger.Size = New Size(320, 25)
         lblCheckoutPassenger.TabIndex = 3
         lblCheckoutPassenger.Text = "Passenger: Naruto Uzumaki | Seat: 1A"
-        ' 
-        ' pnlDivider1
-        ' 
         pnlDivider1.BackColor = Color.FromArgb(CByte(230), CByte(230), CByte(235))
         pnlDivider1.Location = New Point(43, 250)
         pnlDivider1.Margin = New Padding(4, 5, 4, 5)
         pnlDivider1.Name = "pnlDivider1"
         pnlDivider1.Size = New Size(814, 2)
         pnlDivider1.TabIndex = 4
-        ' 
-        ' lblCkBaseFare
-        ' 
         lblCkBaseFare.AutoSize = True
         lblCkBaseFare.Font = New Font("Segoe UI", 10.5F)
         lblCkBaseFare.ForeColor = Color.FromArgb(CByte(60), CByte(60), CByte(70))
@@ -435,9 +357,6 @@ Partial Class CheckoutForm
         lblCkBaseFare.Size = New Size(416, 30)
         lblCkBaseFare.TabIndex = 5
         lblCkBaseFare.Text = "Base fare:                                PHP 3,000.00"
-        ' 
-        ' lblCkTaxes
-        ' 
         lblCkTaxes.AutoSize = True
         lblCkTaxes.Font = New Font("Segoe UI", 10.5F)
         lblCkTaxes.ForeColor = Color.FromArgb(CByte(60), CByte(60), CByte(70))
@@ -447,9 +366,6 @@ Partial Class CheckoutForm
         lblCkTaxes.Size = New Size(387, 30)
         lblCkTaxes.TabIndex = 6
         lblCkTaxes.Text = "Taxes & surcharges:                 PHP 690.00"
-        ' 
-        ' lblCkAddons
-        ' 
         lblCkAddons.AutoSize = True
         lblCkAddons.Font = New Font("Segoe UI", 10.5F)
         lblCkAddons.ForeColor = Color.FromArgb(CByte(60), CByte(60), CByte(70))
@@ -459,9 +375,6 @@ Partial Class CheckoutForm
         lblCkAddons.Size = New Size(373, 30)
         lblCkAddons.TabIndex = 7
         lblCkAddons.Text = "Add-ons (Baggage/Prot):        PHP 0.00"
-        ' 
-        ' lblCkDiscount
-        ' 
         lblCkDiscount.AutoSize = True
         lblCkDiscount.Font = New Font("Segoe UI", 10.5F, FontStyle.Bold)
         lblCkDiscount.ForeColor = Color.FromArgb(CByte(254), CByte(115), CByte(73))
@@ -471,18 +384,12 @@ Partial Class CheckoutForm
         lblCkDiscount.Size = New Size(407, 30)
         lblCkDiscount.TabIndex = 8
         lblCkDiscount.Text = "Discount (20% Senior/PWD):  -PHP 0.00"
-        ' 
-        ' pnlDivider2
-        ' 
         pnlDivider2.BackColor = Color.FromArgb(CByte(230), CByte(230), CByte(235))
         pnlDivider2.Location = New Point(43, 525)
         pnlDivider2.Margin = New Padding(4, 5, 4, 5)
         pnlDivider2.Name = "pnlDivider2"
         pnlDivider2.Size = New Size(814, 2)
         pnlDivider2.TabIndex = 9
-        ' 
-        ' lblCkTotal
-        ' 
         lblCkTotal.AutoSize = True
         lblCkTotal.Font = New Font("Segoe UI", 14F, FontStyle.Bold)
         lblCkTotal.ForeColor = Color.FromArgb(CByte(1), CByte(123), CByte(128))
@@ -492,9 +399,6 @@ Partial Class CheckoutForm
         lblCkTotal.Size = New Size(388, 38)
         lblCkTotal.TabIndex = 10
         lblCkTotal.Text = "Total Amount: PHP 3,690.00"
-        ' 
-        ' btnShowMoreDeets
-        ' 
         btnShowMoreDeets.Animated = True
         btnShowMoreDeets.BorderColor = Color.FromArgb(CByte(1), CByte(123), CByte(128))
         btnShowMoreDeets.BorderRadius = 10
@@ -511,9 +415,6 @@ Partial Class CheckoutForm
         btnShowMoreDeets.Size = New Size(343, 75)
         btnShowMoreDeets.TabIndex = 11
         btnShowMoreDeets.Text = "View Detailed Breakdown"
-        ' 
-        ' pnlCheckoutRight
-        ' 
         pnlCheckoutRight.BackColor = Color.Transparent
         pnlCheckoutRight.BorderRadius = 18
         pnlCheckoutRight.Controls.Add(lblReadyTitle)
@@ -533,9 +434,6 @@ Partial Class CheckoutForm
         pnlCheckoutRight.ShadowDecoration.Enabled = True
         pnlCheckoutRight.Size = New Size(471, 900)
         pnlCheckoutRight.TabIndex = 1
-        ' 
-        ' lblReadyTitle
-        ' 
         lblReadyTitle.AutoSize = True
         lblReadyTitle.Font = New Font("Segoe UI", 14F, FontStyle.Bold)
         lblReadyTitle.ForeColor = Color.FromArgb(CByte(1), CByte(123), CByte(128))
@@ -545,9 +443,6 @@ Partial Class CheckoutForm
         lblReadyTitle.Size = New Size(198, 38)
         lblReadyTitle.TabIndex = 0
         lblReadyTitle.Text = "Ready to Pay?"
-        ' 
-        ' lblSecureBadge
-        ' 
         lblSecureBadge.AutoSize = True
         lblSecureBadge.Font = New Font("Segoe UI", 9F)
         lblSecureBadge.ForeColor = Color.FromArgb(CByte(105), CByte(105), CByte(105))
@@ -557,9 +452,6 @@ Partial Class CheckoutForm
         lblSecureBadge.Size = New Size(290, 25)
         lblSecureBadge.TabIndex = 1
         lblSecureBadge.Text = "🔒 256-bit SSL Encrypted Payment"
-        ' 
-        ' lblRightTotalLabel
-        ' 
         lblRightTotalLabel.AutoSize = True
         lblRightTotalLabel.Font = New Font("Segoe UI", 10F)
         lblRightTotalLabel.ForeColor = Color.FromArgb(CByte(105), CByte(105), CByte(105))
@@ -569,9 +461,6 @@ Partial Class CheckoutForm
         lblRightTotalLabel.Size = New Size(202, 28)
         lblRightTotalLabel.TabIndex = 2
         lblRightTotalLabel.Text = "Total Amount Payable"
-        ' 
-        ' lblRightTotal
-        ' 
         lblRightTotal.AutoSize = True
         lblRightTotal.Font = New Font("Segoe UI", 22F, FontStyle.Bold)
         lblRightTotal.ForeColor = Color.FromArgb(CByte(254), CByte(115), CByte(73))
@@ -581,9 +470,6 @@ Partial Class CheckoutForm
         lblRightTotal.Size = New Size(299, 60)
         lblRightTotal.TabIndex = 3
         lblRightTotal.Text = "PHP 3,690.00"
-        ' 
-        ' btnContinueToPayment
-        ' 
         btnContinueToPayment.Animated = True
         btnContinueToPayment.BorderRadius = 14
         btnContinueToPayment.Cursor = Cursors.Hand
@@ -598,9 +484,6 @@ Partial Class CheckoutForm
         btnContinueToPayment.Size = New Size(400, 87)
         btnContinueToPayment.TabIndex = 4
         btnContinueToPayment.Text = "Continue to Payment →"
-        ' 
-        ' btnCheckoutBack
-        ' 
         btnCheckoutBack.Animated = True
         btnCheckoutBack.BorderColor = Color.FromArgb(CByte(190), CByte(190), CByte(200))
         btnCheckoutBack.BorderRadius = 12
@@ -617,9 +500,6 @@ Partial Class CheckoutForm
         btnCheckoutBack.Size = New Size(400, 70)
         btnCheckoutBack.TabIndex = 5
         btnCheckoutBack.Text = "← Back to Refundability"
-        ' 
-        ' CheckoutForm
-        ' 
         AutoScaleDimensions = New SizeF(10F, 25F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.FromArgb(CByte(237), CByte(229), CByte(216))

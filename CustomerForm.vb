@@ -1,4 +1,4 @@
-Imports System.Linq
+﻿Imports System.Linq
 
 Public Class CustomerForm
     Private Sub CustomerForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load

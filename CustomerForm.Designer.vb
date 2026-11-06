@@ -106,16 +106,10 @@ Partial Class CustomerForm
         pnlHasBooking.SuspendLayout()
         pnlUserInfoCard.SuspendLayout()
         SuspendLayout()
-        ' 
-        ' Guna2BorderlessForm1
-        ' 
         Guna2BorderlessForm1.BorderRadius = 30
         Guna2BorderlessForm1.ContainerControl = Me
         Guna2BorderlessForm1.DockIndicatorTransparencyValue = 0.6R
         Guna2BorderlessForm1.TransparentWhileDrag = True
-        ' 
-        ' pnlTopBar
-        ' 
         pnlTopBar.BackColor = Color.FromArgb(CByte(1), CByte(123), CByte(128))
         pnlTopBar.Controls.Add(lblPlaneLogo)
         pnlTopBar.Controls.Add(lblBrandHeader)
@@ -130,9 +124,6 @@ Partial Class CustomerForm
         pnlTopBar.ShadowDecoration.CustomizableEdges = CustomizableEdges33
         pnlTopBar.Size = New Size(1257, 75)
         pnlTopBar.TabIndex = 0
-        ' 
-        ' lblPlaneLogo
-        ' 
         lblPlaneLogo.Font = New Font("Segoe UI Emoji", 20F)
         lblPlaneLogo.ForeColor = Color.White
         lblPlaneLogo.Location = New Point(21, 11)
@@ -141,9 +132,6 @@ Partial Class CustomerForm
         lblPlaneLogo.TabIndex = 0
         lblPlaneLogo.Text = "✈"
         lblPlaneLogo.TextAlign = ContentAlignment.MiddleCenter
-        ' 
-        ' lblBrandHeader
-        ' 
         lblBrandHeader.AutoSize = True
         lblBrandHeader.Font = New Font("Segoe UI", 12.5F, FontStyle.Bold)
         lblBrandHeader.ForeColor = Color.White
@@ -152,9 +140,6 @@ Partial Class CustomerForm
         lblBrandHeader.Size = New Size(342, 30)
         lblBrandHeader.TabIndex = 1
         lblBrandHeader.Text = "INTERNATIONAL NOM AIRLINES"
-        ' 
-        ' btnLogout
-        ' 
         btnLogout.Animated = True
         btnLogout.BorderColor = Color.FromArgb(CByte(254), CByte(115), CByte(73))
         btnLogout.BorderRadius = 14
@@ -171,9 +156,6 @@ Partial Class CustomerForm
         btnLogout.Size = New Size(103, 43)
         btnLogout.TabIndex = 2
         btnLogout.Text = "Log out"
-        ' 
-        ' btnClose
-        ' 
         btnClose.Animated = True
         btnClose.BackColor = Color.Transparent
         btnClose.Cursor = Cursors.Hand
@@ -188,9 +170,6 @@ Partial Class CustomerForm
         btnClose.Size = New Size(34, 40)
         btnClose.TabIndex = 3
         btnClose.Text = "✕"
-        ' 
-        ' pnlContentContainer
-        ' 
         pnlContentContainer.BackColor = Color.FromArgb(CByte(237), CByte(229), CByte(216))
         pnlContentContainer.Controls.Add(pnlProfileDashboard)
         pnlContentContainer.CustomizableEdges = CustomizableEdges27
@@ -202,9 +181,6 @@ Partial Class CustomerForm
         pnlContentContainer.ShadowDecoration.CustomizableEdges = CustomizableEdges28
         pnlContentContainer.Size = New Size(1257, 858)
         pnlContentContainer.TabIndex = 1
-        ' 
-        ' pnlProfileDashboard
-        ' 
         pnlProfileDashboard.BackColor = Color.Transparent
         pnlProfileDashboard.Controls.Add(pnlWelcomeCard)
         pnlProfileDashboard.Controls.Add(pnlStatTotal)
@@ -221,9 +197,6 @@ Partial Class CustomerForm
         pnlProfileDashboard.ShadowDecoration.CustomizableEdges = CustomizableEdges26
         pnlProfileDashboard.Size = New Size(1257, 858)
         pnlProfileDashboard.TabIndex = 0
-        ' 
-        ' pnlWelcomeCard
-        ' 
         pnlWelcomeCard.BackColor = Color.Transparent
         pnlWelcomeCard.BorderRadius = 18
         pnlWelcomeCard.Controls.Add(lblAvatarCircle)
@@ -240,9 +213,6 @@ Partial Class CustomerForm
         pnlWelcomeCard.ShadowDecoration.Enabled = True
         pnlWelcomeCard.Size = New Size(1189, 127)
         pnlWelcomeCard.TabIndex = 0
-        ' 
-        ' lblAvatarCircle
-        ' 
         lblAvatarCircle.BackColor = Color.FromArgb(CByte(237), CByte(229), CByte(216))
         lblAvatarCircle.Font = New Font("Segoe UI Emoji", 26F)
         lblAvatarCircle.ForeColor = Color.FromArgb(CByte(1), CByte(123), CByte(128))
@@ -252,9 +222,6 @@ Partial Class CustomerForm
         lblAvatarCircle.TabIndex = 0
         lblAvatarCircle.Text = "👤"
         lblAvatarCircle.TextAlign = ContentAlignment.MiddleCenter
-        ' 
-        ' lblWelcomePrefix
-        ' 
         lblWelcomePrefix.AutoSize = True
         lblWelcomePrefix.Font = New Font("Segoe UI", 11F)
         lblWelcomePrefix.ForeColor = Color.FromArgb(CByte(100), CByte(100), CByte(115))
@@ -263,9 +230,6 @@ Partial Class CustomerForm
         lblWelcomePrefix.Size = New Size(94, 25)
         lblWelcomePrefix.TabIndex = 1
         lblWelcomePrefix.Text = "Welcome,"
-        ' 
-        ' lblWelcomeName
-        ' 
         lblWelcomeName.AutoSize = True
         lblWelcomeName.Font = New Font("Segoe UI", 22F, FontStyle.Bold)
         lblWelcomeName.ForeColor = Color.FromArgb(CByte(105), CByte(105), CByte(105))
@@ -274,9 +238,6 @@ Partial Class CustomerForm
         lblWelcomeName.Size = New Size(145, 50)
         lblWelcomeName.TabIndex = 2
         lblWelcomeName.Text = "Naruto"
-        ' 
-        ' pnlStatTotal
-        ' 
         pnlStatTotal.BackColor = Color.Transparent
         pnlStatTotal.BorderRadius = 16
         pnlStatTotal.Controls.Add(lblStatTotalNum)
@@ -292,9 +253,6 @@ Partial Class CustomerForm
         pnlStatTotal.ShadowDecoration.Enabled = True
         pnlStatTotal.Size = New Size(371, 120)
         pnlStatTotal.TabIndex = 1
-        ' 
-        ' lblStatTotalNum
-        ' 
         lblStatTotalNum.AutoSize = True
         lblStatTotalNum.Font = New Font("Segoe UI", 24F, FontStyle.Bold)
         lblStatTotalNum.ForeColor = Color.FromArgb(CByte(1), CByte(123), CByte(128))
@@ -303,9 +261,6 @@ Partial Class CustomerForm
         lblStatTotalNum.Size = New Size(46, 54)
         lblStatTotalNum.TabIndex = 0
         lblStatTotalNum.Text = "1"
-        ' 
-        ' lblStatTotalLabel
-        ' 
         lblStatTotalLabel.AutoSize = True
         lblStatTotalLabel.Font = New Font("Segoe UI", 10.5F)
         lblStatTotalLabel.ForeColor = Color.FromArgb(CByte(80), CByte(80), CByte(90))
@@ -314,9 +269,6 @@ Partial Class CustomerForm
         lblStatTotalLabel.Size = New Size(128, 25)
         lblStatTotalLabel.TabIndex = 1
         lblStatTotalLabel.Text = "Total Bookings"
-        ' 
-        ' pnlStatCompleted
-        ' 
         pnlStatCompleted.BackColor = Color.Transparent
         pnlStatCompleted.BorderRadius = 16
         pnlStatCompleted.Controls.Add(lblStatCompletedNum)
@@ -332,9 +284,6 @@ Partial Class CustomerForm
         pnlStatCompleted.ShadowDecoration.Enabled = True
         pnlStatCompleted.Size = New Size(371, 120)
         pnlStatCompleted.TabIndex = 2
-        ' 
-        ' lblStatCompletedNum
-        ' 
         lblStatCompletedNum.AutoSize = True
         lblStatCompletedNum.Font = New Font("Segoe UI", 24F, FontStyle.Bold)
         lblStatCompletedNum.ForeColor = Color.FromArgb(CByte(105), CByte(105), CByte(105))
@@ -343,9 +292,6 @@ Partial Class CustomerForm
         lblStatCompletedNum.Size = New Size(46, 54)
         lblStatCompletedNum.TabIndex = 0
         lblStatCompletedNum.Text = "0"
-        ' 
-        ' lblStatCompletedLabel
-        ' 
         lblStatCompletedLabel.AutoSize = True
         lblStatCompletedLabel.Font = New Font("Segoe UI", 10.5F)
         lblStatCompletedLabel.ForeColor = Color.FromArgb(CByte(80), CByte(80), CByte(90))
@@ -354,9 +300,6 @@ Partial Class CustomerForm
         lblStatCompletedLabel.Size = New Size(179, 25)
         lblStatCompletedLabel.TabIndex = 1
         lblStatCompletedLabel.Text = "Completed Bookings"
-        ' 
-        ' pnlStatCancelled
-        ' 
         pnlStatCancelled.BackColor = Color.Transparent
         pnlStatCancelled.BorderRadius = 16
         pnlStatCancelled.Controls.Add(lblStatCancelledNum)
@@ -372,9 +315,6 @@ Partial Class CustomerForm
         pnlStatCancelled.ShadowDecoration.Enabled = True
         pnlStatCancelled.Size = New Size(371, 120)
         pnlStatCancelled.TabIndex = 3
-        ' 
-        ' lblStatCancelledNum
-        ' 
         lblStatCancelledNum.AutoSize = True
         lblStatCancelledNum.Font = New Font("Segoe UI", 24F, FontStyle.Bold)
         lblStatCancelledNum.ForeColor = Color.FromArgb(CByte(105), CByte(105), CByte(105))
@@ -383,9 +323,6 @@ Partial Class CustomerForm
         lblStatCancelledNum.Size = New Size(46, 54)
         lblStatCancelledNum.TabIndex = 0
         lblStatCancelledNum.Text = "0"
-        ' 
-        ' lblStatCancelledLabel
-        ' 
         lblStatCancelledLabel.AutoSize = True
         lblStatCancelledLabel.Font = New Font("Segoe UI", 10.5F)
         lblStatCancelledLabel.ForeColor = Color.FromArgb(CByte(80), CByte(80), CByte(90))
@@ -394,9 +331,6 @@ Partial Class CustomerForm
         lblStatCancelledLabel.Size = New Size(166, 25)
         lblStatCancelledLabel.TabIndex = 1
         lblStatCancelledLabel.Text = "Cancelled Bookings"
-        ' 
-        ' pnlBannerPromo
-        ' 
         pnlBannerPromo.BackColor = Color.Transparent
         pnlBannerPromo.BorderRadius = 18
         pnlBannerPromo.Controls.Add(lblBannerMotto)
@@ -412,9 +346,6 @@ Partial Class CustomerForm
         pnlBannerPromo.ShadowDecoration.Enabled = True
         pnlBannerPromo.Size = New Size(297, 480)
         pnlBannerPromo.TabIndex = 4
-        ' 
-        ' lblBannerMotto
-        ' 
         lblBannerMotto.Font = New Font("Segoe UI", 24F, FontStyle.Italic)
         lblBannerMotto.ForeColor = Color.White
         lblBannerMotto.Location = New Point(23, 53)
@@ -422,9 +353,6 @@ Partial Class CustomerForm
         lblBannerMotto.Size = New Size(251, 320)
         lblBannerMotto.TabIndex = 0
         lblBannerMotto.Text = "Fly Near" & vbCrLf & "Fly Far" & vbCrLf & "Fly NOM ✈"
-        ' 
-        ' lblBannerSub
-        ' 
         lblBannerSub.AutoSize = True
         lblBannerSub.Font = New Font("Segoe UI", 9.5F, FontStyle.Bold)
         lblBannerSub.ForeColor = Color.White
@@ -433,9 +361,6 @@ Partial Class CustomerForm
         lblBannerSub.Size = New Size(96, 21)
         lblBannerSub.TabIndex = 1
         lblBannerSub.Text = "@INOM Air"
-        ' 
-        ' pnlMiddleActionCard
-        ' 
         pnlMiddleActionCard.BackColor = Color.Transparent
         pnlMiddleActionCard.BorderRadius = 18
         pnlMiddleActionCard.Controls.Add(pnlNoBookings)
@@ -451,9 +376,6 @@ Partial Class CustomerForm
         pnlMiddleActionCard.ShadowDecoration.Enabled = True
         pnlMiddleActionCard.Size = New Size(560, 480)
         pnlMiddleActionCard.TabIndex = 5
-        ' 
-        ' pnlNoBookings
-        ' 
         pnlNoBookings.BackColor = Color.Transparent
         pnlNoBookings.Controls.Add(lblNoBookingsTitle)
         pnlNoBookings.Controls.Add(btnStartBooking)
@@ -463,9 +385,6 @@ Partial Class CustomerForm
         pnlNoBookings.Name = "pnlNoBookings"
         pnlNoBookings.Size = New Size(560, 480)
         pnlNoBookings.TabIndex = 0
-        ' 
-        ' lblNoBookingsTitle
-        ' 
         lblNoBookingsTitle.Font = New Font("Segoe UI", 20F, FontStyle.Bold)
         lblNoBookingsTitle.ForeColor = Color.FromArgb(CByte(105), CByte(105), CByte(105))
         lblNoBookingsTitle.Location = New Point(69, 93)
@@ -474,9 +393,6 @@ Partial Class CustomerForm
         lblNoBookingsTitle.TabIndex = 0
         lblNoBookingsTitle.Text = "Book your" & vbCrLf & "flight now!"
         lblNoBookingsTitle.TextAlign = ContentAlignment.MiddleCenter
-        ' 
-        ' btnStartBooking
-        ' 
         btnStartBooking.Animated = True
         btnStartBooking.BorderRadius = 14
         btnStartBooking.Cursor = Cursors.Hand
@@ -491,9 +407,6 @@ Partial Class CustomerForm
         btnStartBooking.Size = New Size(206, 67)
         btnStartBooking.TabIndex = 1
         btnStartBooking.Text = "Go →"
-        ' 
-        ' pnlHasBooking
-        ' 
         pnlHasBooking.BackColor = Color.Transparent
         pnlHasBooking.Controls.Add(lblTicketTag)
         pnlHasBooking.Controls.Add(lblTicketRoute)
@@ -509,9 +422,6 @@ Partial Class CustomerForm
         pnlHasBooking.Size = New Size(560, 480)
         pnlHasBooking.TabIndex = 1
         pnlHasBooking.Visible = False
-        ' 
-        ' lblTicketTag
-        ' 
         lblTicketTag.AutoSize = True
         lblTicketTag.Font = New Font("Segoe UI", 12F, FontStyle.Bold)
         lblTicketTag.ForeColor = Color.FromArgb(CByte(1), CByte(123), CByte(128))
@@ -520,9 +430,6 @@ Partial Class CustomerForm
         lblTicketTag.Size = New Size(260, 28)
         lblTicketTag.TabIndex = 0
         lblTicketTag.Text = "Ticket-#: INOM-88239014"
-        ' 
-        ' lblTicketRoute
-        ' 
         lblTicketRoute.Font = New Font("Segoe UI", 10F)
         lblTicketRoute.ForeColor = Color.FromArgb(CByte(60), CByte(60), CByte(70))
         lblTicketRoute.Location = New Point(23, 73)
@@ -530,9 +437,6 @@ Partial Class CustomerForm
         lblTicketRoute.Size = New Size(297, 56)
         lblTicketRoute.TabIndex = 1
         lblTicketRoute.Text = "Origin: Manila" & vbCrLf & "To: Cebu"
-        ' 
-        ' lblTicketTime
-        ' 
         lblTicketTime.AutoSize = True
         lblTicketTime.Font = New Font("Segoe UI", 10F)
         lblTicketTime.ForeColor = Color.FromArgb(CByte(60), CByte(60), CByte(70))
@@ -541,9 +445,6 @@ Partial Class CustomerForm
         lblTicketTime.Size = New Size(127, 23)
         lblTicketTime.TabIndex = 2
         lblTicketTime.Text = "Time: 10:30 AM"
-        ' 
-        ' btnViewFullDetails
-        ' 
         btnViewFullDetails.Animated = True
         btnViewFullDetails.BorderRadius = 12
         btnViewFullDetails.Cursor = Cursors.Hand
@@ -558,9 +459,6 @@ Partial Class CustomerForm
         btnViewFullDetails.Size = New Size(166, 48)
         btnViewFullDetails.TabIndex = 3
         btnViewFullDetails.Text = "View full details"
-        ' 
-        ' btnEditBooking
-        ' 
         btnEditBooking.Animated = True
         btnEditBooking.BorderColor = Color.FromArgb(CByte(200), CByte(200), CByte(210))
         btnEditBooking.BorderRadius = 12
@@ -577,9 +475,6 @@ Partial Class CustomerForm
         btnEditBooking.Size = New Size(166, 45)
         btnEditBooking.TabIndex = 4
         btnEditBooking.Text = "Rebook"
-        ' 
-        ' btnCancelBooking
-        ' 
         btnCancelBooking.Animated = True
         btnCancelBooking.BorderColor = Color.FromArgb(CByte(220), CByte(53), CByte(69))
         btnCancelBooking.BorderRadius = 12
@@ -596,9 +491,6 @@ Partial Class CustomerForm
         btnCancelBooking.Size = New Size(166, 45)
         btnCancelBooking.TabIndex = 5
         btnCancelBooking.Text = "Cancel"
-        ' 
-        ' lblFlyMotto
-        ' 
         lblFlyMotto.Font = New Font("Segoe UI", 10F, FontStyle.Italic)
         lblFlyMotto.ForeColor = Color.FromArgb(CByte(120), CByte(120), CByte(135))
         lblFlyMotto.Location = New Point(23, 413)
@@ -607,9 +499,6 @@ Partial Class CustomerForm
         lblFlyMotto.TabIndex = 6
         lblFlyMotto.Text = "Fly near, Fly far, Fly NOM! ✈"
         lblFlyMotto.TextAlign = ContentAlignment.MiddleCenter
-        ' 
-        ' pnlUserInfoCard
-        ' 
         pnlUserInfoCard.BackColor = Color.Transparent
         pnlUserInfoCard.BorderRadius = 18
         pnlUserInfoCard.Controls.Add(lblInfoSummaryHeader)
@@ -628,9 +517,6 @@ Partial Class CustomerForm
         pnlUserInfoCard.ShadowDecoration.Enabled = True
         pnlUserInfoCard.Size = New Size(269, 480)
         pnlUserInfoCard.TabIndex = 6
-        ' 
-        ' lblInfoSummaryHeader
-        ' 
         lblInfoSummaryHeader.AutoSize = True
         lblInfoSummaryHeader.Font = New Font("Segoe UI", 12F, FontStyle.Bold)
         lblInfoSummaryHeader.ForeColor = Color.FromArgb(CByte(105), CByte(105), CByte(105))
@@ -639,9 +525,6 @@ Partial Class CustomerForm
         lblInfoSummaryHeader.Size = New Size(221, 28)
         lblInfoSummaryHeader.TabIndex = 0
         lblInfoSummaryHeader.Text = "Information Summary"
-        ' 
-        ' lblInfoName
-        ' 
         lblInfoName.Font = New Font("Segoe UI", 9.5F)
         lblInfoName.ForeColor = Color.FromArgb(CByte(70), CByte(70), CByte(80))
         lblInfoName.Location = New Point(23, 80)
@@ -649,9 +532,6 @@ Partial Class CustomerForm
         lblInfoName.Size = New Size(223, 53)
         lblInfoName.TabIndex = 1
         lblInfoName.Text = "Name:" & vbCrLf & "Naruto Uzumaki"
-        ' 
-        ' lblInfoContact
-        ' 
         lblInfoContact.Font = New Font("Segoe UI", 9.5F)
         lblInfoContact.ForeColor = Color.FromArgb(CByte(70), CByte(70), CByte(80))
         lblInfoContact.Location = New Point(23, 147)
@@ -659,9 +539,6 @@ Partial Class CustomerForm
         lblInfoContact.Size = New Size(223, 53)
         lblInfoContact.TabIndex = 2
         lblInfoContact.Text = "Contact No:" & vbCrLf & "+63 9123456789"
-        ' 
-        ' lblInfoGender
-        ' 
         lblInfoGender.Font = New Font("Segoe UI", 9.5F)
         lblInfoGender.ForeColor = Color.FromArgb(CByte(70), CByte(70), CByte(80))
         lblInfoGender.Location = New Point(23, 213)
@@ -669,9 +546,6 @@ Partial Class CustomerForm
         lblInfoGender.Size = New Size(223, 53)
         lblInfoGender.TabIndex = 3
         lblInfoGender.Text = "Gender:" & vbCrLf & "Male"
-        ' 
-        ' btnViewProfileInfo
-        ' 
         btnViewProfileInfo.Animated = True
         btnViewProfileInfo.BorderRadius = 12
         btnViewProfileInfo.Cursor = Cursors.Hand
@@ -686,9 +560,6 @@ Partial Class CustomerForm
         btnViewProfileInfo.Size = New Size(143, 51)
         btnViewProfileInfo.TabIndex = 4
         btnViewProfileInfo.Text = "View Profile"
-        ' 
-        ' CustomerForm
-        ' 
         AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.FromArgb(CByte(237), CByte(229), CByte(216))

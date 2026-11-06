@@ -1,4 +1,4 @@
-Public Class AdminPanel
+﻿Public Class AdminPanel
 
     Private Sub AdminPanel_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 

@@ -1,4 +1,4 @@
-Public Class BoardingTicket
+﻿Public Class BoardingTicket
 
     <System.ComponentModel.DesignerSerializationVisibility(System.ComponentModel.DesignerSerializationVisibility.Hidden)>
     Public Property TargetTicketNumber As String = ""

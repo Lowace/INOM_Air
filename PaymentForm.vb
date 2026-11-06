@@ -1,4 +1,4 @@
-Public Class PaymentForm
+﻿Public Class PaymentForm
 
     Private currentPaymentMode As String = "Card"
 

@@ -76,16 +76,10 @@ Partial Class BookingStep2
         pnlB2FlightCard1.SuspendLayout()
         pnlB2FlightCard2.SuspendLayout()
         SuspendLayout()
-        ' 
-        ' Guna2BorderlessForm1
-        ' 
         Guna2BorderlessForm1.BorderRadius = 24
         Guna2BorderlessForm1.ContainerControl = Me
         Guna2BorderlessForm1.DockIndicatorTransparencyValue = 0.6R
         Guna2BorderlessForm1.TransparentWhileDrag = True
-        ' 
-        ' pnlTopBar
-        ' 
         pnlTopBar.BackColor = Color.FromArgb(CByte(1), CByte(123), CByte(128))
         pnlTopBar.Controls.Add(lblPlaneLogo)
         pnlTopBar.Controls.Add(lblBrandHeader)
@@ -100,9 +94,6 @@ Partial Class BookingStep2
         pnlTopBar.ShadowDecoration.CustomizableEdges = CustomizableEdges21
         pnlTopBar.Size = New Size(1166, 75)
         pnlTopBar.TabIndex = 0
-        ' 
-        ' lblPlaneLogo
-        ' 
         lblPlaneLogo.Font = New Font("Segoe UI Emoji", 18.0F)
         lblPlaneLogo.ForeColor = Color.White
         lblPlaneLogo.Location = New Point(17, 13)
@@ -111,9 +102,6 @@ Partial Class BookingStep2
         lblPlaneLogo.TabIndex = 0
         lblPlaneLogo.Text = "✈"
         lblPlaneLogo.TextAlign = ContentAlignment.MiddleCenter
-        ' 
-        ' lblBrandHeader
-        ' 
         lblBrandHeader.AutoSize = True
         lblBrandHeader.Font = New Font("Segoe UI", 11.0F, FontStyle.Bold)
         lblBrandHeader.ForeColor = Color.White
@@ -122,9 +110,6 @@ Partial Class BookingStep2
         lblBrandHeader.Size = New Size(96, 25)
         lblBrandHeader.TabIndex = 1
         lblBrandHeader.Text = "INOM Air"
-        ' 
-        ' lblStepTitle
-        ' 
         lblStepTitle.AutoSize = True
         lblStepTitle.Font = New Font("Segoe UI", 10.5F, FontStyle.Bold)
         lblStepTitle.ForeColor = Color.FromArgb(CByte(237), CByte(229), CByte(216))
@@ -133,9 +118,6 @@ Partial Class BookingStep2
         lblStepTitle.Size = New Size(314, 25)
         lblStepTitle.TabIndex = 2
         lblStepTitle.Text = "SELECT YOUR FLIGHT — Step 2 of 6"
-        ' 
-        ' btnCloseX
-        ' 
         btnCloseX.Animated = True
         btnCloseX.BackColor = Color.Transparent
         btnCloseX.Cursor = Cursors.Hand
@@ -150,9 +132,6 @@ Partial Class BookingStep2
         btnCloseX.Size = New Size(34, 40)
         btnCloseX.TabIndex = 3
         btnCloseX.Text = "✕"
-        ' 
-        ' pnlBody
-        ' 
         pnlBody.BackColor = Color.FromArgb(CByte(237), CByte(229), CByte(216))
         pnlBody.Controls.Add(pnlB2Left)
         pnlBody.Controls.Add(pnlB2Right)
@@ -165,9 +144,6 @@ Partial Class BookingStep2
         pnlBody.ShadowDecoration.CustomizableEdges = CustomizableEdges18
         pnlBody.Size = New Size(1166, 752)
         pnlBody.TabIndex = 1
-        ' 
-        ' pnlB2Left
-        ' 
         pnlB2Left.BackColor = Color.Transparent
         pnlB2Left.BorderRadius = 18
         pnlB2Left.Controls.Add(lblB2SummaryTitle)
@@ -189,9 +165,6 @@ Partial Class BookingStep2
         pnlB2Left.ShadowDecoration.Enabled = True
         pnlB2Left.Size = New Size(354, 680)
         pnlB2Left.TabIndex = 0
-        ' 
-        ' lblB2SummaryTitle
-        ' 
         lblB2SummaryTitle.AutoSize = True
         lblB2SummaryTitle.Font = New Font("Segoe UI", 14.0F, FontStyle.Bold)
         lblB2SummaryTitle.ForeColor = Color.FromArgb(CByte(1), CByte(123), CByte(128))
@@ -200,18 +173,12 @@ Partial Class BookingStep2
         lblB2SummaryTitle.Size = New Size(205, 32)
         lblB2SummaryTitle.TabIndex = 0
         lblB2SummaryTitle.Text = "Search Summary"
-        ' 
-        ' pnlB2LeftDivider
-        ' 
         pnlB2LeftDivider.BackColor = Color.FromArgb(CByte(230), CByte(230), CByte(235))
         pnlB2LeftDivider.Location = New Point(29, 80)
         pnlB2LeftDivider.Margin = New Padding(3, 4, 3, 4)
         pnlB2LeftDivider.Name = "pnlB2LeftDivider"
         pnlB2LeftDivider.Size = New Size(297, 1)
         pnlB2LeftDivider.TabIndex = 1
-        ' 
-        ' lblB2Origin
-        ' 
         lblB2Origin.AutoSize = True
         lblB2Origin.Font = New Font("Segoe UI", 11.0F, FontStyle.Bold)
         lblB2Origin.ForeColor = Color.FromArgb(CByte(50), CByte(50), CByte(60))
@@ -220,9 +187,6 @@ Partial Class BookingStep2
         lblB2Origin.Size = New Size(199, 25)
         lblB2Origin.TabIndex = 2
         lblB2Origin.Text = "Origin: MNL - Manila"
-        ' 
-        ' lblB2Dest
-        ' 
         lblB2Dest.AutoSize = True
         lblB2Dest.Font = New Font("Segoe UI", 11.0F, FontStyle.Bold)
         lblB2Dest.ForeColor = Color.FromArgb(CByte(50), CByte(50), CByte(60))
@@ -231,9 +195,6 @@ Partial Class BookingStep2
         lblB2Dest.Size = New Size(141, 25)
         lblB2Dest.TabIndex = 3
         lblB2Dest.Text = "To: CEB - Cebu"
-        ' 
-        ' lblB2TripType
-        ' 
         lblB2TripType.AutoSize = True
         lblB2TripType.Font = New Font("Segoe UI", 10.0F)
         lblB2TripType.ForeColor = Color.FromArgb(CByte(105), CByte(105), CByte(105))
@@ -242,9 +203,6 @@ Partial Class BookingStep2
         lblB2TripType.Size = New Size(156, 23)
         lblB2TripType.TabIndex = 4
         lblB2TripType.Text = "Trip Type: One Way"
-        ' 
-        ' lblB2CabinClass
-        ' 
         lblB2CabinClass.AutoSize = True
         lblB2CabinClass.Font = New Font("Segoe UI", 10.5F, FontStyle.Bold)
         lblB2CabinClass.ForeColor = Color.FromArgb(CByte(105), CByte(105), CByte(105))
@@ -253,9 +211,6 @@ Partial Class BookingStep2
         lblB2CabinClass.Size = New Size(107, 25)
         lblB2CabinClass.TabIndex = 5
         lblB2CabinClass.Text = "Cabin Class"
-        ' 
-        ' cmbB2CabinClass
-        ' 
         cmbB2CabinClass.BackColor = Color.Transparent
         cmbB2CabinClass.BorderRadius = 12
         cmbB2CabinClass.CustomizableEdges = CustomizableEdges1
@@ -273,9 +228,6 @@ Partial Class BookingStep2
         cmbB2CabinClass.Size = New Size(297, 36)
         cmbB2CabinClass.StartIndex = 0
         cmbB2CabinClass.TabIndex = 6
-        ' 
-        ' btnB2Back
-        ' 
         btnB2Back.Animated = True
         btnB2Back.BorderColor = Color.FromArgb(CByte(190), CByte(190), CByte(200))
         btnB2Back.BorderRadius = 12
@@ -292,9 +244,6 @@ Partial Class BookingStep2
         btnB2Back.Size = New Size(297, 60)
         btnB2Back.TabIndex = 7
         btnB2Back.Text = "← Change Search"
-        ' 
-        ' pnlB2Right
-        ' 
         pnlB2Right.BackColor = Color.Transparent
         pnlB2Right.BorderRadius = 18
         pnlB2Right.Controls.Add(lblB2DateHeader)
@@ -311,9 +260,6 @@ Partial Class BookingStep2
         pnlB2Right.ShadowDecoration.Enabled = True
         pnlB2Right.Size = New Size(709, 680)
         pnlB2Right.TabIndex = 1
-        ' 
-        ' lblB2DateHeader
-        ' 
         lblB2DateHeader.AutoSize = True
         lblB2DateHeader.Font = New Font("Segoe UI", 14.0F, FontStyle.Bold)
         lblB2DateHeader.ForeColor = Color.FromArgb(CByte(1), CByte(123), CByte(128))
@@ -322,9 +268,6 @@ Partial Class BookingStep2
         lblB2DateHeader.Size = New Size(361, 32)
         lblB2DateHeader.TabIndex = 0
         lblB2DateHeader.Text = "Available Flights for Your Date"
-        ' 
-        ' pnlB2FlightCard1
-        ' 
         pnlB2FlightCard1.BorderColor = Color.FromArgb(CByte(220), CByte(220), CByte(230))
         pnlB2FlightCard1.BorderRadius = 14
         pnlB2FlightCard1.BorderThickness = 1
@@ -341,9 +284,6 @@ Partial Class BookingStep2
         pnlB2FlightCard1.ShadowDecoration.CustomizableEdges = CustomizableEdges10
         pnlB2FlightCard1.Size = New Size(640, 147)
         pnlB2FlightCard1.TabIndex = 1
-        ' 
-        ' lblF1Time
-        ' 
         lblF1Time.AutoSize = True
         lblF1Time.Font = New Font("Segoe UI", 13.0F, FontStyle.Bold)
         lblF1Time.ForeColor = Color.FromArgb(CByte(40), CByte(40), CByte(50))
@@ -352,9 +292,6 @@ Partial Class BookingStep2
         lblF1Time.Size = New Size(234, 30)
         lblF1Time.TabIndex = 0
         lblF1Time.Text = "08:00 AM - 09:20 AM"
-        ' 
-        ' lblF1Duration
-        ' 
         lblF1Duration.AutoSize = True
         lblF1Duration.Font = New Font("Segoe UI", 9.5F)
         lblF1Duration.ForeColor = Color.FromArgb(CByte(105), CByte(105), CByte(105))
@@ -363,9 +300,6 @@ Partial Class BookingStep2
         lblF1Duration.Size = New Size(129, 21)
         lblF1Duration.TabIndex = 1
         lblF1Duration.Text = "1h 20m Duration"
-        ' 
-        ' lblF1Type
-        ' 
         lblF1Type.AutoSize = True
         lblF1Type.Font = New Font("Segoe UI", 9.5F, FontStyle.Bold)
         lblF1Type.ForeColor = Color.FromArgb(CByte(1), CByte(123), CByte(128))
@@ -374,9 +308,6 @@ Partial Class BookingStep2
         lblF1Type.Size = New Size(145, 21)
         lblF1Type.TabIndex = 2
         lblF1Type.Text = "Direct • Non-Stop"
-        ' 
-        ' lblF1Fare
-        ' 
         lblF1Fare.AutoSize = True
         lblF1Fare.Font = New Font("Segoe UI", 16.0F, FontStyle.Bold)
         lblF1Fare.ForeColor = Color.FromArgb(CByte(254), CByte(115), CByte(73))
@@ -385,9 +316,6 @@ Partial Class BookingStep2
         lblF1Fare.Size = New Size(150, 37)
         lblF1Fare.TabIndex = 3
         lblF1Fare.Text = "PHP 3,000"
-        ' 
-        ' btnF1Select
-        ' 
         btnF1Select.Animated = True
         btnF1Select.BorderRadius = 12
         btnF1Select.Cursor = Cursors.Hand
@@ -402,9 +330,6 @@ Partial Class BookingStep2
         btnF1Select.Size = New Size(126, 61)
         btnF1Select.TabIndex = 4
         btnF1Select.Text = "Select"
-        ' 
-        ' pnlB2FlightCard2
-        ' 
         pnlB2FlightCard2.BorderColor = Color.FromArgb(CByte(220), CByte(220), CByte(230))
         pnlB2FlightCard2.BorderRadius = 14
         pnlB2FlightCard2.BorderThickness = 1
@@ -421,9 +346,6 @@ Partial Class BookingStep2
         pnlB2FlightCard2.ShadowDecoration.CustomizableEdges = CustomizableEdges14
         pnlB2FlightCard2.Size = New Size(640, 147)
         pnlB2FlightCard2.TabIndex = 2
-        ' 
-        ' lblF2Time
-        ' 
         lblF2Time.AutoSize = True
         lblF2Time.Font = New Font("Segoe UI", 13.0F, FontStyle.Bold)
         lblF2Time.ForeColor = Color.FromArgb(CByte(40), CByte(40), CByte(50))
@@ -432,9 +354,6 @@ Partial Class BookingStep2
         lblF2Time.Size = New Size(232, 30)
         lblF2Time.TabIndex = 0
         lblF2Time.Text = "01:30 PM - 02:50 PM"
-        ' 
-        ' lblF2Duration
-        ' 
         lblF2Duration.AutoSize = True
         lblF2Duration.Font = New Font("Segoe UI", 9.5F)
         lblF2Duration.ForeColor = Color.FromArgb(CByte(105), CByte(105), CByte(105))
@@ -443,9 +362,6 @@ Partial Class BookingStep2
         lblF2Duration.Size = New Size(129, 21)
         lblF2Duration.TabIndex = 1
         lblF2Duration.Text = "1h 20m Duration"
-        ' 
-        ' lblF2Type
-        ' 
         lblF2Type.AutoSize = True
         lblF2Type.Font = New Font("Segoe UI", 9.5F, FontStyle.Bold)
         lblF2Type.ForeColor = Color.FromArgb(CByte(1), CByte(123), CByte(128))
@@ -454,9 +370,6 @@ Partial Class BookingStep2
         lblF2Type.Size = New Size(145, 21)
         lblF2Type.TabIndex = 2
         lblF2Type.Text = "Direct • Non-Stop"
-        ' 
-        ' lblF2Fare
-        ' 
         lblF2Fare.AutoSize = True
         lblF2Fare.Font = New Font("Segoe UI", 16.0F, FontStyle.Bold)
         lblF2Fare.ForeColor = Color.FromArgb(CByte(254), CByte(115), CByte(73))
@@ -465,9 +378,6 @@ Partial Class BookingStep2
         lblF2Fare.Size = New Size(150, 37)
         lblF2Fare.TabIndex = 3
         lblF2Fare.Text = "PHP 2,800"
-        ' 
-        ' btnF2Select
-        ' 
         btnF2Select.Animated = True
         btnF2Select.BorderRadius = 12
         btnF2Select.Cursor = Cursors.Hand
@@ -482,9 +392,6 @@ Partial Class BookingStep2
         btnF2Select.Size = New Size(126, 61)
         btnF2Select.TabIndex = 4
         btnF2Select.Text = "Select"
-        ' 
-        ' BookingStep2
-        ' 
         AutoScaleDimensions = New SizeF(8.0F, 20.0F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.FromArgb(CByte(237), CByte(229), CByte(216))

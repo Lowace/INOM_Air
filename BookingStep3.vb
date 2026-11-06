@@ -1,4 +1,4 @@
-Public Class BookingStep3
+﻿Public Class BookingStep3
 
     <System.ComponentModel.DesignerSerializationVisibility(System.ComponentModel.DesignerSerializationVisibility.Hidden)>
     Public Property lblB3Origin As String = ""

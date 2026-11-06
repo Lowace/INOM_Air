@@ -80,16 +80,10 @@ Partial Class BookingStep3
         pnlB3GuestInputs.SuspendLayout()
         pnlB3RightSummary.SuspendLayout()
         SuspendLayout()
-        ' 
-        ' Guna2BorderlessForm1
-        ' 
         Guna2BorderlessForm1.BorderRadius = 24
         Guna2BorderlessForm1.ContainerControl = Me
         Guna2BorderlessForm1.DockIndicatorTransparencyValue = 0.6R
         Guna2BorderlessForm1.TransparentWhileDrag = True
-        ' 
-        ' pnlTopBar
-        ' 
         pnlTopBar.BackColor = Color.FromArgb(CByte(1), CByte(123), CByte(128))
         pnlTopBar.Controls.Add(lblPlaneLogo)
         pnlTopBar.Controls.Add(lblBrandHeader)
@@ -104,9 +98,6 @@ Partial Class BookingStep3
         pnlTopBar.ShadowDecoration.CustomizableEdges = CustomizableEdges23
         pnlTopBar.Size = New Size(1166, 75)
         pnlTopBar.TabIndex = 0
-        ' 
-        ' lblPlaneLogo
-        ' 
         lblPlaneLogo.Font = New Font("Segoe UI Emoji", 18F)
         lblPlaneLogo.ForeColor = Color.White
         lblPlaneLogo.Location = New Point(17, 13)
@@ -115,9 +106,6 @@ Partial Class BookingStep3
         lblPlaneLogo.TabIndex = 0
         lblPlaneLogo.Text = "✈"
         lblPlaneLogo.TextAlign = ContentAlignment.MiddleCenter
-        ' 
-        ' lblBrandHeader
-        ' 
         lblBrandHeader.AutoSize = True
         lblBrandHeader.Font = New Font("Segoe UI", 11F, FontStyle.Bold)
         lblBrandHeader.ForeColor = Color.White
@@ -126,9 +114,6 @@ Partial Class BookingStep3
         lblBrandHeader.Size = New Size(96, 25)
         lblBrandHeader.TabIndex = 1
         lblBrandHeader.Text = "INOM Air"
-        ' 
-        ' lblStepTitle
-        ' 
         lblStepTitle.AutoSize = True
         lblStepTitle.Font = New Font("Segoe UI", 10.5F, FontStyle.Bold)
         lblStepTitle.ForeColor = Color.FromArgb(CByte(237), CByte(229), CByte(216))
@@ -137,9 +122,6 @@ Partial Class BookingStep3
         lblStepTitle.Size = New Size(264, 25)
         lblStepTitle.TabIndex = 2
         lblStepTitle.Text = "GUEST DETAILS — Step 3 of 6"
-        ' 
-        ' btnCloseX
-        ' 
         btnCloseX.Animated = True
         btnCloseX.BackColor = Color.Transparent
         btnCloseX.Cursor = Cursors.Hand
@@ -154,9 +136,6 @@ Partial Class BookingStep3
         btnCloseX.Size = New Size(34, 40)
         btnCloseX.TabIndex = 3
         btnCloseX.Text = "✕"
-        ' 
-        ' pnlBody
-        ' 
         pnlBody.BackColor = Color.FromArgb(CByte(237), CByte(229), CByte(216))
         pnlBody.Controls.Add(pnlB3GuestInputs)
         pnlBody.Controls.Add(pnlB3RightSummary)
@@ -169,9 +148,6 @@ Partial Class BookingStep3
         pnlBody.ShadowDecoration.CustomizableEdges = CustomizableEdges20
         pnlBody.Size = New Size(1166, 752)
         pnlBody.TabIndex = 1
-        ' 
-        ' pnlB3GuestInputs
-        ' 
         pnlB3GuestInputs.BackColor = Color.Transparent
         pnlB3GuestInputs.BorderRadius = 18
         pnlB3GuestInputs.Controls.Add(lblB3GuestHeader)
@@ -203,9 +179,6 @@ Partial Class BookingStep3
         pnlB3GuestInputs.ShadowDecoration.Enabled = True
         pnlB3GuestInputs.Size = New Size(709, 680)
         pnlB3GuestInputs.TabIndex = 0
-        ' 
-        ' lblB3GuestHeader
-        ' 
         lblB3GuestHeader.AutoSize = True
         lblB3GuestHeader.Font = New Font("Segoe UI", 15F, FontStyle.Bold)
         lblB3GuestHeader.ForeColor = Color.FromArgb(CByte(1), CByte(123), CByte(128))
@@ -214,9 +187,6 @@ Partial Class BookingStep3
         lblB3GuestHeader.Size = New Size(294, 35)
         lblB3GuestHeader.TabIndex = 0
         lblB3GuestHeader.Text = "Guest Passenger Details"
-        ' 
-        ' lblB3Subtitle
-        ' 
         lblB3Subtitle.AutoSize = True
         lblB3Subtitle.Font = New Font("Segoe UI", 9.5F)
         lblB3Subtitle.ForeColor = Color.FromArgb(CByte(105), CByte(105), CByte(105))
@@ -225,18 +195,12 @@ Partial Class BookingStep3
         lblB3Subtitle.Size = New Size(567, 21)
         lblB3Subtitle.TabIndex = 1
         lblB3Subtitle.Text = "Senior citizens (60+) and PWD passengers automatically receive a 20% discount."
-        ' 
-        ' pnlB3Divider
-        ' 
         pnlB3Divider.BackColor = Color.FromArgb(CByte(230), CByte(230), CByte(235))
         pnlB3Divider.Location = New Point(34, 113)
         pnlB3Divider.Margin = New Padding(3, 4, 3, 4)
         pnlB3Divider.Name = "pnlB3Divider"
         pnlB3Divider.Size = New Size(640, 1)
         pnlB3Divider.TabIndex = 2
-        ' 
-        ' lblB3GivenName
-        ' 
         lblB3GivenName.AutoSize = True
         lblB3GivenName.Font = New Font("Segoe UI", 10F, FontStyle.Bold)
         lblB3GivenName.ForeColor = Color.FromArgb(CByte(105), CByte(105), CByte(105))
@@ -245,9 +209,6 @@ Partial Class BookingStep3
         lblB3GivenName.Size = New Size(107, 23)
         lblB3GivenName.TabIndex = 3
         lblB3GivenName.Text = "Given Name"
-        ' 
-        ' txtB3GivenName
-        ' 
         txtB3GivenName.BorderRadius = 10
         txtB3GivenName.Cursor = Cursors.IBeam
         txtB3GivenName.CustomizableEdges = CustomizableEdges1
@@ -261,9 +222,6 @@ Partial Class BookingStep3
         txtB3GivenName.ShadowDecoration.CustomizableEdges = CustomizableEdges2
         txtB3GivenName.Size = New Size(303, 56)
         txtB3GivenName.TabIndex = 4
-        ' 
-        ' lblB3Surname
-        ' 
         lblB3Surname.AutoSize = True
         lblB3Surname.Font = New Font("Segoe UI", 10F, FontStyle.Bold)
         lblB3Surname.ForeColor = Color.FromArgb(CByte(105), CByte(105), CByte(105))
@@ -272,9 +230,6 @@ Partial Class BookingStep3
         lblB3Surname.Size = New Size(81, 23)
         lblB3Surname.TabIndex = 5
         lblB3Surname.Text = "Surname"
-        ' 
-        ' txtB3Surname
-        ' 
         txtB3Surname.BorderRadius = 10
         txtB3Surname.Cursor = Cursors.IBeam
         txtB3Surname.CustomizableEdges = CustomizableEdges3
@@ -288,9 +243,6 @@ Partial Class BookingStep3
         txtB3Surname.ShadowDecoration.CustomizableEdges = CustomizableEdges4
         txtB3Surname.Size = New Size(303, 56)
         txtB3Surname.TabIndex = 6
-        ' 
-        ' lblB3Age
-        ' 
         lblB3Age.AutoSize = True
         lblB3Age.Font = New Font("Segoe UI", 10F, FontStyle.Bold)
         lblB3Age.ForeColor = Color.FromArgb(CByte(105), CByte(105), CByte(105))
@@ -299,9 +251,6 @@ Partial Class BookingStep3
         lblB3Age.Size = New Size(42, 23)
         lblB3Age.TabIndex = 7
         lblB3Age.Text = "Age"
-        ' 
-        ' txtB3Age
-        ' 
         txtB3Age.BorderRadius = 10
         txtB3Age.Cursor = Cursors.IBeam
         txtB3Age.CustomizableEdges = CustomizableEdges5
@@ -315,9 +264,6 @@ Partial Class BookingStep3
         txtB3Age.ShadowDecoration.CustomizableEdges = CustomizableEdges6
         txtB3Age.Size = New Size(303, 56)
         txtB3Age.TabIndex = 8
-        ' 
-        ' lblB3AgeGroup
-        ' 
         lblB3AgeGroup.AutoSize = True
         lblB3AgeGroup.Font = New Font("Segoe UI", 10F, FontStyle.Bold)
         lblB3AgeGroup.ForeColor = Color.FromArgb(CByte(105), CByte(105), CByte(105))
@@ -326,9 +272,6 @@ Partial Class BookingStep3
         lblB3AgeGroup.Size = New Size(97, 23)
         lblB3AgeGroup.TabIndex = 9
         lblB3AgeGroup.Text = "Age Group"
-        ' 
-        ' cmbB3AgeGroup
-        ' 
         cmbB3AgeGroup.BackColor = Color.Transparent
         cmbB3AgeGroup.BorderRadius = 10
         cmbB3AgeGroup.CustomizableEdges = CustomizableEdges7
@@ -346,9 +289,6 @@ Partial Class BookingStep3
         cmbB3AgeGroup.Size = New Size(302, 36)
         cmbB3AgeGroup.StartIndex = 0
         cmbB3AgeGroup.TabIndex = 10
-        ' 
-        ' lblB3Gender
-        ' 
         lblB3Gender.AutoSize = True
         lblB3Gender.Font = New Font("Segoe UI", 10F, FontStyle.Bold)
         lblB3Gender.ForeColor = Color.FromArgb(CByte(105), CByte(105), CByte(105))
@@ -357,9 +297,6 @@ Partial Class BookingStep3
         lblB3Gender.Size = New Size(68, 23)
         lblB3Gender.TabIndex = 11
         lblB3Gender.Text = "Gender"
-        ' 
-        ' cmbB3Gender
-        ' 
         cmbB3Gender.BackColor = Color.Transparent
         cmbB3Gender.BorderRadius = 10
         cmbB3Gender.CustomizableEdges = CustomizableEdges9
@@ -377,9 +314,6 @@ Partial Class BookingStep3
         cmbB3Gender.Size = New Size(302, 36)
         cmbB3Gender.StartIndex = 0
         cmbB3Gender.TabIndex = 12
-        ' 
-        ' lblB3Disabled
-        ' 
         lblB3Disabled.AutoSize = True
         lblB3Disabled.Font = New Font("Segoe UI", 10F, FontStyle.Bold)
         lblB3Disabled.ForeColor = Color.FromArgb(CByte(105), CByte(105), CByte(105))
@@ -388,9 +322,6 @@ Partial Class BookingStep3
         lblB3Disabled.Size = New Size(248, 23)
         lblB3Disabled.TabIndex = 13
         lblB3Disabled.Text = "Person with Disability (PWD)?"
-        ' 
-        ' rbB3DisabledYes
-        ' 
         rbB3DisabledYes.AutoSize = True
         rbB3DisabledYes.CheckedState.BorderColor = Color.FromArgb(CByte(1), CByte(123), CByte(128))
         rbB3DisabledYes.CheckedState.BorderThickness = 2
@@ -405,9 +336,6 @@ Partial Class BookingStep3
         rbB3DisabledYes.TabIndex = 14
         rbB3DisabledYes.Text = "Yes (20% off)"
         rbB3DisabledYes.UncheckedState.BorderThickness = 0
-        ' 
-        ' rbB3DisabledNo
-        ' 
         rbB3DisabledNo.AutoSize = True
         rbB3DisabledNo.Checked = True
         rbB3DisabledNo.CheckedState.BorderColor = Color.FromArgb(CByte(1), CByte(123), CByte(128))
@@ -424,9 +352,6 @@ Partial Class BookingStep3
         rbB3DisabledNo.TabStop = True
         rbB3DisabledNo.Text = "No"
         rbB3DisabledNo.UncheckedState.BorderThickness = 0
-        ' 
-        ' btnB3Back
-        ' 
         btnB3Back.Animated = True
         btnB3Back.BorderColor = Color.FromArgb(CByte(190), CByte(190), CByte(200))
         btnB3Back.BorderRadius = 12
@@ -443,9 +368,6 @@ Partial Class BookingStep3
         btnB3Back.Size = New Size(160, 60)
         btnB3Back.TabIndex = 16
         btnB3Back.Text = "← Back"
-        ' 
-        ' btnB3Next
-        ' 
         btnB3Next.Animated = True
         btnB3Next.BorderRadius = 12
         btnB3Next.Cursor = Cursors.Hand
@@ -460,9 +382,6 @@ Partial Class BookingStep3
         btnB3Next.Size = New Size(206, 60)
         btnB3Next.TabIndex = 17
         btnB3Next.Text = "Next: Concessions →"
-        ' 
-        ' pnlB3RightSummary
-        ' 
         pnlB3RightSummary.BackColor = Color.Transparent
         pnlB3RightSummary.BorderRadius = 18
         pnlB3RightSummary.Controls.Add(lblB3SummaryHeader)
@@ -483,9 +402,6 @@ Partial Class BookingStep3
         pnlB3RightSummary.ShadowDecoration.Enabled = True
         pnlB3RightSummary.Size = New Size(349, 680)
         pnlB3RightSummary.TabIndex = 1
-        ' 
-        ' lblB3SummaryHeader
-        ' 
         lblB3SummaryHeader.AutoSize = True
         lblB3SummaryHeader.Font = New Font("Segoe UI", 14F, FontStyle.Bold)
         lblB3SummaryHeader.ForeColor = Color.FromArgb(CByte(1), CByte(123), CByte(128))
@@ -494,9 +410,6 @@ Partial Class BookingStep3
         lblB3SummaryHeader.Size = New Size(174, 32)
         lblB3SummaryHeader.TabIndex = 0
         lblB3SummaryHeader.Text = "Trip Summary"
-        ' 
-        ' lblB3SummaryDate
-        ' 
         lblB3SummaryDate.AutoSize = True
         lblB3SummaryDate.Font = New Font("Segoe UI", 10.5F, FontStyle.Bold)
         lblB3SummaryDate.ForeColor = Color.FromArgb(CByte(50), CByte(50), CByte(60))
@@ -505,9 +418,6 @@ Partial Class BookingStep3
         lblB3SummaryDate.Size = New Size(156, 25)
         lblB3SummaryDate.TabIndex = 1
         lblB3SummaryDate.Text = "October 24, 2026"
-        ' 
-        ' lblB3SummaryRoute
-        ' 
         lblB3SummaryRoute.AutoSize = True
         lblB3SummaryRoute.Font = New Font("Segoe UI", 10F)
         lblB3SummaryRoute.ForeColor = Color.FromArgb(CByte(105), CByte(105), CByte(105))
@@ -516,9 +426,6 @@ Partial Class BookingStep3
         lblB3SummaryRoute.Size = New Size(222, 23)
         lblB3SummaryRoute.TabIndex = 2
         lblB3SummaryRoute.Text = "Manila (MNL) → Cebu (CEB)"
-        ' 
-        ' lblB3SummaryTime
-        ' 
         lblB3SummaryTime.AutoSize = True
         lblB3SummaryTime.Font = New Font("Segoe UI", 9.5F)
         lblB3SummaryTime.ForeColor = Color.FromArgb(CByte(105), CByte(105), CByte(105))
@@ -527,18 +434,12 @@ Partial Class BookingStep3
         lblB3SummaryTime.Size = New Size(145, 21)
         lblB3SummaryTime.TabIndex = 3
         lblB3SummaryTime.Text = "08:00 AM (1h 20m)"
-        ' 
-        ' pnlB3SumDivider
-        ' 
         pnlB3SumDivider.BackColor = Color.FromArgb(CByte(230), CByte(230), CByte(235))
         pnlB3SumDivider.Location = New Point(29, 480)
         pnlB3SumDivider.Margin = New Padding(3, 4, 3, 4)
         pnlB3SumDivider.Name = "pnlB3SumDivider"
         pnlB3SumDivider.Size = New Size(291, 1)
         pnlB3SumDivider.TabIndex = 4
-        ' 
-        ' lblB3SummaryTotalLabel
-        ' 
         lblB3SummaryTotalLabel.AutoSize = True
         lblB3SummaryTotalLabel.Font = New Font("Segoe UI", 10F)
         lblB3SummaryTotalLabel.ForeColor = Color.FromArgb(CByte(105), CByte(105), CByte(105))
@@ -547,9 +448,6 @@ Partial Class BookingStep3
         lblB3SummaryTotalLabel.Size = New Size(126, 23)
         lblB3SummaryTotalLabel.TabIndex = 5
         lblB3SummaryTotalLabel.Text = "Estimated Total"
-        ' 
-        ' lblB3SummaryTotalAmount
-        ' 
         lblB3SummaryTotalAmount.AutoSize = True
         lblB3SummaryTotalAmount.Font = New Font("Segoe UI", 20F, FontStyle.Bold)
         lblB3SummaryTotalAmount.ForeColor = Color.FromArgb(CByte(254), CByte(115), CByte(73))
@@ -558,9 +456,6 @@ Partial Class BookingStep3
         lblB3SummaryTotalAmount.Size = New Size(235, 46)
         lblB3SummaryTotalAmount.TabIndex = 6
         lblB3SummaryTotalAmount.Text = "PHP 3,690.00"
-        ' 
-        ' BookingStep3
-        ' 
         AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.FromArgb(CByte(237), CByte(229), CByte(216))

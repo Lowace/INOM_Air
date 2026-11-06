@@ -1,4 +1,4 @@
-Public Class BookingStep6
+﻿Public Class BookingStep6
 
     Private Sub BookingStep6_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 

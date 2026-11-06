@@ -52,16 +52,10 @@ Partial Class StartingPage
         pnlMainCard.SuspendLayout()
         CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
-        ' 
-        ' Guna2BorderlessForm1
-        ' 
         Guna2BorderlessForm1.BorderRadius = 30
         Guna2BorderlessForm1.ContainerControl = Me
         Guna2BorderlessForm1.DockIndicatorTransparencyValue = 0.6R
         Guna2BorderlessForm1.TransparentWhileDrag = True
-        ' 
-        ' btnClose
-        ' 
         btnClose.Animated = True
         btnClose.BackColor = Color.Transparent
         btnClose.Cursor = Cursors.Hand
@@ -79,9 +73,6 @@ Partial Class StartingPage
         btnClose.Size = New Size(34, 34)
         btnClose.TabIndex = 10
         btnClose.Text = "✕"
-        ' 
-        ' pnlDecoShape2
-        ' 
         pnlDecoShape2.BackColor = Color.FromArgb(CByte(237), CByte(229), CByte(216))
         pnlDecoShape2.BorderRadius = 55
         pnlDecoShape2.CustomizableEdges = CustomizableEdges7
@@ -91,9 +82,6 @@ Partial Class StartingPage
         pnlDecoShape2.ShadowDecoration.CustomizableEdges = CustomizableEdges8
         pnlDecoShape2.Size = New Size(140, 140)
         pnlDecoShape2.TabIndex = 1
-        ' 
-        ' pnlDecoShape3
-        ' 
         pnlDecoShape3.BackColor = Color.FromArgb(CByte(237), CByte(229), CByte(216))
         pnlDecoShape3.BorderRadius = 25
         pnlDecoShape3.CustomizableEdges = CustomizableEdges5
@@ -103,9 +91,6 @@ Partial Class StartingPage
         pnlDecoShape3.ShadowDecoration.CustomizableEdges = CustomizableEdges6
         pnlDecoShape3.Size = New Size(125, 178)
         pnlDecoShape3.TabIndex = 2
-        ' 
-        ' pnlMainCard
-        ' 
         pnlMainCard.BackColor = Color.Transparent
         pnlMainCard.BorderColor = Color.FromArgb(CByte(220), CByte(220), CByte(225))
         pnlMainCard.BorderRadius = 24
@@ -127,9 +112,6 @@ Partial Class StartingPage
         pnlMainCard.ShadowDecoration.Enabled = True
         pnlMainCard.Size = New Size(420, 520)
         pnlMainCard.TabIndex = 3
-        ' 
-        ' lblLogoTitle
-        ' 
         lblLogoTitle.Font = New Font("Segoe UI", 18F, FontStyle.Bold)
         lblLogoTitle.ForeColor = Color.FromArgb(CByte(105), CByte(105), CByte(105))
         lblLogoTitle.Location = New Point(20, 215)
@@ -138,9 +120,6 @@ Partial Class StartingPage
         lblLogoTitle.TabIndex = 1
         lblLogoTitle.Text = "International NOM Air"
         lblLogoTitle.TextAlign = ContentAlignment.MiddleCenter
-        ' 
-        ' lblTagline
-        ' 
         lblTagline.Font = New Font("Segoe UI", 10F, FontStyle.Italic)
         lblTagline.ForeColor = Color.FromArgb(CByte(100), CByte(100), CByte(115))
         lblTagline.Location = New Point(20, 252)
@@ -149,9 +128,6 @@ Partial Class StartingPage
         lblTagline.TabIndex = 2
         lblTagline.Text = "Fly Near, Fly Far, Fly NOM"
         lblTagline.TextAlign = ContentAlignment.MiddleCenter
-        ' 
-        ' btnLogin
-        ' 
         btnLogin.Animated = True
         btnLogin.BorderRadius = 16
         btnLogin.Cursor = Cursors.Hand
@@ -165,9 +141,6 @@ Partial Class StartingPage
         btnLogin.Size = New Size(160, 52)
         btnLogin.TabIndex = 3
         btnLogin.Text = "Login"
-        ' 
-        ' btnSignup
-        ' 
         btnSignup.Animated = True
         btnSignup.BorderColor = Color.FromArgb(CByte(1), CByte(123), CByte(128))
         btnSignup.BorderRadius = 16
@@ -183,9 +156,6 @@ Partial Class StartingPage
         btnSignup.Size = New Size(160, 52)
         btnSignup.TabIndex = 4
         btnSignup.Text = "Signup"
-        ' 
-        ' btnExit
-        ' 
         btnExit.Animated = True
         btnExit.BorderColor = Color.FromArgb(CByte(210), CByte(210), CByte(215))
         btnExit.BorderRadius = 16
@@ -201,9 +171,6 @@ Partial Class StartingPage
         btnExit.Size = New Size(160, 48)
         btnExit.TabIndex = 5
         btnExit.Text = "Exit"
-        ' 
-        ' lblVersion
-        ' 
         lblVersion.Font = New Font("Segoe UI", 8F)
         lblVersion.ForeColor = Color.FromArgb(CByte(140), CByte(140), CByte(150))
         lblVersion.Location = New Point(32, 595)
@@ -212,9 +179,6 @@ Partial Class StartingPage
         lblVersion.TabIndex = 4
         lblVersion.Text = "INOM Air v1.0.1"
         lblVersion.TextAlign = ContentAlignment.MiddleCenter
-        ' 
-        ' Guna2Panel1
-        ' 
         Guna2Panel1.BackColor = Color.FromArgb(CByte(237), CByte(229), CByte(216))
         Guna2Panel1.BorderRadius = 55
         Guna2Panel1.CustomizableEdges = CustomizableEdges3
@@ -224,9 +188,6 @@ Partial Class StartingPage
         Guna2Panel1.ShadowDecoration.CustomizableEdges = CustomizableEdges4
         Guna2Panel1.Size = New Size(185, 151)
         Guna2Panel1.TabIndex = 2
-        ' 
-        ' Guna2Panel2
-        ' 
         Guna2Panel2.BackColor = Color.FromArgb(CByte(237), CByte(229), CByte(216))
         Guna2Panel2.BorderRadius = 25
         Guna2Panel2.CustomizableEdges = CustomizableEdges1
@@ -236,9 +197,6 @@ Partial Class StartingPage
         Guna2Panel2.ShadowDecoration.CustomizableEdges = CustomizableEdges2
         Guna2Panel2.Size = New Size(125, 112)
         Guna2Panel2.TabIndex = 3
-        ' 
-        ' PictureBox1
-        ' 
         PictureBox1.Image = My.Resources.Resources._66ba3ddf_8faf_4108_a1e3_2e78fb6e00b3NOBG
         PictureBox1.Location = New Point(72, 47)
         PictureBox1.Name = "PictureBox1"
@@ -246,9 +204,6 @@ Partial Class StartingPage
         PictureBox1.SizeMode = PictureBoxSizeMode.StretchImage
         PictureBox1.TabIndex = 6
         PictureBox1.TabStop = False
-        ' 
-        ' StartingPage
-        ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.FromArgb(CByte(237), CByte(229), CByte(216))
