@@ -18,15 +18,15 @@ Partial Class CustomMessageBox
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         components = New ComponentModel.Container()
-        Dim CustomizableEdges8 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges9 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges1 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges2 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges3 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges4 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges5 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges6 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges7 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges10 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges11 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges12 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges13 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges14 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges15 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges16 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges17 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges18 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(CustomMessageBox))
         pnlBorder = New Guna.UI2.WinForms.Guna2Panel()
         pnlBody = New Panel()
@@ -42,6 +42,7 @@ Partial Class CustomMessageBox
         pnlHeader = New Panel()
         lblTitle = New Label()
         btnCloseHeader = New Guna.UI2.WinForms.Guna2CircleButton()
+        Guna2Elipse1 = New Guna.UI2.WinForms.Guna2Elipse(components)
         pnlBorder.SuspendLayout()
         pnlBody.SuspendLayout()
         iconCircle.SuspendLayout()
@@ -56,12 +57,12 @@ Partial Class CustomMessageBox
         pnlBorder.Controls.Add(pnlDivider)
         pnlBorder.Controls.Add(pnlFooter)
         pnlBorder.Controls.Add(pnlHeader)
-        pnlBorder.CustomizableEdges = CustomizableEdges8
+        pnlBorder.CustomizableEdges = CustomizableEdges10
         pnlBorder.Dock = DockStyle.Fill
         pnlBorder.FillColor = Color.White
         pnlBorder.Location = New Point(0, 0)
         pnlBorder.Name = "pnlBorder"
-        pnlBorder.ShadowDecoration.CustomizableEdges = CustomizableEdges9
+        pnlBorder.ShadowDecoration.CustomizableEdges = CustomizableEdges11
         pnlBorder.Size = New Size(500, 220)
         pnlBorder.TabIndex = 0
         pnlBody.BackColor = Color.White
@@ -98,16 +99,16 @@ Partial Class CustomMessageBox
         iconCircle.BackColor = Color.Transparent
         iconCircle.BorderRadius = 22
         iconCircle.Controls.Add(lblIconSymbol)
-        iconCircle.CustomizableEdges = CustomizableEdges1
+        iconCircle.CustomizableEdges = CustomizableEdges12
         iconCircle.FillColor = Color.FromArgb(CByte(230), CByte(246), CByte(245))
         iconCircle.Location = New Point(24, 14)
         iconCircle.Name = "iconCircle"
-        iconCircle.ShadowDecoration.CustomizableEdges = CustomizableEdges2
+        iconCircle.ShadowDecoration.CustomizableEdges = CustomizableEdges13
         iconCircle.Size = New Size(44, 44)
         iconCircle.TabIndex = 1
         lblIconSymbol.BackColor = Color.Transparent
         lblIconSymbol.Dock = DockStyle.Fill
-        lblIconSymbol.Font = New Font("Segoe UI", 15F, FontStyle.Bold)
+        lblIconSymbol.Font = New Font("Segoe UI", 15.0F, FontStyle.Bold)
         lblIconSymbol.ForeColor = Color.FromArgb(CByte(1), CByte(123), CByte(128))
         lblIconSymbol.Location = New Point(0, 0)
         lblIconSymbol.Name = "lblIconSymbol"
@@ -136,7 +137,7 @@ Partial Class CustomMessageBox
         lblScrollHint.ForeColor = Color.FromArgb(CByte(140), CByte(145), CByte(155))
         lblScrollHint.Location = New Point(24, 20)
         lblScrollHint.Name = "lblScrollHint"
-        lblScrollHint.Size = New Size(240, 15)
+        lblScrollHint.Size = New Size(203, 15)
         lblScrollHint.TabIndex = 2
         lblScrollHint.Text = "⬇ Please scroll to the bottom to accept"
         lblScrollHint.Visible = False
@@ -146,13 +147,13 @@ Partial Class CustomMessageBox
         btnSecondary.BorderRadius = 10
         btnSecondary.BorderThickness = 1
         btnSecondary.Cursor = Cursors.Hand
-        btnSecondary.CustomizableEdges = CustomizableEdges3
+        btnSecondary.CustomizableEdges = CustomizableEdges14
         btnSecondary.FillColor = Color.White
         btnSecondary.Font = New Font("Segoe UI", 9.5F, FontStyle.Bold)
         btnSecondary.ForeColor = Color.FromArgb(CByte(90), CByte(95), CByte(105))
         btnSecondary.Location = New Point(280, 11)
         btnSecondary.Name = "btnSecondary"
-        btnSecondary.ShadowDecoration.CustomizableEdges = CustomizableEdges4
+        btnSecondary.ShadowDecoration.CustomizableEdges = CustomizableEdges15
         btnSecondary.Size = New Size(90, 36)
         btnSecondary.TabIndex = 1
         btnSecondary.Text = "Cancel"
@@ -161,7 +162,7 @@ Partial Class CustomMessageBox
         btnPrimary.Animated = True
         btnPrimary.BorderRadius = 10
         btnPrimary.Cursor = Cursors.Hand
-        btnPrimary.CustomizableEdges = CustomizableEdges5
+        btnPrimary.CustomizableEdges = CustomizableEdges16
         btnPrimary.DisabledState.BorderColor = Color.FromArgb(CByte(215), CByte(218), CByte(225))
         btnPrimary.DisabledState.FillColor = Color.FromArgb(CByte(220), CByte(224), CByte(230))
         btnPrimary.DisabledState.ForeColor = Color.FromArgb(CByte(140), CByte(145), CByte(155))
@@ -170,7 +171,7 @@ Partial Class CustomMessageBox
         btnPrimary.ForeColor = Color.White
         btnPrimary.Location = New Point(384, 11)
         btnPrimary.Name = "btnPrimary"
-        btnPrimary.ShadowDecoration.CustomizableEdges = CustomizableEdges6
+        btnPrimary.ShadowDecoration.CustomizableEdges = CustomizableEdges17
         btnPrimary.Size = New Size(96, 36)
         btnPrimary.TabIndex = 0
         btnPrimary.Text = "OK"
@@ -183,7 +184,6 @@ Partial Class CustomMessageBox
         pnlHeader.Size = New Size(500, 50)
         pnlHeader.TabIndex = 0
         lblTitle.AutoSize = True
-        lblTitle.UseMnemonic = False
         lblTitle.BackColor = Color.Transparent
         lblTitle.Font = New Font("Segoe UI", 11.5F, FontStyle.Bold)
         lblTitle.ForeColor = Color.FromArgb(CByte(1), CByte(123), CByte(128))
@@ -192,21 +192,24 @@ Partial Class CustomMessageBox
         lblTitle.Size = New Size(81, 21)
         lblTitle.TabIndex = 0
         lblTitle.Text = "INOM Air"
+        lblTitle.UseMnemonic = False
         btnCloseHeader.Anchor = AnchorStyles.Top Or AnchorStyles.Right
         btnCloseHeader.Animated = True
         btnCloseHeader.BackColor = Color.Transparent
         btnCloseHeader.Cursor = Cursors.Hand
         btnCloseHeader.FillColor = Color.FromArgb(CByte(245), CByte(245), CByte(248))
-        btnCloseHeader.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
+        btnCloseHeader.Font = New Font("Segoe UI", 9.0F, FontStyle.Bold)
         btnCloseHeader.ForeColor = Color.FromArgb(CByte(120), CByte(125), CByte(135))
         btnCloseHeader.Location = New Point(458, 12)
         btnCloseHeader.Name = "btnCloseHeader"
-        btnCloseHeader.ShadowDecoration.CustomizableEdges = CustomizableEdges7
+        btnCloseHeader.ShadowDecoration.CustomizableEdges = CustomizableEdges18
         btnCloseHeader.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle
         btnCloseHeader.Size = New Size(28, 28)
         btnCloseHeader.TabIndex = 1
         btnCloseHeader.Text = "✕"
-        AutoScaleDimensions = New SizeF(7F, 15F)
+        Guna2Elipse1.BorderRadius = 30
+        Guna2Elipse1.TargetControl = Me
+        AutoScaleDimensions = New SizeF(7.0F, 15.0F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.White
         ClientSize = New Size(500, 220)
@@ -222,6 +225,7 @@ Partial Class CustomMessageBox
         pnlBody.PerformLayout()
         iconCircle.ResumeLayout(False)
         pnlFooter.ResumeLayout(False)
+        pnlFooter.PerformLayout()
         pnlHeader.ResumeLayout(False)
         pnlHeader.PerformLayout()
         ResumeLayout(False)
@@ -241,4 +245,5 @@ Partial Class CustomMessageBox
     Friend WithEvents lblScrollHint As Label
     Friend WithEvents btnPrimary As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents btnSecondary As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents Guna2Elipse1 As Guna.UI2.WinForms.Guna2Elipse
 End Class

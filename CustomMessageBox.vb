@@ -390,4 +390,8 @@ Partial Public Class CustomMessageBox
             End If
         End Using
     End Function
+
+    Private Sub btnPrimary_Click(sender As Object, e As EventArgs) Handles btnPrimary.Click
+
+    End Sub
 End Class
