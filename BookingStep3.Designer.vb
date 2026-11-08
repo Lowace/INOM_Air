@@ -41,6 +41,7 @@ Partial Class BookingStep3
         Dim CustomizableEdges14 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges17 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges18 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(BookingStep3))
         Guna2BorderlessForm1 = New Guna.UI2.WinForms.Guna2BorderlessForm(components)
         pnlTopBar = New Guna.UI2.WinForms.Guna2Panel()
         lblPlaneLogo = New Label()
@@ -68,6 +69,7 @@ Partial Class BookingStep3
         btnB3Back = New Guna.UI2.WinForms.Guna2Button()
         btnB3Next = New Guna.UI2.WinForms.Guna2Button()
         pnlB3RightSummary = New Guna.UI2.WinForms.Guna2Panel()
+        PictureBox1 = New PictureBox()
         lblB3SummaryHeader = New Label()
         lblB3SummaryDate = New Label()
         lblB3SummaryRoute = New Label()
@@ -75,7 +77,6 @@ Partial Class BookingStep3
         pnlB3SumDivider = New Panel()
         lblB3SummaryTotalLabel = New Label()
         lblB3SummaryTotalAmount = New Label()
-        PictureBox1 = New PictureBox()
         pnlTopBar.SuspendLayout()
         pnlBody.SuspendLayout()
         pnlB3GuestInputs.SuspendLayout()
@@ -393,6 +394,13 @@ Partial Class BookingStep3
         pnlB3RightSummary.ShadowDecoration.Enabled = True
         pnlB3RightSummary.Size = New Size(305, 510)
         pnlB3RightSummary.TabIndex = 1
+        PictureBox1.Image = My.Resources.Resources._66ba3ddf_8faf_4108_a1e3_2e78fb6e00b3NOBG
+        PictureBox1.Location = New Point(183, 3)
+        PictureBox1.Name = "PictureBox1"
+        PictureBox1.Size = New Size(122, 76)
+        PictureBox1.SizeMode = PictureBoxSizeMode.StretchImage
+        PictureBox1.TabIndex = 18
+        PictureBox1.TabStop = False
         lblB3SummaryHeader.AutoSize = True
         lblB3SummaryHeader.Font = New Font("Segoe UI", 14F, FontStyle.Bold)
         lblB3SummaryHeader.ForeColor = Color.FromArgb(CByte(1), CByte(123), CByte(128))
@@ -446,13 +454,6 @@ Partial Class BookingStep3
         lblB3SummaryTotalAmount.Size = New Size(189, 37)
         lblB3SummaryTotalAmount.TabIndex = 6
         lblB3SummaryTotalAmount.Text = "PHP 3,690.00"
-        PictureBox1.Image = My.Resources.Resources._66ba3ddf_8faf_4108_a1e3_2e78fb6e00b3NOBG
-        PictureBox1.Location = New Point(183, 3)
-        PictureBox1.Name = "PictureBox1"
-        PictureBox1.Size = New Size(122, 76)
-        PictureBox1.SizeMode = PictureBoxSizeMode.StretchImage
-        PictureBox1.TabIndex = 18
-        PictureBox1.TabStop = False
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.FromArgb(CByte(237), CByte(229), CByte(216))
@@ -460,6 +461,7 @@ Partial Class BookingStep3
         Controls.Add(pnlBody)
         Controls.Add(pnlTopBar)
         FormBorderStyle = FormBorderStyle.None
+        Icon = CType(resources.GetObject("$this.Icon"), Icon)
         Name = "BookingStep3"
         StartPosition = FormStartPosition.CenterScreen
         Text = "INOM Air - Guest Details"

@@ -45,6 +45,7 @@ Partial Class PaymentForm
         Dim CustomizableEdges16 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges17 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges18 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(PaymentForm))
         Guna2BorderlessForm1 = New Guna.UI2.WinForms.Guna2BorderlessForm(components)
         pnlTopBar = New Guna.UI2.WinForms.Guna2Panel()
         lblPlaneLogo = New Label()
@@ -53,6 +54,7 @@ Partial Class PaymentForm
         btnCloseX = New Guna.UI2.WinForms.Guna2CircleButton()
         pnlBody = New Guna.UI2.WinForms.Guna2Panel()
         pnlPaySidebar = New Guna.UI2.WinForms.Guna2Panel()
+        PictureBox1 = New PictureBox()
         lblSidebarTitle = New Label()
         lblPayPassenger = New Label()
         lblPayRoute = New Label()
@@ -71,13 +73,12 @@ Partial Class PaymentForm
         txtPayField2 = New Guna.UI2.WinForms.Guna2TextBox()
         txtPayField3 = New Guna.UI2.WinForms.Guna2TextBox()
         btnConfirmPayment = New Guna.UI2.WinForms.Guna2Button()
-        PictureBox1 = New PictureBox()
         pnlTopBar.SuspendLayout()
         pnlBody.SuspendLayout()
         pnlPaySidebar.SuspendLayout()
+        CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         pnlPayMain.SuspendLayout()
         pnlPayInputs.SuspendLayout()
-        CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         Guna2BorderlessForm1.BorderRadius = 24
         Guna2BorderlessForm1.ContainerControl = Me
@@ -165,6 +166,13 @@ Partial Class PaymentForm
         pnlPaySidebar.ShadowDecoration.Enabled = True
         pnlPaySidebar.Size = New Size(310, 490)
         pnlPaySidebar.TabIndex = 0
+        PictureBox1.Image = My.Resources.Resources._66ba3ddf_8faf_4108_a1e3_2e78fb6e00b3NOBG
+        PictureBox1.Location = New Point(49, 290)
+        PictureBox1.Name = "PictureBox1"
+        PictureBox1.Size = New Size(198, 109)
+        PictureBox1.SizeMode = PictureBoxSizeMode.StretchImage
+        PictureBox1.TabIndex = 13
+        PictureBox1.TabStop = False
         lblSidebarTitle.AutoSize = True
         lblSidebarTitle.Font = New Font("Segoe UI", 13F, FontStyle.Bold)
         lblSidebarTitle.ForeColor = Color.FromArgb(CByte(1), CByte(123), CByte(128))
@@ -368,13 +376,6 @@ Partial Class PaymentForm
         btnConfirmPayment.Size = New Size(490, 56)
         btnConfirmPayment.TabIndex = 4
         btnConfirmPayment.Text = "Confirm & Pay PHP 3,690.00 ✓"
-        PictureBox1.Image = My.Resources.Resources._66ba3ddf_8faf_4108_a1e3_2e78fb6e00b3NOBG
-        PictureBox1.Location = New Point(49, 290)
-        PictureBox1.Name = "PictureBox1"
-        PictureBox1.Size = New Size(198, 109)
-        PictureBox1.SizeMode = PictureBoxSizeMode.StretchImage
-        PictureBox1.TabIndex = 13
-        PictureBox1.TabStop = False
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.FromArgb(CByte(237), CByte(229), CByte(216))
@@ -382,6 +383,7 @@ Partial Class PaymentForm
         Controls.Add(pnlBody)
         Controls.Add(pnlTopBar)
         FormBorderStyle = FormBorderStyle.None
+        Icon = CType(resources.GetObject("$this.Icon"), Icon)
         Name = "PaymentForm"
         StartPosition = FormStartPosition.CenterScreen
         Text = "INOM Air - Payment"
@@ -390,10 +392,10 @@ Partial Class PaymentForm
         pnlBody.ResumeLayout(False)
         pnlPaySidebar.ResumeLayout(False)
         pnlPaySidebar.PerformLayout()
+        CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
         pnlPayMain.ResumeLayout(False)
         pnlPayInputs.ResumeLayout(False)
         pnlPayInputs.PerformLayout()
-        CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
     End Sub
 

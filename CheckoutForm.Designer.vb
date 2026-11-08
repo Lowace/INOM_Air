@@ -37,6 +37,7 @@ Partial Class CheckoutForm
         Dim CustomizableEdges10 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges11 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges12 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(CheckoutForm))
         Guna2BorderlessForm1 = New Guna.UI2.WinForms.Guna2BorderlessForm(components)
         pnlTopBar = New Guna.UI2.WinForms.Guna2Panel()
         lblPlaneLogo = New Label()
@@ -45,6 +46,7 @@ Partial Class CheckoutForm
         btnCloseX = New Guna.UI2.WinForms.Guna2CircleButton()
         pnlBody = New Guna.UI2.WinForms.Guna2Panel()
         pnlBreakdownModal = New Guna.UI2.WinForms.Guna2Panel()
+        PictureBox1 = New PictureBox()
         lblModalHeader = New Label()
         lblModBaseFare = New Label()
         lblModAdminFee = New Label()
@@ -76,13 +78,12 @@ Partial Class CheckoutForm
         lblRightTotal = New Label()
         btnContinueToPayment = New Guna.UI2.WinForms.Guna2Button()
         btnCheckoutBack = New Guna.UI2.WinForms.Guna2Button()
-        PictureBox1 = New PictureBox()
         pnlTopBar.SuspendLayout()
         pnlBody.SuspendLayout()
         pnlBreakdownModal.SuspendLayout()
+        CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         pnlCheckoutLeft.SuspendLayout()
         pnlCheckoutRight.SuspendLayout()
-        CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         Guna2BorderlessForm1.BorderRadius = 24
         Guna2BorderlessForm1.ContainerControl = Me
@@ -176,6 +177,13 @@ Partial Class CheckoutForm
         pnlBreakdownModal.Size = New Size(630, 480)
         pnlBreakdownModal.TabIndex = 2
         pnlBreakdownModal.Visible = False
+        PictureBox1.Image = My.Resources.Resources._66ba3ddf_8faf_4108_a1e3_2e78fb6e00b3NOBG
+        PictureBox1.Location = New Point(437, 12)
+        PictureBox1.Name = "PictureBox1"
+        PictureBox1.Size = New Size(188, 124)
+        PictureBox1.SizeMode = PictureBoxSizeMode.StretchImage
+        PictureBox1.TabIndex = 13
+        PictureBox1.TabStop = False
         lblModalHeader.AutoSize = True
         lblModalHeader.Font = New Font("Segoe UI", 14F, FontStyle.Bold)
         lblModalHeader.ForeColor = Color.FromArgb(CByte(1), CByte(123), CByte(128))
@@ -465,13 +473,6 @@ Partial Class CheckoutForm
         btnCheckoutBack.Size = New Size(280, 42)
         btnCheckoutBack.TabIndex = 5
         btnCheckoutBack.Text = "← Back to Refundability"
-        PictureBox1.Image = My.Resources.Resources._66ba3ddf_8faf_4108_a1e3_2e78fb6e00b3NOBG
-        PictureBox1.Location = New Point(437, 12)
-        PictureBox1.Name = "PictureBox1"
-        PictureBox1.Size = New Size(188, 124)
-        PictureBox1.SizeMode = PictureBoxSizeMode.StretchImage
-        PictureBox1.TabIndex = 13
-        PictureBox1.TabStop = False
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.FromArgb(CByte(237), CByte(229), CByte(216))
@@ -479,6 +480,7 @@ Partial Class CheckoutForm
         Controls.Add(pnlBody)
         Controls.Add(pnlTopBar)
         FormBorderStyle = FormBorderStyle.None
+        Icon = CType(resources.GetObject("$this.Icon"), Icon)
         Name = "CheckoutForm"
         StartPosition = FormStartPosition.CenterScreen
         Text = "INOM Air - Checkout Summary"
@@ -487,11 +489,11 @@ Partial Class CheckoutForm
         pnlBody.ResumeLayout(False)
         pnlBreakdownModal.ResumeLayout(False)
         pnlBreakdownModal.PerformLayout()
+        CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
         pnlCheckoutLeft.ResumeLayout(False)
         pnlCheckoutLeft.PerformLayout()
         pnlCheckoutRight.ResumeLayout(False)
         pnlCheckoutRight.PerformLayout()
-        CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
     End Sub
 

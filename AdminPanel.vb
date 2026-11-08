@@ -1,10 +1,10 @@
-Imports System.Data
+ï»¿Imports System.Data
 Imports System.Linq
 
 Public Class AdminPanel
 
     Private Sub AdminPanel_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        lblAdminHeaderTitle.Text = "International NOM Airlines • Admin / Staff"
+        lblAdminHeaderTitle.Text = "International NOM Airlines ï¿½ Admin / Staff"
         btnClose.Text = "?"
         btnNavDashboard.Text = "?? Dashboard"
         btnNavPlanes.Text = "? Planes"

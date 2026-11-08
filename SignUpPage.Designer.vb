@@ -55,12 +55,14 @@ Partial Class SignUpPage
         Dim CustomizableEdges31 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges32 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges33 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(SignUpPage))
         Guna2BorderlessForm1 = New Guna.UI2.WinForms.Guna2BorderlessForm(components)
         pnlDecoGold = New Guna.UI2.WinForms.Guna2Panel()
         pnlDecoBlue = New Guna.UI2.WinForms.Guna2Panel()
         btnClose = New Guna.UI2.WinForms.Guna2CircleButton()
         pnlMainCard = New Guna.UI2.WinForms.Guna2Panel()
         pnlStep1 = New Guna.UI2.WinForms.Guna2Panel()
+        PictureBox1 = New PictureBox()
         lblBrandName1 = New Label()
         lblUser1 = New Label()
         txtRegUsername = New Guna.UI2.WinForms.Guna2TextBox()
@@ -90,13 +92,12 @@ Partial Class SignUpPage
         chkSeniorPwd = New Guna.UI2.WinForms.Guna2CheckBox()
         btnBackToStep1 = New Guna.UI2.WinForms.Guna2Button()
         btnSubmitSignup = New Guna.UI2.WinForms.Guna2Button()
-        PictureBox1 = New PictureBox()
         pnlMainCard.SuspendLayout()
         pnlStep1.SuspendLayout()
+        CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         pnlStep2.SuspendLayout()
         pnlHeaderLogo2.SuspendLayout()
         pnlPrefix.SuspendLayout()
-        CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         Guna2BorderlessForm1.BorderRadius = 30
         Guna2BorderlessForm1.ContainerControl = Me
@@ -168,6 +169,13 @@ Partial Class SignUpPage
         pnlStep1.ShadowDecoration.CustomizableEdges = CustomizableEdges17
         pnlStep1.Size = New Size(428, 540)
         pnlStep1.TabIndex = 0
+        PictureBox1.Image = My.Resources.Resources._66ba3ddf_8faf_4108_a1e3_2e78fb6e00b3NOBG
+        PictureBox1.Location = New Point(17, 14)
+        PictureBox1.Name = "PictureBox1"
+        PictureBox1.Size = New Size(122, 76)
+        PictureBox1.SizeMode = PictureBoxSizeMode.StretchImage
+        PictureBox1.TabIndex = 11
+        PictureBox1.TabStop = False
         lblBrandName1.Font = New Font("Segoe UI", 13F, FontStyle.Bold)
         lblBrandName1.ForeColor = Color.FromArgb(CByte(105), CByte(105), CByte(105))
         lblBrandName1.Location = New Point(135, 30)
@@ -506,13 +514,6 @@ Partial Class SignUpPage
         btnSubmitSignup.Size = New Size(180, 48)
         btnSubmitSignup.TabIndex = 16
         btnSubmitSignup.Text = "Signup"
-        PictureBox1.Image = My.Resources.Resources._66ba3ddf_8faf_4108_a1e3_2e78fb6e00b3NOBG
-        PictureBox1.Location = New Point(17, 14)
-        PictureBox1.Name = "PictureBox1"
-        PictureBox1.Size = New Size(122, 76)
-        PictureBox1.SizeMode = PictureBoxSizeMode.StretchImage
-        PictureBox1.TabIndex = 11
-        PictureBox1.TabStop = False
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.FromArgb(CByte(237), CByte(229), CByte(216))
@@ -522,17 +523,18 @@ Partial Class SignUpPage
         Controls.Add(btnClose)
         Controls.Add(pnlMainCard)
         FormBorderStyle = FormBorderStyle.None
+        Icon = CType(resources.GetObject("$this.Icon"), Icon)
         Name = "SignUpPage"
         StartPosition = FormStartPosition.CenterScreen
         Text = "INOM Air - Sign Up"
         pnlMainCard.ResumeLayout(False)
         pnlStep1.ResumeLayout(False)
         pnlStep1.PerformLayout()
+        CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
         pnlStep2.ResumeLayout(False)
         pnlStep2.PerformLayout()
         pnlHeaderLogo2.ResumeLayout(False)
         pnlPrefix.ResumeLayout(False)
-        CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
     End Sub
 

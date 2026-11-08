@@ -27,6 +27,7 @@ Partial Class BoardingTicket
         Dim CustomizableEdges2 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges3 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges4 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(BoardingTicket))
         Guna2BorderlessForm1 = New Guna.UI2.WinForms.Guna2BorderlessForm(components)
         pnlTopBar = New Guna.UI2.WinForms.Guna2Panel()
         lblPlaneLogo = New Label()
@@ -326,6 +327,7 @@ Partial Class BoardingTicket
         Controls.Add(pnlTicketCard)
         Controls.Add(pnlTopBar)
         FormBorderStyle = FormBorderStyle.None
+        Icon = CType(resources.GetObject("$this.Icon"), Icon)
         Name = "BoardingTicket"
         StartPosition = FormStartPosition.CenterParent
         Text = "Boarding Ticket"

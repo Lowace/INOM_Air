@@ -35,11 +35,13 @@ Partial Class StartingPage
         Dim CustomizableEdges4 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges1 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges2 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(StartingPage))
         Guna2BorderlessForm1 = New Guna.UI2.WinForms.Guna2BorderlessForm(components)
         btnClose = New Guna.UI2.WinForms.Guna2CircleButton()
         pnlDecoShape2 = New Guna.UI2.WinForms.Guna2Panel()
         pnlDecoShape3 = New Guna.UI2.WinForms.Guna2Panel()
         pnlMainCard = New Guna.UI2.WinForms.Guna2Panel()
+        PictureBox1 = New PictureBox()
         lblLogoTitle = New Label()
         lblTagline = New Label()
         btnLogin = New Guna.UI2.WinForms.Guna2Button()
@@ -48,7 +50,6 @@ Partial Class StartingPage
         lblVersion = New Label()
         Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
         Guna2Panel2 = New Guna.UI2.WinForms.Guna2Panel()
-        PictureBox1 = New PictureBox()
         pnlMainCard.SuspendLayout()
         CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
@@ -112,6 +113,13 @@ Partial Class StartingPage
         pnlMainCard.ShadowDecoration.Enabled = True
         pnlMainCard.Size = New Size(420, 520)
         pnlMainCard.TabIndex = 3
+        PictureBox1.Image = My.Resources.Resources._66ba3ddf_8faf_4108_a1e3_2e78fb6e00b3NOBG
+        PictureBox1.Location = New Point(72, 47)
+        PictureBox1.Name = "PictureBox1"
+        PictureBox1.Size = New Size(279, 165)
+        PictureBox1.SizeMode = PictureBoxSizeMode.StretchImage
+        PictureBox1.TabIndex = 6
+        PictureBox1.TabStop = False
         lblLogoTitle.Font = New Font("Segoe UI", 18F, FontStyle.Bold)
         lblLogoTitle.ForeColor = Color.FromArgb(CByte(105), CByte(105), CByte(105))
         lblLogoTitle.Location = New Point(20, 215)
@@ -197,13 +205,6 @@ Partial Class StartingPage
         Guna2Panel2.ShadowDecoration.CustomizableEdges = CustomizableEdges2
         Guna2Panel2.Size = New Size(125, 112)
         Guna2Panel2.TabIndex = 3
-        PictureBox1.Image = My.Resources.Resources._66ba3ddf_8faf_4108_a1e3_2e78fb6e00b3NOBG
-        PictureBox1.Location = New Point(72, 47)
-        PictureBox1.Name = "PictureBox1"
-        PictureBox1.Size = New Size(279, 165)
-        PictureBox1.SizeMode = PictureBoxSizeMode.StretchImage
-        PictureBox1.TabIndex = 6
-        PictureBox1.TabStop = False
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.FromArgb(CByte(237), CByte(229), CByte(216))
@@ -216,6 +217,7 @@ Partial Class StartingPage
         Controls.Add(pnlMainCard)
         Controls.Add(lblVersion)
         FormBorderStyle = FormBorderStyle.None
+        Icon = CType(resources.GetObject("$this.Icon"), Icon)
         Name = "StartingPage"
         StartPosition = FormStartPosition.CenterScreen
         Text = "INOM Air - Welcome"

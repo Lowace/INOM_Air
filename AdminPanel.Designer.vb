@@ -113,6 +113,7 @@ Partial Class AdminPanel
         Dim CustomizableEdges70 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges71 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges72 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(AdminPanel))
         Guna2BorderlessForm1 = New Guna.UI2.WinForms.Guna2BorderlessForm(components)
         pnlTopBar = New Guna.UI2.WinForms.Guna2Panel()
         lblAdminHeaderTitle = New Label()
@@ -227,7 +228,7 @@ Partial Class AdminPanel
         lblAdminHeaderTitle.ForeColor = Color.White
         lblAdminHeaderTitle.Location = New Point(20, 16)
         lblAdminHeaderTitle.Name = "lblAdminHeaderTitle"
-        lblAdminHeaderTitle.Size = New Size(384, 25)
+        lblAdminHeaderTitle.Size = New Size(375, 25)
         lblAdminHeaderTitle.TabIndex = 0
         lblAdminHeaderTitle.Text = "International NOM Airlines • Admin / Staff"
         btnLogout.Animated = True
@@ -324,7 +325,7 @@ Partial Class AdminPanel
         btnNavPilots.ShadowDecoration.CustomizableEdges = CustomizableEdges84
         btnNavPilots.Size = New Size(160, 44)
         btnNavPilots.TabIndex = 3
-        btnNavPilots.Text = "🧑‍✈️ Pilots"
+        btnNavPilots.Text = ChrW(55358) & ChrW(56785) & "‍✈️ Pilots"
         btnNavSchedules.Animated = True
         btnNavSchedules.BorderRadius = 12
         btnNavSchedules.Cursor = Cursors.Hand
@@ -500,7 +501,7 @@ Partial Class AdminPanel
         lblCardPlanesTitle.ForeColor = Color.FromArgb(CByte(105), CByte(105), CByte(105))
         lblCardPlanesTitle.Location = New Point(20, 20)
         lblCardPlanesTitle.Name = "lblCardPlanesTitle"
-        lblCardPlanesTitle.Size = New Size(144, 21)
+        lblCardPlanesTitle.Size = New Size(160, 21)
         lblCardPlanesTitle.TabIndex = 0
         lblCardPlanesTitle.Text = "✈ Manage Aircraft"
         lblCardPlanesDesc.Font = New Font("Segoe UI", 9F)
@@ -543,7 +544,7 @@ Partial Class AdminPanel
         lblCardUsersTitle.ForeColor = Color.FromArgb(CByte(105), CByte(105), CByte(105))
         lblCardUsersTitle.Location = New Point(20, 20)
         lblCardUsersTitle.Name = "lblCardUsersTitle"
-        lblCardUsersTitle.Size = New Size(183, 21)
+        lblCardUsersTitle.Size = New Size(192, 21)
         lblCardUsersTitle.TabIndex = 0
         lblCardUsersTitle.Text = "👥 Review User Profiles"
         lblCardUsersDesc.Font = New Font("Segoe UI", 9F)
@@ -586,9 +587,9 @@ Partial Class AdminPanel
         lblCardPilotsTitle.ForeColor = Color.FromArgb(CByte(105), CByte(105), CByte(105))
         lblCardPilotsTitle.Location = New Point(20, 20)
         lblCardPilotsTitle.Name = "lblCardPilotsTitle"
-        lblCardPilotsTitle.Size = New Size(194, 21)
+        lblCardPilotsTitle.Size = New Size(189, 21)
         lblCardPilotsTitle.TabIndex = 0
-        lblCardPilotsTitle.Text = "🧑‍✈️ Manage Flight Crew"
+        lblCardPilotsTitle.Text = ChrW(55358) & ChrW(56785) & "‍✈️ Manage Flight Crew"
         lblCardPilotsDesc.Font = New Font("Segoe UI", 9F)
         lblCardPilotsDesc.ForeColor = Color.FromArgb(CByte(100), CByte(100), CByte(115))
         lblCardPilotsDesc.Location = New Point(20, 50)
@@ -629,7 +630,7 @@ Partial Class AdminPanel
         lblCardSchedulesTitle.ForeColor = Color.FromArgb(CByte(105), CByte(105), CByte(105))
         lblCardSchedulesTitle.Location = New Point(20, 20)
         lblCardSchedulesTitle.Name = "lblCardSchedulesTitle"
-        lblCardSchedulesTitle.Size = New Size(219, 21)
+        lblCardSchedulesTitle.Size = New Size(228, 21)
         lblCardSchedulesTitle.TabIndex = 0
         lblCardSchedulesTitle.Text = "📅 Manage Flight Schedules"
         lblCardSchedulesDesc.Font = New Font("Segoe UI", 9F)
@@ -1073,6 +1074,7 @@ Partial Class AdminPanel
         Controls.Add(pnlSidebar)
         Controls.Add(pnlTopBar)
         FormBorderStyle = FormBorderStyle.None
+        Icon = CType(resources.GetObject("$this.Icon"), Icon)
         Name = "AdminPanel"
         StartPosition = FormStartPosition.CenterScreen
         Text = "INOM Air - Admin Dashboard"

@@ -39,6 +39,7 @@ Partial Class BookingStep2
         Dim CustomizableEdges14 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges11 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges12 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(BookingStep2))
         Guna2BorderlessForm1 = New Guna.UI2.WinForms.Guna2BorderlessForm(components)
         pnlTopBar = New Guna.UI2.WinForms.Guna2Panel()
         lblPlaneLogo = New Label()
@@ -50,6 +51,7 @@ Partial Class BookingStep2
         lblB2SummaryTitle = New Label()
         pnlB2LeftDivider = New Panel()
         lblB2Origin = New Label()
+        PictureBox1 = New PictureBox()
         lblB2Dest = New Label()
         lblB2TripType = New Label()
         lblB2CabinClass = New Label()
@@ -69,15 +71,14 @@ Partial Class BookingStep2
         lblF2Type = New Label()
         lblF2Fare = New Label()
         btnF2Select = New Guna.UI2.WinForms.Guna2Button()
-        PictureBox1 = New PictureBox()
         PictureBox2 = New PictureBox()
         pnlTopBar.SuspendLayout()
         pnlBody.SuspendLayout()
         pnlB2Left.SuspendLayout()
+        CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         pnlB2Right.SuspendLayout()
         pnlB2FlightCard1.SuspendLayout()
         pnlB2FlightCard2.SuspendLayout()
-        CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         CType(PictureBox2, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         Guna2BorderlessForm1.BorderRadius = 24
@@ -187,6 +188,13 @@ Partial Class BookingStep2
         lblB2Origin.Size = New Size(155, 20)
         lblB2Origin.TabIndex = 2
         lblB2Origin.Text = "Origin: MNL - Manila"
+        PictureBox1.Image = My.Resources.Resources._66ba3ddf_8faf_4108_a1e3_2e78fb6e00b3NOBG
+        PictureBox1.Location = New Point(-139, 3)
+        PictureBox1.Name = "PictureBox1"
+        PictureBox1.Size = New Size(970, 507)
+        PictureBox1.SizeMode = PictureBoxSizeMode.StretchImage
+        PictureBox1.TabIndex = 14
+        PictureBox1.TabStop = False
         lblB2Dest.AutoSize = True
         lblB2Dest.Font = New Font("Segoe UI", 11F, FontStyle.Bold)
         lblB2Dest.ForeColor = Color.FromArgb(CByte(50), CByte(50), CByte(60))
@@ -386,13 +394,6 @@ Partial Class BookingStep2
         btnF2Select.Size = New Size(110, 46)
         btnF2Select.TabIndex = 4
         btnF2Select.Text = "Select"
-        PictureBox1.Image = My.Resources.Resources._66ba3ddf_8faf_4108_a1e3_2e78fb6e00b3NOBG
-        PictureBox1.Location = New Point(-139, 3)
-        PictureBox1.Name = "PictureBox1"
-        PictureBox1.Size = New Size(970, 507)
-        PictureBox1.SizeMode = PictureBoxSizeMode.StretchImage
-        PictureBox1.TabIndex = 14
-        PictureBox1.TabStop = False
         PictureBox2.Image = My.Resources.Resources._66ba3ddf_8faf_4108_a1e3_2e78fb6e00b3NOBG
         PictureBox2.Location = New Point(-469, 3)
         PictureBox2.Name = "PictureBox2"
@@ -407,6 +408,7 @@ Partial Class BookingStep2
         Controls.Add(pnlBody)
         Controls.Add(pnlTopBar)
         FormBorderStyle = FormBorderStyle.None
+        Icon = CType(resources.GetObject("$this.Icon"), Icon)
         Name = "BookingStep2"
         StartPosition = FormStartPosition.CenterScreen
         Text = "INOM Air - Select Flight"
@@ -415,13 +417,13 @@ Partial Class BookingStep2
         pnlBody.ResumeLayout(False)
         pnlB2Left.ResumeLayout(False)
         pnlB2Left.PerformLayout()
+        CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
         pnlB2Right.ResumeLayout(False)
         pnlB2Right.PerformLayout()
         pnlB2FlightCard1.ResumeLayout(False)
         pnlB2FlightCard1.PerformLayout()
         pnlB2FlightCard2.ResumeLayout(False)
         pnlB2FlightCard2.PerformLayout()
-        CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
         CType(PictureBox2, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
     End Sub

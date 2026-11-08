@@ -29,14 +29,15 @@ Partial Class PickSeats
         Dim CustomizableEdges2 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges3 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges4 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(PickSeats))
         Guna2BorderlessForm1 = New Guna.UI2.WinForms.Guna2BorderlessForm(components)
         pnlTopBar = New Guna.UI2.WinForms.Guna2Panel()
         lblTitle = New Label()
         btnClose = New Guna.UI2.WinForms.Guna2CircleButton()
         pnlAirplaneFuselage = New Guna.UI2.WinForms.Guna2Panel()
-        lblCockpit = New Label()
         flpSeatGrid = New FlowLayoutPanel()
         PictureBox1 = New PictureBox()
+        lblCockpit = New Label()
         pnlRightDetails = New Guna.UI2.WinForms.Guna2Panel()
         lblSelectedSeatTitle = New Label()
         lblSelectedSeatDisplay = New Label()
@@ -105,14 +106,6 @@ Partial Class PickSeats
         pnlAirplaneFuselage.ShadowDecoration.Enabled = True
         pnlAirplaneFuselage.Size = New Size(540, 420)
         pnlAirplaneFuselage.TabIndex = 1
-        lblCockpit.Font = New Font("Segoe UI", 10F, FontStyle.Bold)
-        lblCockpit.ForeColor = Color.FromArgb(CByte(100), CByte(100), CByte(120))
-        lblCockpit.Location = New Point(20, 15)
-        lblCockpit.Name = "lblCockpit"
-        lblCockpit.Size = New Size(500, 25)
-        lblCockpit.TabIndex = 0
-        lblCockpit.Text = "◀ COCKPIT / FRONT OF CABIN"
-        lblCockpit.TextAlign = ContentAlignment.MiddleCenter
         flpSeatGrid.AutoScroll = True
         flpSeatGrid.Location = New Point(20, 50)
         flpSeatGrid.Name = "flpSeatGrid"
@@ -126,6 +119,14 @@ Partial Class PickSeats
         PictureBox1.SizeMode = PictureBoxSizeMode.StretchImage
         PictureBox1.TabIndex = 13
         PictureBox1.TabStop = False
+        lblCockpit.Font = New Font("Segoe UI", 10F, FontStyle.Bold)
+        lblCockpit.ForeColor = Color.FromArgb(CByte(100), CByte(100), CByte(120))
+        lblCockpit.Location = New Point(20, 15)
+        lblCockpit.Name = "lblCockpit"
+        lblCockpit.Size = New Size(500, 25)
+        lblCockpit.TabIndex = 0
+        lblCockpit.Text = "◀ COCKPIT / FRONT OF CABIN"
+        lblCockpit.TextAlign = ContentAlignment.MiddleCenter
         pnlRightDetails.BackColor = Color.Transparent
         pnlRightDetails.BorderColor = Color.FromArgb(CByte(215), CByte(215), CByte(220))
         pnlRightDetails.BorderRadius = 24
@@ -241,6 +242,7 @@ Partial Class PickSeats
         Controls.Add(pnlAirplaneFuselage)
         Controls.Add(pnlTopBar)
         FormBorderStyle = FormBorderStyle.None
+        Icon = CType(resources.GetObject("$this.Icon"), Icon)
         Name = "PickSeats"
         StartPosition = FormStartPosition.CenterParent
         Text = "Seat Selection"

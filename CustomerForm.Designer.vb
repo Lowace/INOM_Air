@@ -51,6 +51,7 @@ Partial Class CustomerForm
         Dim CustomizableEdges24 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges21 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges22 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(CustomerForm))
         Guna2BorderlessForm1 = New Guna.UI2.WinForms.Guna2BorderlessForm(components)
         pnlTopBar = New Guna.UI2.WinForms.Guna2Panel()
         lblBrandHeader = New Label()
@@ -59,6 +60,7 @@ Partial Class CustomerForm
         pnlContentContainer = New Guna.UI2.WinForms.Guna2Panel()
         pnlProfileDashboard = New Guna.UI2.WinForms.Guna2Panel()
         pnlWelcomeCard = New Guna.UI2.WinForms.Guna2Panel()
+        PictureBox1 = New PictureBox()
         lblAvatarCircle = New Label()
         lblWelcomePrefix = New Label()
         lblWelcomeName = New Label()
@@ -92,12 +94,12 @@ Partial Class CustomerForm
         lblInfoContact = New Label()
         lblInfoGender = New Label()
         btnViewProfileInfo = New Guna.UI2.WinForms.Guna2Button()
-        PictureBox1 = New PictureBox()
         Guna2Elipse1 = New Guna.UI2.WinForms.Guna2Elipse(components)
         pnlTopBar.SuspendLayout()
         pnlContentContainer.SuspendLayout()
         pnlProfileDashboard.SuspendLayout()
         pnlWelcomeCard.SuspendLayout()
+        CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         pnlStatTotal.SuspendLayout()
         pnlStatCompleted.SuspendLayout()
         pnlStatCancelled.SuspendLayout()
@@ -106,7 +108,6 @@ Partial Class CustomerForm
         pnlNoBookings.SuspendLayout()
         pnlHasBooking.SuspendLayout()
         pnlUserInfoCard.SuspendLayout()
-        CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         Guna2BorderlessForm1.BorderRadius = 30
         Guna2BorderlessForm1.ContainerControl = Me
@@ -201,6 +202,13 @@ Partial Class CustomerForm
         pnlWelcomeCard.ShadowDecoration.Enabled = True
         pnlWelcomeCard.Size = New Size(1040, 95)
         pnlWelcomeCard.TabIndex = 0
+        PictureBox1.Image = My.Resources.Resources._66ba3ddf_8faf_4108_a1e3_2e78fb6e00b3NOBG
+        PictureBox1.Location = New Point(914, 7)
+        PictureBox1.Name = "PictureBox1"
+        PictureBox1.Size = New Size(122, 76)
+        PictureBox1.SizeMode = PictureBoxSizeMode.StretchImage
+        PictureBox1.TabIndex = 12
+        PictureBox1.TabStop = False
         lblAvatarCircle.BackColor = Color.FromArgb(CByte(237), CByte(229), CByte(216))
         lblAvatarCircle.Font = New Font("Segoe UI Emoji", 26F)
         lblAvatarCircle.ForeColor = Color.FromArgb(CByte(1), CByte(123), CByte(128))
@@ -535,13 +543,6 @@ Partial Class CustomerForm
         btnViewProfileInfo.Size = New Size(125, 38)
         btnViewProfileInfo.TabIndex = 4
         btnViewProfileInfo.Text = "View Profile"
-        PictureBox1.Image = My.Resources.Resources._66ba3ddf_8faf_4108_a1e3_2e78fb6e00b3NOBG
-        PictureBox1.Location = New Point(914, 7)
-        PictureBox1.Name = "PictureBox1"
-        PictureBox1.Size = New Size(122, 76)
-        PictureBox1.SizeMode = PictureBoxSizeMode.StretchImage
-        PictureBox1.TabIndex = 12
-        PictureBox1.TabStop = False
         Guna2Elipse1.BorderRadius = 40
         Guna2Elipse1.TargetControl = lblAvatarCircle
         AutoScaleDimensions = New SizeF(7F, 15F)
@@ -551,6 +552,7 @@ Partial Class CustomerForm
         Controls.Add(pnlContentContainer)
         Controls.Add(pnlTopBar)
         FormBorderStyle = FormBorderStyle.None
+        Icon = CType(resources.GetObject("$this.Icon"), Icon)
         Name = "CustomerForm"
         StartPosition = FormStartPosition.CenterScreen
         Text = "INOM Air - Customer Dashboard"
@@ -560,6 +562,7 @@ Partial Class CustomerForm
         pnlProfileDashboard.ResumeLayout(False)
         pnlWelcomeCard.ResumeLayout(False)
         pnlWelcomeCard.PerformLayout()
+        CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
         pnlStatTotal.ResumeLayout(False)
         pnlStatTotal.PerformLayout()
         pnlStatCompleted.ResumeLayout(False)
@@ -574,7 +577,6 @@ Partial Class CustomerForm
         pnlHasBooking.PerformLayout()
         pnlUserInfoCard.ResumeLayout(False)
         pnlUserInfoCard.PerformLayout()
-        CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
     End Sub
 

@@ -33,10 +33,12 @@ Partial Class SignInPage
         Dim CustomizableEdges12 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges13 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges5 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(SignInPage))
         Guna2BorderlessForm1 = New Guna.UI2.WinForms.Guna2BorderlessForm(components)
         pnlDecoGold = New Guna.UI2.WinForms.Guna2Panel()
         pnlDecoBlue = New Guna.UI2.WinForms.Guna2Panel()
         pnlMainCard = New Guna.UI2.WinForms.Guna2Panel()
+        PictureBox1 = New PictureBox()
         lblBrandName = New Label()
         lblUsernameTitle = New Label()
         txtUsername = New Guna.UI2.WinForms.Guna2TextBox()
@@ -47,7 +49,6 @@ Partial Class SignInPage
         lblDemoHint = New Label()
         lblGoToSignUp = New Label()
         btnClose = New Guna.UI2.WinForms.Guna2CircleButton()
-        PictureBox1 = New PictureBox()
         pnlMainCard.SuspendLayout()
         CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
@@ -98,6 +99,13 @@ Partial Class SignInPage
         pnlMainCard.ShadowDecoration.Enabled = True
         pnlMainCard.Size = New Size(420, 530)
         pnlMainCard.TabIndex = 2
+        PictureBox1.Image = My.Resources.Resources._66ba3ddf_8faf_4108_a1e3_2e78fb6e00b3NOBG
+        PictureBox1.Location = New Point(20, 27)
+        PictureBox1.Name = "PictureBox1"
+        PictureBox1.Size = New Size(122, 76)
+        PictureBox1.SizeMode = PictureBoxSizeMode.StretchImage
+        PictureBox1.TabIndex = 12
+        PictureBox1.TabStop = False
         lblBrandName.Font = New Font("Segoe UI", 14F, FontStyle.Bold)
         lblBrandName.ForeColor = Color.FromArgb(CByte(105), CByte(105), CByte(105))
         lblBrandName.Location = New Point(134, 38)
@@ -216,13 +224,6 @@ Partial Class SignInPage
         btnClose.Size = New Size(34, 34)
         btnClose.TabIndex = 10
         btnClose.Text = "✕"
-        PictureBox1.Image = My.Resources.Resources._66ba3ddf_8faf_4108_a1e3_2e78fb6e00b3NOBG
-        PictureBox1.Location = New Point(20, 27)
-        PictureBox1.Name = "PictureBox1"
-        PictureBox1.Size = New Size(122, 76)
-        PictureBox1.SizeMode = PictureBoxSizeMode.StretchImage
-        PictureBox1.TabIndex = 12
-        PictureBox1.TabStop = False
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.FromArgb(CByte(237), CByte(229), CByte(216))
@@ -232,6 +233,7 @@ Partial Class SignInPage
         Controls.Add(btnClose)
         Controls.Add(pnlMainCard)
         FormBorderStyle = FormBorderStyle.None
+        Icon = CType(resources.GetObject("$this.Icon"), Icon)
         Name = "SignInPage"
         StartPosition = FormStartPosition.CenterScreen
         Text = "INOM Air - Login"
