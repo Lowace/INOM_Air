@@ -53,11 +53,12 @@ Partial Class BoardingTicket
         lblClassLabel = New Label()
         lblClassValue = New Label()
         pnlDottedSeparator = New Guna.UI2.WinForms.Guna2Panel()
-        lblTicketBarcode = New Label()
+        picTicketLogo = New PictureBox()
         lblTicketId = New Label()
         btnBack = New Guna.UI2.WinForms.Guna2Button()
         pnlTopBar.SuspendLayout()
         pnlTicketCard.SuspendLayout()
+        CType(picTicketLogo, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         Guna2BorderlessForm1.BorderRadius = 24
         Guna2BorderlessForm1.ContainerControl = Me
@@ -135,7 +136,7 @@ Partial Class BoardingTicket
         pnlTicketCard.Controls.Add(lblClassLabel)
         pnlTicketCard.Controls.Add(lblClassValue)
         pnlTicketCard.Controls.Add(pnlDottedSeparator)
-        pnlTicketCard.Controls.Add(lblTicketBarcode)
+        pnlTicketCard.Controls.Add(picTicketLogo)
         pnlTicketCard.Controls.Add(lblTicketId)
         pnlTicketCard.Controls.Add(btnBack)
         pnlTicketCard.CustomizableEdges = CustomizableEdges5
@@ -291,18 +292,17 @@ Partial Class BoardingTicket
         pnlDottedSeparator.ShadowDecoration.CustomizableEdges = CustomizableEdges2
         pnlDottedSeparator.Size = New Size(620, 2)
         pnlDottedSeparator.TabIndex = 17
-        lblTicketBarcode.AutoSize = True
-        lblTicketBarcode.Font = New Font("Segoe UI", 8.5F, FontStyle.Italic)
-        lblTicketBarcode.ForeColor = Color.FromArgb(CByte(140), CByte(140), CByte(150))
-        lblTicketBarcode.Location = New Point(40, 350)
-        lblTicketBarcode.Name = "lblTicketBarcode"
-        lblTicketBarcode.Size = New Size(148, 15)
-        lblTicketBarcode.TabIndex = 18
-        lblTicketBarcode.Text = "||| | || |||| | | ||| || |||||| | ||| |||| | ||"
+        picTicketLogo.Image = My.Resources.Resources._66ba3ddf_8faf_4108_a1e3_2e78fb6e00b3NOBG
+        picTicketLogo.Location = New Point(40, 336)
+        picTicketLogo.Name = "picTicketLogo"
+        picTicketLogo.Size = New Size(95, 45)
+        picTicketLogo.SizeMode = PictureBoxSizeMode.Zoom
+        picTicketLogo.TabIndex = 18
+        picTicketLogo.TabStop = False
         lblTicketId.AutoSize = True
         lblTicketId.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
         lblTicketId.ForeColor = Color.FromArgb(CByte(80), CByte(80), CByte(90))
-        lblTicketId.Location = New Point(290, 350)
+        lblTicketId.Location = New Point(180, 350)
         lblTicketId.Name = "lblTicketId"
         lblTicketId.Size = New Size(142, 15)
         lblTicketId.TabIndex = 19
@@ -335,6 +335,7 @@ Partial Class BoardingTicket
         pnlTopBar.PerformLayout()
         pnlTicketCard.ResumeLayout(False)
         pnlTicketCard.PerformLayout()
+        CType(picTicketLogo, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
     End Sub
 
@@ -363,7 +364,7 @@ Partial Class BoardingTicket
     Friend WithEvents lblClassLabel As Label
     Friend WithEvents lblClassValue As Label
     Friend WithEvents pnlDottedSeparator As Guna.UI2.WinForms.Guna2Panel
-    Friend WithEvents lblTicketBarcode As Label
+    Friend WithEvents picTicketLogo As PictureBox
     Friend WithEvents lblTicketId As Label
     Friend WithEvents btnBack As Guna.UI2.WinForms.Guna2Button
 
