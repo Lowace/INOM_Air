@@ -9,6 +9,8 @@ Public Class CustomerForm
         Dim user = AppState.CurrentUser
         If user Is Nothing Then Return
         lblWelcomeName.Text = user.GivenName
+        lblWelcomeCustId.Text = "Customer ID: " & user.CustomerId
+        lblInfoCustId.Text = "Customer ID:" & vbCrLf & user.CustomerId
         lblInfoName.Text = "Name:" & vbCrLf & user.FullName
         lblInfoContact.Text = "Contact No:" & vbCrLf & user.ContactNumber
         lblInfoGender.Text = "Gender:" & vbCrLf & user.Gender

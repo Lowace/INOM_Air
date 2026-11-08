@@ -66,6 +66,7 @@ Partial Class CustomerForm
         lblAvatarCircle = New Label()
         lblWelcomePrefix = New Label()
         lblWelcomeName = New Label()
+        lblWelcomeCustId = New Label()
         pnlStatTotal = New Guna.UI2.WinForms.Guna2Panel()
         lblStatTotalNum = New Label()
         lblStatTotalLabel = New Label()
@@ -92,6 +93,7 @@ Partial Class CustomerForm
         lblFlyMotto = New Label()
         pnlUserInfoCard = New Guna.UI2.WinForms.Guna2Panel()
         lblInfoSummaryHeader = New Label()
+        lblInfoCustId = New Label()
         lblInfoName = New Label()
         lblInfoContact = New Label()
         lblInfoGender = New Label()
@@ -195,6 +197,7 @@ Partial Class CustomerForm
         pnlWelcomeCard.Controls.Add(lblAvatarCircle)
         pnlWelcomeCard.Controls.Add(lblWelcomePrefix)
         pnlWelcomeCard.Controls.Add(lblWelcomeName)
+        pnlWelcomeCard.Controls.Add(lblWelcomeCustId)
         pnlWelcomeCard.CustomizableEdges = CustomizableEdges1
         pnlWelcomeCard.FillColor = Color.White
         pnlWelcomeCard.Location = New Point(30, 20)
@@ -222,21 +225,29 @@ Partial Class CustomerForm
         lblAvatarCircle.Text = "👤"
         lblAvatarCircle.TextAlign = ContentAlignment.MiddleLeft
         lblWelcomePrefix.AutoSize = True
-        lblWelcomePrefix.Font = New Font("Segoe UI", 11F)
+        lblWelcomePrefix.Font = New Font("Segoe UI", 10F)
         lblWelcomePrefix.ForeColor = Color.FromArgb(CByte(100), CByte(100), CByte(115))
-        lblWelcomePrefix.Location = New Point(105, 22)
+        lblWelcomePrefix.Location = New Point(105, 12)
         lblWelcomePrefix.Name = "lblWelcomePrefix"
-        lblWelcomePrefix.Size = New Size(74, 20)
+        lblWelcomePrefix.Size = New Size(69, 17)
         lblWelcomePrefix.TabIndex = 1
         lblWelcomePrefix.Text = "Welcome,"
         lblWelcomeName.AutoSize = True
-        lblWelcomeName.Font = New Font("Segoe UI", 22F, FontStyle.Bold)
+        lblWelcomeName.Font = New Font("Segoe UI", 18F, FontStyle.Bold)
         lblWelcomeName.ForeColor = Color.FromArgb(CByte(105), CByte(105), CByte(105))
-        lblWelcomeName.Location = New Point(105, 42)
+        lblWelcomeName.Location = New Point(105, 30)
         lblWelcomeName.Name = "lblWelcomeName"
-        lblWelcomeName.Size = New Size(118, 41)
+        lblWelcomeName.Size = New Size(95, 32)
         lblWelcomeName.TabIndex = 2
         lblWelcomeName.Text = "Naruto"
+        lblWelcomeCustId.AutoSize = True
+        lblWelcomeCustId.Font = New Font("Segoe UI", 9.5F, FontStyle.Bold)
+        lblWelcomeCustId.ForeColor = Color.FromArgb(CByte(1), CByte(123), CByte(128))
+        lblWelcomeCustId.Location = New Point(105, 65)
+        lblWelcomeCustId.Name = "lblWelcomeCustId"
+        lblWelcomeCustId.Size = New Size(150, 17)
+        lblWelcomeCustId.TabIndex = 3
+        lblWelcomeCustId.Text = "Customer ID: CUST-100002"
         pnlStatTotal.BackColor = Color.Transparent
         pnlStatTotal.BorderRadius = 16
         pnlStatTotal.Controls.Add(lblStatTotalNum)
@@ -490,6 +501,7 @@ Partial Class CustomerForm
         pnlUserInfoCard.BackColor = Color.Transparent
         pnlUserInfoCard.BorderRadius = 18
         pnlUserInfoCard.Controls.Add(lblInfoSummaryHeader)
+        pnlUserInfoCard.Controls.Add(lblInfoCustId)
         pnlUserInfoCard.Controls.Add(lblInfoName)
         pnlUserInfoCard.Controls.Add(lblInfoContact)
         pnlUserInfoCard.Controls.Add(lblInfoGender)
@@ -508,31 +520,38 @@ Partial Class CustomerForm
         lblInfoSummaryHeader.AutoSize = True
         lblInfoSummaryHeader.Font = New Font("Segoe UI", 12F, FontStyle.Bold)
         lblInfoSummaryHeader.ForeColor = Color.FromArgb(CByte(105), CByte(105), CByte(105))
-        lblInfoSummaryHeader.Location = New Point(20, 20)
+        lblInfoSummaryHeader.Location = New Point(20, 18)
         lblInfoSummaryHeader.Name = "lblInfoSummaryHeader"
         lblInfoSummaryHeader.Size = New Size(180, 21)
         lblInfoSummaryHeader.TabIndex = 0
         lblInfoSummaryHeader.Text = "Information Summary"
+        lblInfoCustId.Font = New Font("Segoe UI", 9.5F)
+        lblInfoCustId.ForeColor = Color.FromArgb(CByte(70), CByte(70), CByte(80))
+        lblInfoCustId.Location = New Point(20, 48)
+        lblInfoCustId.Name = "lblInfoCustId"
+        lblInfoCustId.Size = New Size(195, 38)
+        lblInfoCustId.TabIndex = 1
+        lblInfoCustId.Text = "Customer ID:" & vbCrLf & "CUST-100002"
         lblInfoName.Font = New Font("Segoe UI", 9.5F)
         lblInfoName.ForeColor = Color.FromArgb(CByte(70), CByte(70), CByte(80))
-        lblInfoName.Location = New Point(20, 60)
+        lblInfoName.Location = New Point(20, 92)
         lblInfoName.Name = "lblInfoName"
-        lblInfoName.Size = New Size(195, 40)
-        lblInfoName.TabIndex = 1
+        lblInfoName.Size = New Size(195, 38)
+        lblInfoName.TabIndex = 2
         lblInfoName.Text = "Name:" & vbCrLf & "Naruto Uzumaki"
         lblInfoContact.Font = New Font("Segoe UI", 9.5F)
         lblInfoContact.ForeColor = Color.FromArgb(CByte(70), CByte(70), CByte(80))
-        lblInfoContact.Location = New Point(20, 110)
+        lblInfoContact.Location = New Point(20, 136)
         lblInfoContact.Name = "lblInfoContact"
-        lblInfoContact.Size = New Size(195, 40)
-        lblInfoContact.TabIndex = 2
+        lblInfoContact.Size = New Size(195, 38)
+        lblInfoContact.TabIndex = 3
         lblInfoContact.Text = "Contact No:" & vbCrLf & "+63 9123456789"
         lblInfoGender.Font = New Font("Segoe UI", 9.5F)
         lblInfoGender.ForeColor = Color.FromArgb(CByte(70), CByte(70), CByte(80))
-        lblInfoGender.Location = New Point(20, 160)
+        lblInfoGender.Location = New Point(20, 180)
         lblInfoGender.Name = "lblInfoGender"
-        lblInfoGender.Size = New Size(195, 40)
-        lblInfoGender.TabIndex = 3
+        lblInfoGender.Size = New Size(195, 38)
+        lblInfoGender.TabIndex = 4
         lblInfoGender.Text = "Gender:" & vbCrLf & "Male"
         btnViewProfileInfo.Animated = True
         btnViewProfileInfo.BorderRadius = 10
@@ -541,11 +560,11 @@ Partial Class CustomerForm
         btnViewProfileInfo.FillColor = Color.FromArgb(CByte(237), CByte(229), CByte(216))
         btnViewProfileInfo.Font = New Font("Segoe UI", 9.5F, FontStyle.Bold)
         btnViewProfileInfo.ForeColor = Color.FromArgb(CByte(1), CByte(123), CByte(128))
-        btnViewProfileInfo.Location = New Point(20, 270)
+        btnViewProfileInfo.Location = New Point(20, 268)
         btnViewProfileInfo.Name = "btnViewProfileInfo"
         btnViewProfileInfo.ShadowDecoration.CustomizableEdges = CustomizableEdges22
         btnViewProfileInfo.Size = New Size(195, 34)
-        btnViewProfileInfo.TabIndex = 4
+        btnViewProfileInfo.TabIndex = 5
         btnViewProfileInfo.Text = "View Profile"
         btnCustomerTerms.Animated = True
         btnCustomerTerms.BorderColor = Color.FromArgb(CByte(1), CByte(123), CByte(128))
@@ -611,6 +630,7 @@ Partial Class CustomerForm
     Friend WithEvents lblAvatarCircle As Label
     Friend WithEvents lblWelcomePrefix As Label
     Friend WithEvents lblWelcomeName As Label
+    Friend WithEvents lblWelcomeCustId As Label
     Friend WithEvents pnlStatTotal As Guna.UI2.WinForms.Guna2Panel
     Friend WithEvents lblStatTotalNum As Label
     Friend WithEvents lblStatTotalLabel As Label
@@ -637,6 +657,7 @@ Partial Class CustomerForm
     Friend WithEvents lblFlyMotto As Label
     Friend WithEvents pnlUserInfoCard As Guna.UI2.WinForms.Guna2Panel
     Friend WithEvents lblInfoSummaryHeader As Label
+    Friend WithEvents lblInfoCustId As Label
     Friend WithEvents lblInfoName As Label
     Friend WithEvents lblInfoContact As Label
     Friend WithEvents lblInfoGender As Label
