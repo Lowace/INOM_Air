@@ -75,6 +75,8 @@ Public Class CustomerForm
     Private Sub btnViewProfileInfo_Click(sender As Object, e As EventArgs) Handles btnViewProfileInfo.Click
         Dim u = AppState.CurrentUser
         CustomMessageBox.Show("Customer Profile Details:" & vbCrLf & vbCrLf &
+                              "• Customer ID: " & u.CustomerId & vbCrLf &
+                              "• Username: " & u.Username & vbCrLf &
                               "• Full Name: " & u.FullName & vbCrLf &
                               "• Gender: " & u.Gender & vbCrLf &
                               "• Contact: " & u.ContactNumber & vbCrLf &

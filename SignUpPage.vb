@@ -72,7 +72,10 @@ Public Class SignUpPage
         Dim isSeniorCitizen = (age >= 60) OrElse chkSeniorPwd.Checked
         Dim isPwdCustomer = chkSeniorPwd.Checked
 
+        Dim newCustId = AppState.GenerateUniqueCustomerId()
+
         Dim newUser As New UserAccount With {
+            .CustomerId = newCustId,
             .Username = txtRegUsername.Text.Trim(),
             .Password = txtRegPassword.Text.Trim(),
             .GivenName = givenName,
@@ -89,7 +92,9 @@ Public Class SignUpPage
         AppState.SaveUserToDatabase(newUser)
         AppState.CurrentUser = newUser
 
-        CustomMessageBox.Show("Account successfully created!" & vbCrLf & vbCrLf & "Welcome to INOM Air, " & newUser.GivenName & "!", "Registration Complete", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        CustomMessageBox.Show("Account successfully created!" & vbCrLf & vbCrLf &
+                              "Welcome to INOM Air, " & newUser.GivenName & "!" & vbCrLf &
+                              "Your Customer ID: " & newCustId, "Registration Complete", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
         Dim custForm As New CustomerForm()
         custForm.Show()

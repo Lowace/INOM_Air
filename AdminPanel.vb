@@ -21,6 +21,8 @@ Public Class AdminPanel
     End Sub
 
     Public Sub RefreshAllAdminData()
+        AppState.ReloadAllFromDatabase()
+
         lblStatPlanesNum.Text = AppState.Aircrafts.Count.ToString()
         lblStatUsersNum.Text = AppState.Users.Count.ToString()
         lblStatFlightsNum.Text = AppState.Flights.Count.ToString()
@@ -116,7 +118,7 @@ Public Class AdminPanel
         Dim list = AppState.Users.AsEnumerable()
 
         If Not String.IsNullOrWhiteSpace(searchId) Then
-            list = list.Where(Function(u) u.Username.IndexOf(searchId, StringComparison.OrdinalIgnoreCase) >= 0)
+            list = list.Where(Function(u) (u.CustomerId IsNot Nothing AndAlso u.CustomerId.IndexOf(searchId, StringComparison.OrdinalIgnoreCase) >= 0) OrElse (u.Username IsNot Nothing AndAlso u.Username.IndexOf(searchId, StringComparison.OrdinalIgnoreCase) >= 0))
         End If
 
         If Not String.IsNullOrWhiteSpace(searchName) Then
@@ -124,7 +126,8 @@ Public Class AdminPanel
         End If
 
         Dim dt As New DataTable()
-        dt.Columns.Add("Customer ID / Username")
+        dt.Columns.Add("Customer ID")
+        dt.Columns.Add("Username")
         dt.Columns.Add("Full Name")
         dt.Columns.Add("Contact Number")
         dt.Columns.Add("Gender")
@@ -133,13 +136,14 @@ Public Class AdminPanel
 
         For Each u In list
             Dim discountTag = If(u.IsSenior, "Senior (60+)", If(u.IsPwd, "PWD", "Standard"))
-            dt.Rows.Add(u.Username, u.FullName, u.ContactNumber, u.Gender, u.Role, discountTag)
+            dt.Rows.Add(u.CustomerId, u.Username, u.FullName, u.ContactNumber, u.Gender, u.Role, discountTag)
         Next
 
         dgvCustomers.DataSource = dt
     End Sub
 
     Private Sub btnFilterCustomers_Click(sender As Object, e As EventArgs) Handles btnFilterCustomers.Click
+        AppState.ReloadAllFromDatabase()
         LoadCustomersGrid(txtSearchCustId.Text.Trim(), txtSearchCustName.Text.Trim())
     End Sub
 
@@ -147,23 +151,44 @@ Public Class AdminPanel
         Dim username = CustomMessageBox.ShowInput("Enter New Customer Username:", "Add Customer", "customer" & (AppState.Users.Count + 1), Me)
         If String.IsNullOrWhiteSpace(username) Then Return
 
-        Dim name = CustomMessageBox.ShowInput("Enter Full Name:", "Add Customer", "John Doe", Me)
-        If String.IsNullOrWhiteSpace(name) Then Return
+        If AppState.Users.Any(Function(u) u.Username.Equals(username, StringComparison.OrdinalIgnoreCase)) Then
+            CustomMessageBox.Show("That username already exists. Please choose a different username.", "Username Unavailable", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return
+        End If
+
+        Dim fullName = CustomMessageBox.ShowInput("Enter Full Name (e.g. John Doe):", "Add Customer", "John Doe", Me)
+        If String.IsNullOrWhiteSpace(fullName) Then Return
 
         Dim contact = CustomMessageBox.ShowInput("Enter Contact Number:", "Add Customer", "+63 9123456789", Me)
         If String.IsNullOrWhiteSpace(contact) Then Return
 
+        Dim nameParts = fullName.Trim().Split({" "c}, StringSplitOptions.RemoveEmptyEntries)
+        Dim gName = If(nameParts.Length > 0, nameParts(0), fullName)
+        Dim sName = If(nameParts.Length > 1, String.Join(" ", nameParts.Skip(1)), "")
+
+        Dim newCustId = AppState.GenerateUniqueCustomerId()
+
         Dim newUser As New UserAccount With {
+            .CustomerId = newCustId,
             .Username = username,
             .Password = "password",
-            .GivenName = name,
+            .GivenName = gName,
+            .Surname = sName,
             .ContactNumber = contact,
-            .Role = "Customer"
+            .Role = "Customer",
+            .Gender = "Male",
+            .DateOfBirth = New DateTime(2000, 1, 1),
+            .IsSenior = False,
+            .IsPwd = False
         }
         AppState.Users.Add(newUser)
         AppState.SaveUserToDatabase(newUser)
 
-        CustomMessageBox.Show("Customer account '" & username & "' registered successfully!", "Customer Added", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        CustomMessageBox.Show("Customer account '" & username & "' registered successfully!" & vbCrLf & vbCrLf &
+                              "• Assigned Customer ID: " & newCustId & vbCrLf &
+                              "• Full Name: " & newUser.FullName & vbCrLf &
+                              "• Contact: " & newUser.ContactNumber & vbCrLf &
+                              "• Saved directly to database (inomairtest_db)", "Customer Registered", MessageBoxButtons.OK, MessageBoxIcon.Information)
         RefreshAllAdminData()
     End Sub
 
@@ -292,6 +317,8 @@ Public Class AdminPanel
     End Sub
 
     Private Sub btnNavCustomers_Click(sender As Object, e As EventArgs) Handles btnNavCustomers.Click, btnGoUsers.Click
+        AppState.ReloadAllFromDatabase()
+        LoadCustomersGrid()
         ShowAdminTab(pnlCustomersView, btnNavCustomers)
     End Sub
 

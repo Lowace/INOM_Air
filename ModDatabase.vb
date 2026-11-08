@@ -5,6 +5,7 @@ Imports MySql.Data.MySqlClient
 Namespace Global.INOM_Air
 
     Public Class UserAccount
+        Public Property CustomerId As String = ""
         Public Property Username As String
         Public Property Password As String
         Public Property GivenName As String
@@ -130,6 +131,29 @@ Namespace Global.INOM_Air
             InitializeDatabase(showStatusMessage)
         End Sub
 
+        Public Function GenerateUniqueCustomerId() As String
+            Dim rnd As New Random()
+            Dim newId As String = ""
+            Do
+                newId = "CUST-" & rnd.Next(100000, 999999).ToString()
+            Loop While Users.Any(Function(u) u.CustomerId = newId)
+            Return newId
+        End Function
+
+        Public Sub ReloadAllFromDatabase()
+            Try
+                Using conn As MySqlConnection = GetConnection()
+                    conn.Open()
+                    IsDatabaseConnected = True
+                    EnsureTablesExist(conn)
+                    EnsureSeedData(conn)
+                    LoadDataFromDatabase(conn)
+                End Using
+            Catch ex As Exception
+                IsDatabaseConnected = False
+            End Try
+        End Sub
+
         Public Sub InitializeDatabase(Optional showStatusMessage As Boolean = False)
             If isInitialized Then
                 If showStatusMessage Then
@@ -192,6 +216,7 @@ Namespace Global.INOM_Air
             Dim sql = "
 CREATE TABLE IF NOT EXISTS `users` (
     `username` VARCHAR(50) NOT NULL PRIMARY KEY,
+    `customer_id` VARCHAR(30) DEFAULT '',
     `password` VARCHAR(100) NOT NULL,
     `given_name` VARCHAR(100) NOT NULL,
     `surname` VARCHAR(100) NOT NULL,
@@ -256,6 +281,18 @@ CREATE TABLE IF NOT EXISTS `bookings` (
             Using cmd As New MySqlCommand(sql, conn)
                 cmd.ExecuteNonQuery()
             End Using
+
+            Try
+                Using cmdCheck As New MySqlCommand("SHOW COLUMNS FROM `users` LIKE 'customer_id';", conn)
+                    Dim colExists = cmdCheck.ExecuteScalar()
+                    If colExists Is Nothing Then
+                        Using cmdAdd As New MySqlCommand("ALTER TABLE `users` ADD COLUMN `customer_id` VARCHAR(30) DEFAULT '' AFTER `username`;", conn)
+                            cmdAdd.ExecuteNonQuery()
+                        End Using
+                    End If
+                End Using
+            Catch ex As Exception
+            End Try
         End Sub
 
         Private Sub EnsureSeedData(conn As MySqlConnection)
@@ -266,9 +303,9 @@ CREATE TABLE IF NOT EXISTS `bookings` (
 
             If userCount = 0 Then
                 Dim sqlSeed = "
-INSERT INTO `users` (`username`, `password`, `given_name`, `surname`, `gender`, `date_of_birth`, `contact_number`, `role`, `is_senior`, `is_pwd`) VALUES
-('admin', 'admin123', 'Admin', 'Staff', 'Male', '1990-01-01', '+63 9000000000', 'Admin', 0, 0),
-('Naruto', 'password', 'Naruto', 'Uzumaki', 'Male', '1995-10-10', '+63 9123456789', 'Customer', 0, 0);
+INSERT INTO `users` (`username`, `customer_id`, `password`, `given_name`, `surname`, `gender`, `date_of_birth`, `contact_number`, `role`, `is_senior`, `is_pwd`) VALUES
+('admin', 'CUST-100001', 'admin123', 'Admin', 'Staff', 'Male', '1990-01-01', '+63 9000000000', 'Admin', 0, 0),
+('Naruto', 'CUST-100002', 'password', 'Naruto', 'Uzumaki', 'Male', '1995-10-10', '+63 9123456789', 'Customer', 0, 0);
 
 INSERT INTO `aircrafts` (`aircraft_id`, `model`, `capacity`, `status`) VALUES
 ('P001', 'Boeing 737-800', 180, 'Active'),
@@ -315,20 +352,37 @@ INSERT INTO `bookings` (`ticket_number`, `username`, `passenger_name`, `flight_i
 
         Public Sub LoadDataFromDatabase(conn As MySqlConnection)
             Users.Clear()
-            Using cmd As New MySqlCommand("SELECT username, password, given_name, surname, gender, date_of_birth, contact_number, role, is_senior, is_pwd FROM `users`;", conn)
+            Using cmd As New MySqlCommand("SELECT username, customer_id, password, given_name, surname, gender, date_of_birth, contact_number, role, is_senior, is_pwd FROM `users`;", conn)
                 Using r = cmd.ExecuteReader()
                     While r.Read()
+                        Dim uId = If(r.IsDBNull(r.GetOrdinal("customer_id")), "", r.GetString("customer_id"))
+                        Dim un = r.GetString("username")
+                        Dim pw = If(r.IsDBNull(r.GetOrdinal("password")), "password", r.GetString("password"))
+                        Dim gn = If(r.IsDBNull(r.GetOrdinal("given_name")), un, r.GetString("given_name"))
+                        Dim sn = If(r.IsDBNull(r.GetOrdinal("surname")), "", r.GetString("surname"))
+                        Dim gd = If(r.IsDBNull(r.GetOrdinal("gender")), "Male", r.GetString("gender"))
+                        Dim dob = If(r.IsDBNull(r.GetOrdinal("date_of_birth")), New DateTime(2000, 1, 1), r.GetDateTime("date_of_birth"))
+                        Dim cn = If(r.IsDBNull(r.GetOrdinal("contact_number")), "+63 9123456789", r.GetString("contact_number"))
+                        Dim rl = If(r.IsDBNull(r.GetOrdinal("role")), "Customer", r.GetString("role"))
+                        Dim sr = If(r.IsDBNull(r.GetOrdinal("is_senior")), False, r.GetBoolean("is_senior"))
+                        Dim pwd = If(r.IsDBNull(r.GetOrdinal("is_pwd")), False, r.GetBoolean("is_pwd"))
+
+                        If String.IsNullOrWhiteSpace(uId) Then
+                            uId = "CUST-" & (100000 + Users.Count + 1).ToString()
+                        End If
+
                         Users.Add(New UserAccount With {
-                            .Username = r.GetString("username"),
-                            .Password = r.GetString("password"),
-                            .GivenName = r.GetString("given_name"),
-                            .Surname = r.GetString("surname"),
-                            .Gender = If(r.IsDBNull(r.GetOrdinal("gender")), "Male", r.GetString("gender")),
-                            .DateOfBirth = If(r.IsDBNull(r.GetOrdinal("date_of_birth")), New DateTime(2000, 1, 1), r.GetDateTime("date_of_birth")),
-                            .ContactNumber = If(r.IsDBNull(r.GetOrdinal("contact_number")), "+63 9123456789", r.GetString("contact_number")),
-                            .Role = If(r.IsDBNull(r.GetOrdinal("role")), "Customer", r.GetString("role")),
-                            .IsSenior = If(r.IsDBNull(r.GetOrdinal("is_senior")), False, r.GetBoolean("is_senior")),
-                            .IsPwd = If(r.IsDBNull(r.GetOrdinal("is_pwd")), False, r.GetBoolean("is_pwd"))
+                            .CustomerId = uId,
+                            .Username = un,
+                            .Password = pw,
+                            .GivenName = gn,
+                            .Surname = sn,
+                            .Gender = gd,
+                            .DateOfBirth = dob,
+                            .ContactNumber = cn,
+                            .Role = rl,
+                            .IsSenior = sr,
+                            .IsPwd = pwd
                         })
                     End While
                 End Using
@@ -424,14 +478,19 @@ INSERT INTO `bookings` (`ticket_number`, `username`, `passenger_name`, `flight_i
         End Sub
 
         Public Sub SaveUserToDatabase(u As UserAccount)
-            If Not IsDatabaseConnected Then Return
+            If String.IsNullOrWhiteSpace(u.CustomerId) Then
+                u.CustomerId = GenerateUniqueCustomerId()
+            End If
+
             Try
                 Using conn = GetConnection()
                     conn.Open()
+                    IsDatabaseConnected = True
                     Dim sql = "
-INSERT INTO `users` (`username`, `password`, `given_name`, `surname`, `gender`, `date_of_birth`, `contact_number`, `role`, `is_senior`, `is_pwd`)
-VALUES (@un, @pw, @gn, @sn, @gd, @dob, @cn, @rl, @sr, @pwd)
+INSERT INTO `users` (`username`, `customer_id`, `password`, `given_name`, `surname`, `gender`, `date_of_birth`, `contact_number`, `role`, `is_senior`, `is_pwd`)
+VALUES (@un, @cid, @pw, @gn, @sn, @gd, @dob, @cn, @rl, @sr, @pwd)
 ON DUPLICATE KEY UPDATE
+    `customer_id` = @cid,
     `password` = @pw,
     `given_name` = @gn,
     `surname` = @sn,
@@ -444,13 +503,14 @@ ON DUPLICATE KEY UPDATE
 "
                     Using cmd As New MySqlCommand(sql, conn)
                         cmd.Parameters.AddWithValue("@un", u.Username)
-                        cmd.Parameters.AddWithValue("@pw", u.Password)
-                        cmd.Parameters.AddWithValue("@gn", u.GivenName)
-                        cmd.Parameters.AddWithValue("@sn", u.Surname)
-                        cmd.Parameters.AddWithValue("@gd", u.Gender)
+                        cmd.Parameters.AddWithValue("@cid", u.CustomerId)
+                        cmd.Parameters.AddWithValue("@pw", If(String.IsNullOrWhiteSpace(u.Password), "password", u.Password))
+                        cmd.Parameters.AddWithValue("@gn", If(String.IsNullOrWhiteSpace(u.GivenName), u.Username, u.GivenName))
+                        cmd.Parameters.AddWithValue("@sn", If(String.IsNullOrWhiteSpace(u.Surname), "", u.Surname))
+                        cmd.Parameters.AddWithValue("@gd", If(String.IsNullOrWhiteSpace(u.Gender), "Male", u.Gender))
                         cmd.Parameters.AddWithValue("@dob", u.DateOfBirth.ToString("yyyy-MM-dd"))
-                        cmd.Parameters.AddWithValue("@cn", u.ContactNumber)
-                        cmd.Parameters.AddWithValue("@rl", u.Role)
+                        cmd.Parameters.AddWithValue("@cn", If(String.IsNullOrWhiteSpace(u.ContactNumber), "+63 9123456789", u.ContactNumber))
+                        cmd.Parameters.AddWithValue("@rl", If(String.IsNullOrWhiteSpace(u.Role), "Customer", u.Role))
                         cmd.Parameters.AddWithValue("@sr", If(u.IsSenior, 1, 0))
                         cmd.Parameters.AddWithValue("@pwd", If(u.IsPwd, 1, 0))
                         cmd.ExecuteNonQuery()
@@ -581,6 +641,7 @@ ON DUPLICATE KEY UPDATE `status` = @st;
             Bookings.Clear()
 
             Users.Add(New UserAccount With {
+                .CustomerId = "CUST-100001",
                 .Username = "admin",
                 .Password = "admin123",
                 .GivenName = "Admin",
@@ -590,6 +651,7 @@ ON DUPLICATE KEY UPDATE `status` = @st;
             })
 
             Dim defaultCustomer = New UserAccount With {
+                .CustomerId = "CUST-100002",
                 .Username = "Naruto",
                 .Password = "password",
                 .GivenName = "Naruto",

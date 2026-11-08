@@ -3,6 +3,7 @@ USE `inomairtest_db`;
 
 CREATE TABLE IF NOT EXISTS `users` (
     `username` VARCHAR(50) NOT NULL PRIMARY KEY,
+    `customer_id` VARCHAR(30) DEFAULT '',
     `password` VARCHAR(100) NOT NULL,
     `given_name` VARCHAR(100) NOT NULL,
     `surname` VARCHAR(100) NOT NULL,
@@ -64,10 +65,10 @@ CREATE TABLE IF NOT EXISTS `bookings` (
     `status` VARCHAR(50) DEFAULT 'Confirmed'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-INSERT INTO `users` (`username`, `password`, `given_name`, `surname`, `gender`, `date_of_birth`, `contact_number`, `role`, `is_senior`, `is_pwd`) VALUES
-('admin', 'admin123', 'Admin', 'Staff', 'Male', '1990-01-01', '+63 9000000000', 'Admin', 0, 0),
-('Naruto', 'password', 'Naruto', 'Uzumaki', 'Male', '1995-10-10', '+63 9123456789', 'Customer', 0, 0)
-ON DUPLICATE KEY UPDATE `password`=VALUES(`password`);
+INSERT INTO `users` (`username`, `customer_id`, `password`, `given_name`, `surname`, `gender`, `date_of_birth`, `contact_number`, `role`, `is_senior`, `is_pwd`) VALUES
+('admin', 'CUST-100001', 'admin123', 'Admin', 'Staff', 'Male', '1990-01-01', '+63 9000000000', 'Admin', 0, 0),
+('Naruto', 'CUST-100002', 'password', 'Naruto', 'Uzumaki', 'Male', '1995-10-10', '+63 9123456789', 'Customer', 0, 0)
+ON DUPLICATE KEY UPDATE `customer_id`=VALUES(`customer_id`), `password`=VALUES(`password`);
 
 INSERT INTO `aircrafts` (`aircraft_id`, `model`, `capacity`, `status`) VALUES
 ('P001', 'Boeing 737-800', 180, 'Active'),
