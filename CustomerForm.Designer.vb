@@ -98,6 +98,7 @@ Partial Class CustomerForm
         lblInfoContact = New Label()
         lblInfoGender = New Label()
         btnViewProfileInfo = New Guna.UI2.WinForms.Guna2Button()
+        btnEditProfile = New Guna.UI2.WinForms.Guna2Button()
         btnCustomerTerms = New Guna.UI2.WinForms.Guna2Button()
         Guna2Elipse1 = New Guna.UI2.WinForms.Guna2Elipse(components)
         pnlTopBar.SuspendLayout()
@@ -506,6 +507,7 @@ Partial Class CustomerForm
         pnlUserInfoCard.Controls.Add(lblInfoContact)
         pnlUserInfoCard.Controls.Add(lblInfoGender)
         pnlUserInfoCard.Controls.Add(btnViewProfileInfo)
+        pnlUserInfoCard.Controls.Add(btnEditProfile)
         pnlUserInfoCard.Controls.Add(btnCustomerTerms)
         pnlUserInfoCard.CustomizableEdges = CustomizableEdges25
         pnlUserInfoCard.FillColor = Color.White
@@ -560,12 +562,23 @@ Partial Class CustomerForm
         btnViewProfileInfo.FillColor = Color.FromArgb(CByte(237), CByte(229), CByte(216))
         btnViewProfileInfo.Font = New Font("Segoe UI", 9.5F, FontStyle.Bold)
         btnViewProfileInfo.ForeColor = Color.FromArgb(CByte(1), CByte(123), CByte(128))
-        btnViewProfileInfo.Location = New Point(20, 268)
+        btnViewProfileInfo.Location = New Point(20, 224)
         btnViewProfileInfo.Name = "btnViewProfileInfo"
         btnViewProfileInfo.ShadowDecoration.CustomizableEdges = CustomizableEdges22
         btnViewProfileInfo.Size = New Size(195, 34)
         btnViewProfileInfo.TabIndex = 5
         btnViewProfileInfo.Text = "View Profile"
+        btnEditProfile.Animated = True
+        btnEditProfile.BorderRadius = 10
+        btnEditProfile.Cursor = Cursors.Hand
+        btnEditProfile.FillColor = Color.FromArgb(CByte(1), CByte(123), CByte(128))
+        btnEditProfile.Font = New Font("Segoe UI", 9.5F, FontStyle.Bold)
+        btnEditProfile.ForeColor = Color.White
+        btnEditProfile.Location = New Point(20, 266)
+        btnEditProfile.Name = "btnEditProfile"
+        btnEditProfile.Size = New Size(195, 34)
+        btnEditProfile.TabIndex = 6
+        btnEditProfile.Text = "Edit Profile ✎"
         btnCustomerTerms.Animated = True
         btnCustomerTerms.BorderColor = Color.FromArgb(CByte(1), CByte(123), CByte(128))
         btnCustomerTerms.BorderRadius = 10
@@ -575,11 +588,11 @@ Partial Class CustomerForm
         btnCustomerTerms.FillColor = Color.White
         btnCustomerTerms.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
         btnCustomerTerms.ForeColor = Color.FromArgb(CByte(1), CByte(123), CByte(128))
-        btnCustomerTerms.Location = New Point(20, 312)
+        btnCustomerTerms.Location = New Point(20, 308)
         btnCustomerTerms.Name = "btnCustomerTerms"
         btnCustomerTerms.ShadowDecoration.CustomizableEdges = CustomizableEdges24
         btnCustomerTerms.Size = New Size(195, 34)
-        btnCustomerTerms.TabIndex = 5
+        btnCustomerTerms.TabIndex = 7
         btnCustomerTerms.Text = "Terms  &  Conditions"
         Guna2Elipse1.BorderRadius = 40
         Guna2Elipse1.TargetControl = lblAvatarCircle
@@ -662,6 +675,7 @@ Partial Class CustomerForm
     Friend WithEvents lblInfoContact As Label
     Friend WithEvents lblInfoGender As Label
     Friend WithEvents btnViewProfileInfo As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents btnEditProfile As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents btnCustomerTerms As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents Guna2Elipse1 As Guna.UI2.WinForms.Guna2Elipse

@@ -78,7 +78,9 @@ Public Class CustomerForm
 
     Private Sub btnViewProfileInfo_Click(sender As Object, e As EventArgs) Handles btnViewProfileInfo.Click
         Dim u = AppState.CurrentUser
-        CustomMessageBox.Show("Customer Profile Details:" & vbCrLf & vbCrLf &
+        If u Is Nothing Then Return
+
+        Dim res = CustomMessageBox.Show("Customer Profile Details:" & vbCrLf & vbCrLf &
                               "• Customer ID: " & u.CustomerId & vbCrLf &
                               "• Username: " & u.Username & vbCrLf &
                               "• Full Name: " & u.FullName & vbCrLf &
@@ -86,7 +88,35 @@ Public Class CustomerForm
                               "• Contact: " & u.ContactNumber & vbCrLf &
                               "• Date of Birth: " & u.DateOfBirth.ToString("MMMM dd, yyyy") & vbCrLf &
                               "• Senior Citizen (60+): " & If(u.IsSenior, "Yes", "No") & vbCrLf &
-                              "• PWD: " & If(u.IsPwd, "Yes", "No"), "Profile Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                              "• PWD: " & If(u.IsPwd, "Yes", "No") & vbCrLf & vbCrLf &
+                              "Would you like to edit your profile details now?", "Profile Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information)
+        If res = DialogResult.Yes Then
+            btnEditProfile_Click(Nothing, Nothing)
+        End If
+    End Sub
+
+    Private Sub btnEditProfile_Click(sender As Object, e As EventArgs) Handles btnEditProfile.Click
+        Dim u = AppState.CurrentUser
+        If u Is Nothing Then Return
+
+        Dim newGivenName = CustomMessageBox.ShowInput("Enter your Given Name:", "Edit Profile - Given Name", u.GivenName, Me)
+        If String.IsNullOrWhiteSpace(newGivenName) Then Return
+
+        Dim newSurname = CustomMessageBox.ShowInput("Enter your Surname / Family Name:", "Edit Profile - Surname", u.Surname, Me)
+        If String.IsNullOrWhiteSpace(newSurname) Then Return
+
+        Dim newContact = CustomMessageBox.ShowInput("Enter your Contact Number:", "Edit Profile - Contact", u.ContactNumber, Me)
+        If String.IsNullOrWhiteSpace(newContact) Then Return
+
+        u.GivenName = newGivenName.Trim()
+        u.Surname = newSurname.Trim()
+        u.ContactNumber = newContact.Trim()
+
+        AppState.SaveUserToDatabase(u)
+        AppState.ReloadAllFromDatabase()
+        RefreshDashboard()
+
+        CustomMessageBox.Show("Your profile details have been successfully updated!", "Profile Updated", MessageBoxButtons.OK, MessageBoxIcon.Information)
     End Sub
 
     Private Sub btnCustomerTerms_Click(sender As Object, e As EventArgs) Handles btnCustomerTerms.Click
