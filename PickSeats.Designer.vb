@@ -192,7 +192,7 @@ Partial Class PickSeats
         lblLegendAvailable.Text = "■ Available (Regular)"
         lblLegendSelected.AutoSize = True
         lblLegendSelected.Font = New Font("Segoe UI", 9.5F)
-        lblLegendSelected.ForeColor = Color.FromArgb(CByte(200), CByte(150), CByte(0))
+        lblLegendSelected.ForeColor = Color.FromArgb(CByte(46), CByte(204), CByte(113))
         lblLegendSelected.Location = New Point(25, 200)
         lblLegendSelected.Name = "lblLegendSelected"
         lblLegendSelected.Size = New Size(115, 17)

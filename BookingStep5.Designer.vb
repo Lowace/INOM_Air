@@ -290,7 +290,7 @@ Partial Class BookingStep5
         cmbB5CheckedKg.Font = New Font("Segoe UI", 10F)
         cmbB5CheckedKg.ForeColor = Color.FromArgb(CByte(50), CByte(50), CByte(60))
         cmbB5CheckedKg.ItemHeight = 30
-        cmbB5CheckedKg.Items.AddRange(New Object() {"No Extra Checked Baggage (0kg)", "10kg Checked (Free included)", "20kg Checked (+PHP 500.00)", "30kg Checked (+PHP 1,000.00)", "40kg Checked (+PHP 1,500.00)"})
+        cmbB5CheckedKg.Items.AddRange(New Object() {"No Extra Checked Baggage (0kg)", "10kg Checked (+PHP 1,000.00)", "20kg Checked (+PHP 1,800.00)", "40kg Checked (+PHP 3,000.00)"})
         cmbB5CheckedKg.Location = New Point(30, 300)
         cmbB5CheckedKg.Name = "cmbB5CheckedKg"
         cmbB5CheckedKg.ShadowDecoration.CustomizableEdges = CustomizableEdges10

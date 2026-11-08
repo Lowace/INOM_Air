@@ -7,6 +7,35 @@ Public Class BookingStep2
     Private currentFlight1 As FlightSchedule = Nothing
     Private currentFlight2 As FlightSchedule = Nothing
 
+    Private Function ExtractCityName(loc As String) As String
+        If String.IsNullOrWhiteSpace(loc) Then Return ""
+        Dim s = loc
+        If s.Contains("-"c) Then
+            Dim parts = s.Split("-"c)
+            s = parts(1).Trim()
+        End If
+        If s.Contains(","c) Then
+            s = s.Split(","c)(0).Trim()
+        End If
+        If s.Contains("("c) Then
+            s = s.Split("("c)(0).Trim()
+        End If
+        Return s.Trim()
+    End Function
+
+    Private Function LocationsMatch(flightLocation As String, searchLocation As String) As Boolean
+        If String.IsNullOrWhiteSpace(flightLocation) OrElse String.IsNullOrWhiteSpace(searchLocation) Then Return False
+        If flightLocation.Equals(searchLocation, StringComparison.OrdinalIgnoreCase) Then Return True
+        Dim cityF = ExtractCityName(flightLocation)
+        Dim cityS = ExtractCityName(searchLocation)
+        If Not String.IsNullOrEmpty(cityF) AndAlso Not String.IsNullOrEmpty(cityS) Then
+            If cityF.Equals(cityS, StringComparison.OrdinalIgnoreCase) Then Return True
+            If searchLocation.IndexOf(cityF, StringComparison.OrdinalIgnoreCase) >= 0 Then Return True
+            If flightLocation.IndexOf(cityS, StringComparison.OrdinalIgnoreCase) >= 0 Then Return True
+        End If
+        Return False
+    End Function
+
     Private Sub BookingStep2_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         lblB2Origin.Text = "Origin: " & AppState.SearchOrigin
         lblB2Dest.Text = "To: " & AppState.SearchDest
@@ -14,19 +43,61 @@ Public Class BookingStep2
         lblB2DateHeader.Text = AppState.SearchDate.ToString("MMMM dd, yyyy")
         cmbB2CabinClass.SelectedIndex = 0
 
-        Dim matches = AppState.Flights.Where(Function(f) f.Origin.Equals(AppState.SearchOrigin, StringComparison.OrdinalIgnoreCase) AndAlso f.Destination.Equals(AppState.SearchDest, StringComparison.OrdinalIgnoreCase)).ToList()
+        Dim matches = AppState.Flights.Where(Function(f) LocationsMatch(f.Origin, AppState.SearchOrigin) AndAlso LocationsMatch(f.Destination, AppState.SearchDest)).ToList()
+
+        If matches.Count = 0 Then
+            Dim cityOrig = ExtractCityName(AppState.SearchOrigin)
+            If String.IsNullOrEmpty(cityOrig) Then cityOrig = "Manila"
+            Dim cityDest = ExtractCityName(AppState.SearchDest)
+            If String.IsNullOrEmpty(cityDest) Then cityDest = "Cebu"
+
+            Dim isIntl As Boolean = AppState.SearchDest.Contains("Japan") OrElse AppState.SearchDest.Contains("Singapore") OrElse AppState.SearchDest.Contains("Korea") OrElse AppState.SearchDest.Contains("Thailand") OrElse AppState.SearchDest.Contains("Hong Kong") OrElse AppState.SearchDest.Contains("Taiwan") OrElse AppState.SearchDest.Contains("Malaysia") OrElse AppState.SearchDest.Contains("Indonesia")
+
+            Dim baseFare As Decimal = If(isIntl, If(cityDest.Contains("Tokyo") OrElse cityDest.Contains("Osaka"), 8500D, If(cityDest.Contains("Seoul"), 7800D, 5500D)), 2800D)
+            Dim durationStr As String = If(isIntl, "3h 45m", "1h 45m")
+            Dim plane1 As String = If(isIntl, "Boeing 777-300ER", "Airbus A320")
+            Dim plane2 As String = If(isIntl, "Airbus A350-900", "Boeing 737-800")
+
+            Dim dyn1 As New FlightSchedule With {
+                .FlightId = "F" & (AppState.Flights.Count + 1).ToString("000"),
+                .Origin = cityOrig,
+                .Destination = cityDest,
+                .FlightDate = AppState.SearchDate.ToString("MMMM dd, yyyy"),
+                .DepartureTime = "10:30 AM",
+                .ArrivalTime = "12:15 PM",
+                .Duration = durationStr,
+                .FlightType = "Direct Flight",
+                .BaseFare = baseFare,
+                .Status = "Scheduled",
+                .AircraftModel = plane1
+            }
+
+            Dim dyn2 As New FlightSchedule With {
+                .FlightId = "F" & (AppState.Flights.Count + 2).ToString("000"),
+                .Origin = cityOrig,
+                .Destination = cityDest,
+                .FlightDate = AppState.SearchDate.ToString("MMMM dd, yyyy"),
+                .DepartureTime = "02:30 PM",
+                .ArrivalTime = "04:15 PM",
+                .Duration = durationStr,
+                .FlightType = "Direct Flight",
+                .BaseFare = baseFare,
+                .Status = "Scheduled",
+                .AircraftModel = plane2
+            }
+
+            AppState.Flights.Add(dyn1)
+            AppState.Flights.Add(dyn2)
+            matches.Add(dyn1)
+            matches.Add(dyn2)
+        End If
+
         If matches.Count >= 2 Then
             currentFlight1 = matches(0)
             currentFlight2 = matches(1)
         ElseIf matches.Count = 1 Then
             currentFlight1 = matches(0)
             currentFlight2 = matches(0)
-        ElseIf AppState.Flights.Count >= 2 Then
-            currentFlight1 = AppState.Flights(0)
-            currentFlight2 = AppState.Flights(1)
-        ElseIf AppState.Flights.Count = 1 Then
-            currentFlight1 = AppState.Flights(0)
-            currentFlight2 = AppState.Flights(0)
         End If
 
         DisplayFlights()

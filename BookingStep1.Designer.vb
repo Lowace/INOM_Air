@@ -160,7 +160,7 @@ Partial Class BookingStep1
         lblB1Subtitle.Name = "lblB1Subtitle"
         lblB1Subtitle.Size = New Size(377, 19)
         lblB1Subtitle.TabIndex = 1
-        lblB1Subtitle.Text = "Search flights across all major destinations in the Philippines."
+        lblB1Subtitle.Text = "Search direct flights across the Philippines and Asia."
         pnlB1Divider.BackColor = Color.FromArgb(CByte(230), CByte(230), CByte(235))
         pnlB1Divider.Location = New Point(40, 95)
         pnlB1Divider.Name = "pnlB1Divider"
@@ -183,7 +183,7 @@ Partial Class BookingStep1
         cmbB1Origin.Font = New Font("Segoe UI", 10F)
         cmbB1Origin.ForeColor = Color.FromArgb(CByte(50), CByte(50), CByte(60))
         cmbB1Origin.ItemHeight = 30
-        cmbB1Origin.Items.AddRange(New Object() {"MNL - Manila", "CEB - Cebu", "DVO - Davao", "ILO - Iloilo", "BCD - Bacolod"})
+        cmbB1Origin.Items.AddRange(New Object() {"MNL - Manila, Philippines", "CEB - Cebu, Philippines", "DVO - Davao, Philippines", "ILO - Iloilo, Philippines", "BCD - Bacolod, Philippines", "MPH - Boracay (Caticlan), Philippines", "PPS - Puerto Princesa, Philippines", "NRT - Tokyo, Japan", "SIN - Singapore", "ICN - Seoul, South Korea", "BKK - Bangkok, Thailand", "HKG - Hong Kong", "TPE - Taipei, Taiwan", "KUL - Kuala Lumpur, Malaysia", "KIX - Osaka, Japan", "DPS - Bali (Denpasar), Indonesia"})
         cmbB1Origin.Location = New Point(40, 145)
         cmbB1Origin.Name = "cmbB1Origin"
         cmbB1Origin.ShadowDecoration.CustomizableEdges = CustomizableEdges2
@@ -207,7 +207,7 @@ Partial Class BookingStep1
         cmbB1Dest.Font = New Font("Segoe UI", 10F)
         cmbB1Dest.ForeColor = Color.FromArgb(CByte(50), CByte(50), CByte(60))
         cmbB1Dest.ItemHeight = 30
-        cmbB1Dest.Items.AddRange(New Object() {"MNL - Manila", "CEB - Cebu", "DVO - Davao", "ILO - Iloilo", "BCD - Bacolod"})
+        cmbB1Dest.Items.AddRange(New Object() {"MNL - Manila, Philippines", "CEB - Cebu, Philippines", "DVO - Davao, Philippines", "ILO - Iloilo, Philippines", "BCD - Bacolod, Philippines", "MPH - Boracay (Caticlan), Philippines", "PPS - Puerto Princesa, Philippines", "NRT - Tokyo, Japan", "SIN - Singapore", "ICN - Seoul, South Korea", "BKK - Bangkok, Thailand", "HKG - Hong Kong", "TPE - Taipei, Taiwan", "KUL - Kuala Lumpur, Malaysia", "KIX - Osaka, Japan", "DPS - Bali (Denpasar), Indonesia"})
         cmbB1Dest.Location = New Point(40, 240)
         cmbB1Dest.Name = "cmbB1Dest"
         cmbB1Dest.ShadowDecoration.CustomizableEdges = CustomizableEdges4

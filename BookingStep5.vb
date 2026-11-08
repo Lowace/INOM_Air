@@ -28,8 +28,7 @@ Public Class BookingStep5
             Case 0 : checkedKg = 0
             Case 1 : checkedKg = 10
             Case 2 : checkedKg = 20
-            Case 3 : checkedKg = 30
-            Case 4 : checkedKg = 40
+            Case 3 : checkedKg = 40
         End Select
         If cmbB5Meals.SelectedItem IsNot Nothing Then
             AppState.ActiveBooking.SelectedMeal = cmbB5Meals.SelectedItem.ToString()
@@ -74,11 +73,10 @@ Public Class BookingStep5
     Private Sub btnB5PriceList_Click(sender As Object, e As EventArgs) Handles btnB5PriceList.Click
         CustomMessageBox.Show("INOM Air Baggage Allowance & Rates Matrix:" & vbCrLf & vbCrLf &
                               "• Carry-on (7kg): Free included" & vbCrLf &
-                              "• 10kg Checked: Free standard allowance" & vbCrLf &
-                              "• 20kg Checked: +₱500.00" & vbCrLf &
-                              "• 30kg Checked: +₱1,000.00" & vbCrLf &
-                              "• 40kg Checked: +₱1,500.00" & vbCrLf & vbCrLf &
-                              "Excess weight at airport counter: ₱250.00/kg.",
+                              "• 10kg Checked: PHP 1,000.00" & vbCrLf &
+                              "• 20kg Checked: PHP 1,800.00" & vbCrLf &
+                              "• 40kg Checked: PHP 3,000.00" & vbCrLf & vbCrLf &
+                              "Excess weight at airport counter: PHP 250.00/kg.",
                               "Baggage Rates Matrix", MessageBoxButtons.OK, MessageBoxIcon.Information)
     End Sub
 

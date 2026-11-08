@@ -287,7 +287,22 @@ INSERT INTO `flights` (`flight_id`, `origin`, `destination`, `flight_date`, `dep
 ('F002', 'Manila', 'Cebu', 'November 10, 2026', '2:30 PM', '4:00 PM', '1h 30m', 'Direct Flight', 2000.00, 'Scheduled', 'Airbus A320'),
 ('F003', 'Manila', 'Tokyo', 'November 12, 2026', '07:22 AM', '12:50 PM', '4h 30m', 'Direct Flight', 8500.00, 'Scheduled', 'Boeing 777-300ER'),
 ('F004', 'Manila', 'Singapore', 'November 15, 2026', '01:00 PM', '04:40 PM', '3h 40m', 'Direct Flight', 5500.00, 'Scheduled', 'Airbus A350-900'),
-('F005', 'Manila', 'Bangkok', 'November 18, 2026', '06:15 PM', '09:45 PM', '3h 30m', 'Direct Flight', 6200.00, 'Scheduled', 'Boeing 737-800');
+('F005', 'Manila', 'Bangkok', 'November 18, 2026', '06:15 PM', '09:45 PM', '3h 30m', 'Direct Flight', 6200.00, 'Scheduled', 'Boeing 737-800'),
+('F006', 'Manila', 'Davao', 'November 10, 2026', '08:00 AM', '09:45 AM', '1h 45m', 'Direct Flight', 2800.00, 'Scheduled', 'Airbus A320'),
+('F007', 'Manila', 'Davao', 'November 10, 2026', '03:15 PM', '05:00 PM', '1h 45m', 'Direct Flight', 2800.00, 'Scheduled', 'Boeing 737-800'),
+('F008', 'Manila', 'Boracay', 'November 11, 2026', '09:30 AM', '10:40 AM', '1h 10m', 'Direct Flight', 2400.00, 'Scheduled', 'Airbus A320'),
+('F009', 'Manila', 'Iloilo', 'November 11, 2026', '11:00 AM', '12:15 PM', '1h 15m', 'Direct Flight', 2100.00, 'Scheduled', 'Boeing 737-800'),
+('F010', 'Manila', 'Puerto Princesa', 'November 12, 2026', '01:20 PM', '02:40 PM', '1h 20m', 'Direct Flight', 2500.00, 'Scheduled', 'Airbus A320'),
+('F011', 'Manila', 'Bacolod', 'November 13, 2026', '07:45 AM', '09:00 AM', '1h 15m', 'Direct Flight', 2200.00, 'Scheduled', 'Boeing 737-800'),
+('F012', 'Manila', 'Seoul', 'November 14, 2026', '11:30 AM', '04:45 PM', '4h 15m', 'Direct Flight', 7800.00, 'Scheduled', 'Boeing 777-300ER'),
+('F013', 'Manila', 'Hong Kong', 'November 15, 2026', '08:15 AM', '10:30 AM', '2h 15m', 'Direct Flight', 4900.00, 'Scheduled', 'Airbus A320'),
+('F014', 'Manila', 'Taipei', 'November 16, 2026', '10:00 AM', '12:15 PM', '2h 15m', 'Direct Flight', 4600.00, 'Scheduled', 'Airbus A320'),
+('F015', 'Manila', 'Kuala Lumpur', 'November 17, 2026', '02:00 PM', '05:45 PM', '3h 45m', 'Direct Flight', 5200.00, 'Scheduled', 'Boeing 737-800'),
+('F016', 'Manila', 'Osaka', 'November 18, 2026', '09:10 AM', '02:00 PM', '3h 50m', 'Direct Flight', 8100.00, 'Scheduled', 'Boeing 777-300ER'),
+('F017', 'Manila', 'Bali', 'November 19, 2026', '04:00 PM', '08:00 PM', '4h 00m', 'Direct Flight', 6800.00, 'Scheduled', 'Airbus A350-900'),
+('F018', 'Cebu', 'Davao', 'November 20, 2026', '09:00 AM', '10:00 AM', '1h 00m', 'Direct Flight', 1800.00, 'Scheduled', 'Airbus A320'),
+('F019', 'Cebu', 'Tokyo', 'November 21, 2026', '08:30 AM', '01:45 PM', '4h 15m', 'Direct Flight', 9000.00, 'Scheduled', 'Boeing 777-300ER'),
+('F020', 'Cebu', 'Singapore', 'November 22, 2026', '01:30 PM', '05:15 PM', '3h 45m', 'Direct Flight', 5800.00, 'Scheduled', 'Airbus A350-900');
 
 INSERT INTO `bookings` (`ticket_number`, `username`, `passenger_name`, `flight_id`, `cabin_class`, `seat_number`, `gate`, `selected_meal`, `checked_baggage_kg`, `carry_on_baggage_kg`, `baggage_fee`, `is_refundable`, `refund_fee`, `discount_amount`, `discount_reason`, `taxes_and_surcharges`, `total_amount`, `booking_date`, `status`) VALUES
 ('INOM-88239014', 'Naruto', 'Naruto Uzumaki', 'F001', 'Economy', 'A1', 'A1', 'Chicken Teriyaki with Rice', 20, 7, 500.00, 0, 0.00, 0.00, 'None', 450.00, 2950.00, NOW(), 'Confirmed');
@@ -663,6 +678,201 @@ ON DUPLICATE KEY UPDATE `status` = @st;
                 .Status = "Scheduled",
                 .AircraftModel = "Boeing 737-800"
             })
+            Flights.Add(New FlightSchedule With {
+                .FlightId = "F006",
+                .Origin = "Manila",
+                .Destination = "Davao",
+                .FlightDate = "November 10, 2026",
+                .DepartureTime = "08:00 AM",
+                .ArrivalTime = "09:45 AM",
+                .Duration = "1h 45m",
+                .FlightType = "Direct Flight",
+                .BaseFare = 2800D,
+                .Status = "Scheduled",
+                .AircraftModel = "Airbus A320"
+            })
+            Flights.Add(New FlightSchedule With {
+                .FlightId = "F007",
+                .Origin = "Manila",
+                .Destination = "Davao",
+                .FlightDate = "November 10, 2026",
+                .DepartureTime = "03:15 PM",
+                .ArrivalTime = "05:00 PM",
+                .Duration = "1h 45m",
+                .FlightType = "Direct Flight",
+                .BaseFare = 2800D,
+                .Status = "Scheduled",
+                .AircraftModel = "Boeing 737-800"
+            })
+            Flights.Add(New FlightSchedule With {
+                .FlightId = "F008",
+                .Origin = "Manila",
+                .Destination = "Boracay",
+                .FlightDate = "November 11, 2026",
+                .DepartureTime = "09:30 AM",
+                .ArrivalTime = "10:40 AM",
+                .Duration = "1h 10m",
+                .FlightType = "Direct Flight",
+                .BaseFare = 2400D,
+                .Status = "Scheduled",
+                .AircraftModel = "Airbus A320"
+            })
+            Flights.Add(New FlightSchedule With {
+                .FlightId = "F009",
+                .Origin = "Manila",
+                .Destination = "Iloilo",
+                .FlightDate = "November 11, 2026",
+                .DepartureTime = "11:00 AM",
+                .ArrivalTime = "12:15 PM",
+                .Duration = "1h 15m",
+                .FlightType = "Direct Flight",
+                .BaseFare = 2100D,
+                .Status = "Scheduled",
+                .AircraftModel = "Boeing 737-800"
+            })
+            Flights.Add(New FlightSchedule With {
+                .FlightId = "F010",
+                .Origin = "Manila",
+                .Destination = "Puerto Princesa",
+                .FlightDate = "November 12, 2026",
+                .DepartureTime = "01:20 PM",
+                .ArrivalTime = "02:40 PM",
+                .Duration = "1h 20m",
+                .FlightType = "Direct Flight",
+                .BaseFare = 2500D,
+                .Status = "Scheduled",
+                .AircraftModel = "Airbus A320"
+            })
+            Flights.Add(New FlightSchedule With {
+                .FlightId = "F011",
+                .Origin = "Manila",
+                .Destination = "Bacolod",
+                .FlightDate = "November 13, 2026",
+                .DepartureTime = "07:45 AM",
+                .ArrivalTime = "09:00 AM",
+                .Duration = "1h 15m",
+                .FlightType = "Direct Flight",
+                .BaseFare = 2200D,
+                .Status = "Scheduled",
+                .AircraftModel = "Boeing 737-800"
+            })
+            Flights.Add(New FlightSchedule With {
+                .FlightId = "F012",
+                .Origin = "Manila",
+                .Destination = "Seoul",
+                .FlightDate = "November 14, 2026",
+                .DepartureTime = "11:30 AM",
+                .ArrivalTime = "04:45 PM",
+                .Duration = "4h 15m",
+                .FlightType = "Direct Flight",
+                .BaseFare = 7800D,
+                .Status = "Scheduled",
+                .AircraftModel = "Boeing 777-300ER"
+            })
+            Flights.Add(New FlightSchedule With {
+                .FlightId = "F013",
+                .Origin = "Manila",
+                .Destination = "Hong Kong",
+                .FlightDate = "November 15, 2026",
+                .DepartureTime = "08:15 AM",
+                .ArrivalTime = "10:30 AM",
+                .Duration = "2h 15m",
+                .FlightType = "Direct Flight",
+                .BaseFare = 4900D,
+                .Status = "Scheduled",
+                .AircraftModel = "Airbus A320"
+            })
+            Flights.Add(New FlightSchedule With {
+                .FlightId = "F014",
+                .Origin = "Manila",
+                .Destination = "Taipei",
+                .FlightDate = "November 16, 2026",
+                .DepartureTime = "10:00 AM",
+                .ArrivalTime = "12:15 PM",
+                .Duration = "2h 15m",
+                .FlightType = "Direct Flight",
+                .BaseFare = 4600D,
+                .Status = "Scheduled",
+                .AircraftModel = "Airbus A320"
+            })
+            Flights.Add(New FlightSchedule With {
+                .FlightId = "F015",
+                .Origin = "Manila",
+                .Destination = "Kuala Lumpur",
+                .FlightDate = "November 17, 2026",
+                .DepartureTime = "02:00 PM",
+                .ArrivalTime = "05:45 PM",
+                .Duration = "3h 45m",
+                .FlightType = "Direct Flight",
+                .BaseFare = 5200D,
+                .Status = "Scheduled",
+                .AircraftModel = "Boeing 737-800"
+            })
+            Flights.Add(New FlightSchedule With {
+                .FlightId = "F016",
+                .Origin = "Manila",
+                .Destination = "Osaka",
+                .FlightDate = "November 18, 2026",
+                .DepartureTime = "09:10 AM",
+                .ArrivalTime = "02:00 PM",
+                .Duration = "3h 50m",
+                .FlightType = "Direct Flight",
+                .BaseFare = 8100D,
+                .Status = "Scheduled",
+                .AircraftModel = "Boeing 777-300ER"
+            })
+            Flights.Add(New FlightSchedule With {
+                .FlightId = "F017",
+                .Origin = "Manila",
+                .Destination = "Bali",
+                .FlightDate = "November 19, 2026",
+                .DepartureTime = "04:00 PM",
+                .ArrivalTime = "08:00 PM",
+                .Duration = "4h 00m",
+                .FlightType = "Direct Flight",
+                .BaseFare = 6800D,
+                .Status = "Scheduled",
+                .AircraftModel = "Airbus A350-900"
+            })
+            Flights.Add(New FlightSchedule With {
+                .FlightId = "F018",
+                .Origin = "Cebu",
+                .Destination = "Davao",
+                .FlightDate = "November 20, 2026",
+                .DepartureTime = "09:00 AM",
+                .ArrivalTime = "10:00 AM",
+                .Duration = "1h 00m",
+                .FlightType = "Direct Flight",
+                .BaseFare = 1800D,
+                .Status = "Scheduled",
+                .AircraftModel = "Airbus A320"
+            })
+            Flights.Add(New FlightSchedule With {
+                .FlightId = "F019",
+                .Origin = "Cebu",
+                .Destination = "Tokyo",
+                .FlightDate = "November 21, 2026",
+                .DepartureTime = "08:30 AM",
+                .ArrivalTime = "01:45 PM",
+                .Duration = "4h 15m",
+                .FlightType = "Direct Flight",
+                .BaseFare = 9000D,
+                .Status = "Scheduled",
+                .AircraftModel = "Boeing 777-300ER"
+            })
+            Flights.Add(New FlightSchedule With {
+                .FlightId = "F020",
+                .Origin = "Cebu",
+                .Destination = "Singapore",
+                .FlightDate = "November 22, 2026",
+                .DepartureTime = "01:30 PM",
+                .ArrivalTime = "05:15 PM",
+                .Duration = "3h 45m",
+                .FlightType = "Direct Flight",
+                .BaseFare = 5800D,
+                .Status = "Scheduled",
+                .AircraftModel = "Airbus A350-900"
+            })
 
             Dim initialFlight = Flights(0)
             Bookings.Add(New BookingRecord With {
@@ -698,9 +908,12 @@ ON DUPLICATE KEY UPDATE `status` = @st;
             Dim adjustedBase = base * cabinMultiplier
 
             Dim baggageFee As Decimal = 0D
-            If checkedKg > 10 Then
-                baggageFee = (checkedKg - 10) * 50D
-            End If
+            Select Case checkedKg
+                Case 10 : baggageFee = 1000D
+                Case 20 : baggageFee = 1800D
+                Case 40 : baggageFee = 3000D
+                Case Else : baggageFee = 0D
+            End Select
             ActiveBooking.CheckedBaggageKg = checkedKg
             ActiveBooking.BaggageFee = baggageFee
 
@@ -711,7 +924,7 @@ ON DUPLICATE KEY UPDATE `status` = @st;
             Dim taxes As Decimal = adminFee + fuelFee + vatFee + terminalFee
             ActiveBooking.TaxesAndSurcharges = taxes
 
-            Dim refundProtection As Decimal = If(isRefundable, 350D, 0D)
+            Dim refundProtection As Decimal = If(isRefundable, 500D, 0D)
             ActiveBooking.IsRefundable = isRefundable
             ActiveBooking.RefundFee = refundProtection
 

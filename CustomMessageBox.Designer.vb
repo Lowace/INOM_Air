@@ -28,7 +28,6 @@ Partial Class CustomMessageBox
         Dim CustomizableEdges6 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges7 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(CustomMessageBox))
-        Guna2BorderlessForm1 = New Guna.UI2.WinForms.Guna2BorderlessForm(components)
         pnlBorder = New Guna.UI2.WinForms.Guna2Panel()
         pnlBody = New Panel()
         rtbScrollMessage = New RichTextBox()
@@ -49,10 +48,6 @@ Partial Class CustomMessageBox
         pnlFooter.SuspendLayout()
         pnlHeader.SuspendLayout()
         SuspendLayout()
-        Guna2BorderlessForm1.BorderRadius = 18
-        Guna2BorderlessForm1.ContainerControl = Me
-        Guna2BorderlessForm1.DockIndicatorTransparencyValue = 0.6R
-        Guna2BorderlessForm1.TransparentWhileDrag = True
         pnlBorder.BackColor = Color.Transparent
         pnlBorder.BorderColor = Color.FromArgb(CByte(220), CByte(224), CByte(230))
         pnlBorder.BorderRadius = 18
@@ -232,7 +227,6 @@ Partial Class CustomMessageBox
         ResumeLayout(False)
     End Sub
 
-    Friend WithEvents Guna2BorderlessForm1 As Guna.UI2.WinForms.Guna2BorderlessForm
     Friend WithEvents pnlBorder As Guna.UI2.WinForms.Guna2Panel
     Friend WithEvents pnlHeader As Panel
     Friend WithEvents lblTitle As Label

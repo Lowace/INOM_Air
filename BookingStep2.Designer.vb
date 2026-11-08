@@ -71,7 +71,6 @@ Partial Class BookingStep2
         lblF2Type = New Label()
         lblF2Fare = New Label()
         btnF2Select = New Guna.UI2.WinForms.Guna2Button()
-        PictureBox2 = New PictureBox()
         pnlTopBar.SuspendLayout()
         pnlBody.SuspendLayout()
         pnlB2Left.SuspendLayout()
@@ -79,7 +78,6 @@ Partial Class BookingStep2
         pnlB2Right.SuspendLayout()
         pnlB2FlightCard1.SuspendLayout()
         pnlB2FlightCard2.SuspendLayout()
-        CType(PictureBox2, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         Guna2BorderlessForm1.BorderRadius = 24
         Guna2BorderlessForm1.ContainerControl = Me
@@ -151,11 +149,11 @@ Partial Class BookingStep2
         pnlB2Left.Controls.Add(lblB2SummaryTitle)
         pnlB2Left.Controls.Add(pnlB2LeftDivider)
         pnlB2Left.Controls.Add(lblB2Origin)
-        pnlB2Left.Controls.Add(PictureBox1)
         pnlB2Left.Controls.Add(lblB2Dest)
         pnlB2Left.Controls.Add(lblB2TripType)
         pnlB2Left.Controls.Add(lblB2CabinClass)
         pnlB2Left.Controls.Add(cmbB2CabinClass)
+        pnlB2Left.Controls.Add(PictureBox1)
         pnlB2Left.Controls.Add(btnB2Back)
         pnlB2Left.CustomizableEdges = CustomizableEdges5
         pnlB2Left.FillColor = Color.White
@@ -188,13 +186,6 @@ Partial Class BookingStep2
         lblB2Origin.Size = New Size(155, 20)
         lblB2Origin.TabIndex = 2
         lblB2Origin.Text = "Origin: MNL - Manila"
-        PictureBox1.Image = My.Resources.Resources._66ba3ddf_8faf_4108_a1e3_2e78fb6e00b3NOBG
-        PictureBox1.Location = New Point(-139, 3)
-        PictureBox1.Name = "PictureBox1"
-        PictureBox1.Size = New Size(970, 507)
-        PictureBox1.SizeMode = PictureBoxSizeMode.StretchImage
-        PictureBox1.TabIndex = 14
-        PictureBox1.TabStop = False
         lblB2Dest.AutoSize = True
         lblB2Dest.Font = New Font("Segoe UI", 11F, FontStyle.Bold)
         lblB2Dest.ForeColor = Color.FromArgb(CByte(50), CByte(50), CByte(60))
@@ -214,7 +205,7 @@ Partial Class BookingStep2
         lblB2CabinClass.AutoSize = True
         lblB2CabinClass.Font = New Font("Segoe UI", 10.5F, FontStyle.Bold)
         lblB2CabinClass.ForeColor = Color.FromArgb(CByte(105), CByte(105), CByte(105))
-        lblB2CabinClass.Location = New Point(25, 220)
+        lblB2CabinClass.Location = New Point(25, 210)
         lblB2CabinClass.Name = "lblB2CabinClass"
         lblB2CabinClass.Size = New Size(84, 19)
         lblB2CabinClass.TabIndex = 5
@@ -229,12 +220,19 @@ Partial Class BookingStep2
         cmbB2CabinClass.ForeColor = Color.FromArgb(CByte(50), CByte(50), CByte(60))
         cmbB2CabinClass.ItemHeight = 30
         cmbB2CabinClass.Items.AddRange(New Object() {"Economy Class", "Business Class (+80%)"})
-        cmbB2CabinClass.Location = New Point(25, 245)
+        cmbB2CabinClass.Location = New Point(25, 235)
         cmbB2CabinClass.Name = "cmbB2CabinClass"
         cmbB2CabinClass.ShadowDecoration.CustomizableEdges = CustomizableEdges2
         cmbB2CabinClass.Size = New Size(260, 36)
         cmbB2CabinClass.StartIndex = 0
         cmbB2CabinClass.TabIndex = 6
+        PictureBox1.Image = My.Resources.Resources._66ba3ddf_8faf_4108_a1e3_2e78fb6e00b3NOBG
+        PictureBox1.Location = New Point(70, 305)
+        PictureBox1.Name = "PictureBox1"
+        PictureBox1.Size = New Size(170, 105)
+        PictureBox1.SizeMode = PictureBoxSizeMode.Zoom
+        PictureBox1.TabIndex = 14
+        PictureBox1.TabStop = False
         btnB2Back.Animated = True
         btnB2Back.BorderColor = Color.FromArgb(CByte(190), CByte(190), CByte(200))
         btnB2Back.BorderRadius = 12
@@ -242,20 +240,19 @@ Partial Class BookingStep2
         btnB2Back.Cursor = Cursors.Hand
         btnB2Back.CustomizableEdges = CustomizableEdges3
         btnB2Back.FillColor = Color.Transparent
-        btnB2Back.Font = New Font("Segoe UI", 10F)
+        btnB2Back.Font = New Font("Segoe UI", 10F, FontStyle.Bold)
         btnB2Back.ForeColor = Color.FromArgb(CByte(105), CByte(105), CByte(105))
         btnB2Back.Location = New Point(25, 440)
         btnB2Back.Name = "btnB2Back"
         btnB2Back.ShadowDecoration.CustomizableEdges = CustomizableEdges4
         btnB2Back.Size = New Size(260, 45)
         btnB2Back.TabIndex = 7
-        btnB2Back.Text = "← Change Search"
+        btnB2Back.Text = "← Back"
         pnlB2Right.BackColor = Color.Transparent
         pnlB2Right.BorderRadius = 18
         pnlB2Right.Controls.Add(lblB2DateHeader)
         pnlB2Right.Controls.Add(pnlB2FlightCard1)
         pnlB2Right.Controls.Add(pnlB2FlightCard2)
-        pnlB2Right.Controls.Add(PictureBox2)
         pnlB2Right.CustomizableEdges = CustomizableEdges15
         pnlB2Right.FillColor = Color.White
         pnlB2Right.Location = New Point(365, 25)
@@ -394,13 +391,6 @@ Partial Class BookingStep2
         btnF2Select.Size = New Size(110, 46)
         btnF2Select.TabIndex = 4
         btnF2Select.Text = "Select"
-        PictureBox2.Image = My.Resources.Resources._66ba3ddf_8faf_4108_a1e3_2e78fb6e00b3NOBG
-        PictureBox2.Location = New Point(-469, 3)
-        PictureBox2.Name = "PictureBox2"
-        PictureBox2.Size = New Size(970, 507)
-        PictureBox2.SizeMode = PictureBoxSizeMode.StretchImage
-        PictureBox2.TabIndex = 15
-        PictureBox2.TabStop = False
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.FromArgb(CByte(237), CByte(229), CByte(216))
@@ -424,7 +414,6 @@ Partial Class BookingStep2
         pnlB2FlightCard1.PerformLayout()
         pnlB2FlightCard2.ResumeLayout(False)
         pnlB2FlightCard2.PerformLayout()
-        CType(PictureBox2, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
     End Sub
 
@@ -459,6 +448,5 @@ Partial Class BookingStep2
     Friend WithEvents lblF2Fare As Label
     Friend WithEvents btnF2Select As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents PictureBox1 As PictureBox
-    Friend WithEvents PictureBox2 As PictureBox
 
 End Class

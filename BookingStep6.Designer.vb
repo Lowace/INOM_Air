@@ -286,7 +286,7 @@ Partial Class BookingStep6
         btnB6Terms.ShadowDecoration.CustomizableEdges = CustomizableEdges21
         btnB6Terms.Size = New Size(240, 28)
         btnB6Terms.TabIndex = 2
-        btnB6Terms.Text = "📄 View Full Terms & Conditions"
+        btnB6Terms.Text = "📄 View Full Terms and Conditions"
         pnlB6RightSummary.BackColor = Color.Transparent
         pnlB6RightSummary.BorderRadius = 18
         pnlB6RightSummary.Controls.Add(PictureBox1)

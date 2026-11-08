@@ -23,8 +23,31 @@ Partial Public Class CustomMessageBox
     Private Shared Function GetScrollInfo(hWnd As IntPtr, nBar As Integer, ByRef lpsi As SCROLLINFO) As Boolean
     End Function
 
+    Private isDragging As Boolean = False
+    Private dragCursorPoint As Point
+    Private dragFormPoint As Point
+
     Public Sub New()
         InitializeComponent()
+    End Sub
+
+    Private Sub Header_MouseDown(sender As Object, e As MouseEventArgs) Handles pnlHeader.MouseDown, lblTitle.MouseDown
+        If e.Button = MouseButtons.Left Then
+            isDragging = True
+            dragCursorPoint = Cursor.Position
+            dragFormPoint = Me.Location
+        End If
+    End Sub
+
+    Private Sub Header_MouseMove(sender As Object, e As MouseEventArgs) Handles pnlHeader.MouseMove, lblTitle.MouseMove
+        If isDragging Then
+            Dim diff As Point = Point.Subtract(Cursor.Position, New Size(dragCursorPoint))
+            Me.Location = Point.Add(dragFormPoint, New Size(diff))
+        End If
+    End Sub
+
+    Private Sub Header_MouseUp(sender As Object, e As MouseEventArgs) Handles pnlHeader.MouseUp, lblTitle.MouseUp
+        isDragging = False
     End Sub
 
     Private Sub AppendSection(heading As String, content As String)

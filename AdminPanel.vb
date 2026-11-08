@@ -4,17 +4,17 @@ Imports System.Linq
 Public Class AdminPanel
 
     Private Sub AdminPanel_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        lblAdminHeaderTitle.Text = "International NOM Airlines � Admin / Staff"
-        btnClose.Text = "?"
-        btnNavDashboard.Text = "?? Dashboard"
-        btnNavPlanes.Text = "? Planes"
-        btnNavCustomers.Text = "?? Customers"
-        btnNavPilots.Text = "???? Pilots"
-        btnNavSchedules.Text = "?? Flights"
-        lblCardPlanesTitle.Text = "? Manage Aircraft"
-        lblCardUsersTitle.Text = "?? Review User Profiles"
-        lblCardPilotsTitle.Text = "???? Manage Flight Crew"
-        lblCardSchedulesTitle.Text = "?? Manage Flight Schedules"
+        lblAdminHeaderTitle.Text = "International NOM Airlines - Admin / Staff"
+        btnClose.Text = "X"
+        btnNavDashboard.Text = "Dashboard"
+        btnNavPlanes.Text = "Planes"
+        btnNavCustomers.Text = "Customers"
+        btnNavPilots.Text = "Pilots"
+        btnNavSchedules.Text = "Flights"
+        lblCardPlanesTitle.Text = "Manage Aircraft"
+        lblCardUsersTitle.Text = "Review User Profiles"
+        lblCardPilotsTitle.Text = "Manage Flight Crew"
+        lblCardSchedulesTitle.Text = "Manage Flight Schedules"
 
         ShowAdminTab(pnlDashboardView, btnNavDashboard)
         RefreshAllAdminData()
