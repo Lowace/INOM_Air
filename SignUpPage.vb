@@ -8,6 +8,8 @@ Public Class SignUpPage
     End Sub
 
     Private Sub btnNextStep_Click(sender As Object, e As EventArgs) Handles btnNextStep.Click
+        AppState.ReloadAllFromDatabase()
+
         Dim username = txtRegUsername.Text.Trim()
         Dim password = txtRegPassword.Text.Trim()
         Dim confirmPass = txtRegConfirmPassword.Text.Trim()
@@ -55,6 +57,17 @@ Public Class SignUpPage
             Return
         End If
 
+        AppState.ReloadAllFromDatabase()
+
+        Dim regUsername = txtRegUsername.Text.Trim()
+        If AppState.Users.Any(Function(u) u.Username.Equals(regUsername, StringComparison.OrdinalIgnoreCase)) Then
+            CustomMessageBox.Show("That username has already been taken by another user. Please choose a different username.", "Username Unavailable", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            pnlStep2.Visible = False
+            pnlStep1.Visible = True
+            pnlStep1.BringToFront()
+            Return
+        End If
+
         Dim givenName = txtGivenName.Text.Trim()
         Dim surname = txtSurname.Text.Trim()
         Dim contact = txtContactNumber.Text.Trim()
@@ -76,7 +89,7 @@ Public Class SignUpPage
 
         Dim newUser As New UserAccount With {
             .CustomerId = newCustId,
-            .Username = txtRegUsername.Text.Trim(),
+            .Username = regUsername,
             .Password = txtRegPassword.Text.Trim(),
             .GivenName = givenName,
             .Surname = surname,
@@ -99,6 +112,16 @@ Public Class SignUpPage
         Dim custForm As New CustomerForm()
         custForm.Show()
         Me.Close()
+    End Sub
+
+    Private Sub chkShowSignupPassword_CheckedChanged(sender As Object, e As EventArgs) Handles chkShowSignupPassword.CheckedChanged
+        If chkShowSignupPassword.Checked Then
+            txtRegPassword.PasswordChar = ChrW(0)
+            txtRegConfirmPassword.PasswordChar = ChrW(0)
+        Else
+            txtRegPassword.PasswordChar = "●"c
+            txtRegConfirmPassword.PasswordChar = "●"c
+        End If
     End Sub
 
     Private Sub btnSignupTerms_Click(sender As Object, e As EventArgs) Handles btnSignupTerms.Click

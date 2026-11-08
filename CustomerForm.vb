@@ -2,6 +2,7 @@
 
 Public Class CustomerForm
     Private Sub CustomerForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        AppState.ReloadAllFromDatabase()
         RefreshDashboard()
     End Sub
 
@@ -70,6 +71,7 @@ Public Class CustomerForm
                 AppState.UpdateBookingStatusInDatabase(lastBooking.TicketNumber, "Cancelled")
             End If
             CustomMessageBox.Show("Flight successfully cancelled. Refund request has been recorded.", "Cancellation Processed", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            AppState.ReloadAllFromDatabase()
             RefreshDashboard()
         End If
     End Sub

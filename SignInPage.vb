@@ -3,6 +3,8 @@
 Public Class SignInPage
 
     Private Sub btnLogin_Click(sender As Object, e As EventArgs) Handles btnLogin.Click
+        AppState.ReloadAllFromDatabase()
+
         Dim enteredUsername = txtUsername.Text.Trim()
         Dim enteredPassword = txtPassword.Text.Trim()
 
@@ -44,6 +46,14 @@ Public Class SignInPage
         Dim signupForm As New SignUpPage()
         signupForm.Show()
         Me.Close()
+    End Sub
+
+    Private Sub chkShowLoginPassword_CheckedChanged(sender As Object, e As EventArgs) Handles chkShowLoginPassword.CheckedChanged
+        If chkShowLoginPassword.Checked Then
+            txtPassword.PasswordChar = ChrW(0)
+        Else
+            txtPassword.PasswordChar = "●"c
+        End If
     End Sub
 
 End Class

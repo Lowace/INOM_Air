@@ -1,7 +1,7 @@
 ﻿Public Class StartingPage
 
     Private Sub StartingPage_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        AppState.InitializeDefaultData()
+        AppState.ReloadAllFromDatabase()
     End Sub
 
     Private Sub btnLogin_Click(sender As Object, e As EventArgs) Handles btnLogin.Click

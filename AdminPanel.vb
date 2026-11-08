@@ -148,6 +148,7 @@ Public Class AdminPanel
     End Sub
 
     Private Sub btnAddNewCustomer_Click(sender As Object, e As EventArgs) Handles btnAddNewCustomer.Click
+        AppState.ReloadAllFromDatabase()
         Dim username = CustomMessageBox.ShowInput("Enter New Customer Username:", "Add Customer", "customer" & (AppState.Users.Count + 1), Me)
         If String.IsNullOrWhiteSpace(username) Then Return
 

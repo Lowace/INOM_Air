@@ -243,6 +243,7 @@ Partial Class CustomMessageBox
         ShowInTaskbar = False
         StartPosition = FormStartPosition.CenterParent
         Text = "INOM Air"
+        TopMost = True
         pnlBorder.ResumeLayout(False)
         pnlBody.ResumeLayout(False)
         pnlBody.PerformLayout()

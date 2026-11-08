@@ -151,6 +151,9 @@ Namespace Global.INOM_Air
                 End Using
             Catch ex As Exception
                 IsDatabaseConnected = False
+                If Users.Count = 0 Then
+                    InitializeDefaultData()
+                End If
             End Try
         End Sub
 
@@ -441,39 +444,75 @@ INSERT INTO `bookings` (`ticket_number`, `username`, `passenger_name`, `flight_i
             Using cmd As New MySqlCommand("SELECT ticket_number, username, passenger_name, flight_id, cabin_class, seat_number, gate, selected_meal, checked_baggage_kg, carry_on_baggage_kg, baggage_fee, is_refundable, refund_fee, discount_amount, discount_reason, taxes_and_surcharges, total_amount, booking_date, status FROM `bookings`;", conn)
                 Using r = cmd.ExecuteReader()
                     While r.Read()
-                        Dim fId = r.GetString("flight_id")
+                        Dim fId = If(r.IsDBNull(r.GetOrdinal("flight_id")), "F001", r.GetString("flight_id"))
                         Dim matchedFlight = Flights.Find(Function(f) f.FlightId.Equals(fId, StringComparison.OrdinalIgnoreCase))
+                        If matchedFlight Is Nothing Then
+                            matchedFlight = New FlightSchedule With {
+                                .FlightId = fId,
+                                .Origin = "Manila",
+                                .Destination = "Cebu",
+                                .FlightDate = DateTime.Today.ToString("MMMM dd, yyyy"),
+                                .DepartureTime = "10:30 AM",
+                                .ArrivalTime = "12:00 PM",
+                                .Duration = "1h 30m",
+                                .BaseFare = 2000D,
+                                .Status = "Scheduled",
+                                .AircraftModel = "Boeing 737-800"
+                            }
+                        End If
+
+                        Dim isRef As Boolean = False
+                        If Not r.IsDBNull(r.GetOrdinal("is_refundable")) Then
+                            Dim val = r.GetValue(r.GetOrdinal("is_refundable"))
+                            If TypeOf val Is Boolean Then
+                                isRef = CBool(val)
+                            Else
+                                isRef = (Convert.ToInt32(val) = 1)
+                            End If
+                        End If
+
+                        Dim bDate As DateTime = DateTime.Now
+                        If Not r.IsDBNull(r.GetOrdinal("booking_date")) Then
+                            DateTime.TryParse(r.GetValue(r.GetOrdinal("booking_date")).ToString(), bDate)
+                        End If
 
                         Bookings.Add(New BookingRecord With {
                             .TicketNumber = r.GetString("ticket_number"),
-                            .Username = r.GetString("username"),
-                            .PassengerName = r.GetString("passenger_name"),
-                            .Flight = If(matchedFlight, Flights(0)),
-                            .CabinClass = r.GetString("cabin_class"),
-                            .SeatNumber = r.GetString("seat_number"),
-                            .Gate = r.GetString("gate"),
-                            .SelectedMeal = r.GetString("selected_meal"),
-                            .CheckedBaggageKg = r.GetInt32("checked_baggage_kg"),
-                            .CarryOnBaggageKg = r.GetInt32("carry_on_baggage_kg"),
-                            .BaggageFee = r.GetDecimal("baggage_fee"),
-                            .IsRefundable = r.GetBoolean("is_refundable"),
-                            .RefundFee = r.GetDecimal("refund_fee"),
-                            .DiscountAmount = r.GetDecimal("discount_amount"),
-                            .DiscountReason = r.GetString("discount_reason"),
-                            .TaxesAndSurcharges = r.GetDecimal("taxes_and_surcharges"),
-                            .TotalAmount = r.GetDecimal("total_amount"),
-                            .BookingDate = r.GetDateTime("booking_date"),
-                            .Status = r.GetString("status")
+                            .Username = If(r.IsDBNull(r.GetOrdinal("username")), "", r.GetString("username")),
+                            .PassengerName = If(r.IsDBNull(r.GetOrdinal("passenger_name")), "", r.GetString("passenger_name")),
+                            .Flight = matchedFlight,
+                            .CabinClass = If(r.IsDBNull(r.GetOrdinal("cabin_class")), "Economy", r.GetString("cabin_class")),
+                            .SeatNumber = If(r.IsDBNull(r.GetOrdinal("seat_number")), "A1", r.GetString("seat_number")),
+                            .Gate = If(r.IsDBNull(r.GetOrdinal("gate")), "A1", r.GetString("gate")),
+                            .SelectedMeal = If(r.IsDBNull(r.GetOrdinal("selected_meal")), "Standard Meal", r.GetString("selected_meal")),
+                            .CheckedBaggageKg = If(r.IsDBNull(r.GetOrdinal("checked_baggage_kg")), 0, Convert.ToInt32(r.GetValue(r.GetOrdinal("checked_baggage_kg")))),
+                            .CarryOnBaggageKg = If(r.IsDBNull(r.GetOrdinal("carry_on_baggage_kg")), 7, Convert.ToInt32(r.GetValue(r.GetOrdinal("carry_on_baggage_kg")))),
+                            .BaggageFee = If(r.IsDBNull(r.GetOrdinal("baggage_fee")), 0D, Convert.ToDecimal(r.GetValue(r.GetOrdinal("baggage_fee")))),
+                            .IsRefundable = isRef,
+                            .RefundFee = If(r.IsDBNull(r.GetOrdinal("refund_fee")), 0D, Convert.ToDecimal(r.GetValue(r.GetOrdinal("refund_fee")))),
+                            .DiscountAmount = If(r.IsDBNull(r.GetOrdinal("discount_amount")), 0D, Convert.ToDecimal(r.GetValue(r.GetOrdinal("discount_amount")))),
+                            .DiscountReason = If(r.IsDBNull(r.GetOrdinal("discount_reason")), "None", r.GetString("discount_reason")),
+                            .TaxesAndSurcharges = If(r.IsDBNull(r.GetOrdinal("taxes_and_surcharges")), 450D, Convert.ToDecimal(r.GetValue(r.GetOrdinal("taxes_and_surcharges")))),
+                            .TotalAmount = If(r.IsDBNull(r.GetOrdinal("total_amount")), 0D, Convert.ToDecimal(r.GetValue(r.GetOrdinal("total_amount")))),
+                            .BookingDate = bDate,
+                            .Status = If(r.IsDBNull(r.GetOrdinal("status")), "Confirmed", r.GetString("status"))
                         })
                     End While
                 End Using
             End Using
 
-            Dim defaultCust = Users.Find(Function(u) u.Username.Equals("Naruto", StringComparison.OrdinalIgnoreCase))
-            If defaultCust IsNot Nothing Then
-                CurrentUser = defaultCust
-            ElseIf Users.Count > 0 Then
-                CurrentUser = Users(0)
+            If CurrentUser IsNot Nothing Then
+                Dim reloadedUser = Users.Find(Function(u) u.Username.Equals(CurrentUser.Username, StringComparison.OrdinalIgnoreCase))
+                If reloadedUser IsNot Nothing Then
+                    CurrentUser = reloadedUser
+                End If
+            Else
+                Dim defaultCust = Users.Find(Function(u) u.Username.Equals("Naruto", StringComparison.OrdinalIgnoreCase))
+                If defaultCust IsNot Nothing Then
+                    CurrentUser = defaultCust
+                ElseIf Users.Count > 0 Then
+                    CurrentUser = Users(0)
+                End If
             End If
         End Sub
 
@@ -521,10 +560,10 @@ ON DUPLICATE KEY UPDATE
         End Sub
 
         Public Sub SaveBookingToDatabase(b As BookingRecord)
-            If Not IsDatabaseConnected Then Return
             Try
                 Using conn = GetConnection()
                     conn.Open()
+                    IsDatabaseConnected = True
                     Dim sql = "
 INSERT INTO `bookings` (`ticket_number`, `username`, `passenger_name`, `flight_id`, `cabin_class`, `seat_number`, `gate`, `selected_meal`, `checked_baggage_kg`, `carry_on_baggage_kg`, `baggage_fee`, `is_refundable`, `refund_fee`, `discount_amount`, `discount_reason`, `taxes_and_surcharges`, `total_amount`, `booking_date`, `status`)
 VALUES (@tk, @un, @pn, @fid, @cc, @sn, @gt, @sm, @ckg, @cog, @bf, @ir, @rf, @da, @dr, @ts, @ta, @bd, @st)
@@ -558,10 +597,10 @@ ON DUPLICATE KEY UPDATE `status` = @st;
         End Sub
 
         Public Sub UpdateBookingStatusInDatabase(ticketNumber As String, newStatus As String)
-            If Not IsDatabaseConnected Then Return
             Try
                 Using conn = GetConnection()
                     conn.Open()
+                    IsDatabaseConnected = True
                     Using cmd As New MySqlCommand("UPDATE `bookings` SET `status` = @st WHERE `ticket_number` = @tk;", conn)
                         cmd.Parameters.AddWithValue("@st", newStatus)
                         cmd.Parameters.AddWithValue("@tk", ticketNumber)
@@ -573,10 +612,10 @@ ON DUPLICATE KEY UPDATE `status` = @st;
         End Sub
 
         Public Sub SaveAircraftToDatabase(a As Aircraft)
-            If Not IsDatabaseConnected Then Return
             Try
                 Using conn = GetConnection()
                     conn.Open()
+                    IsDatabaseConnected = True
                     Dim sql = "INSERT INTO `aircrafts` (`aircraft_id`, `model`, `capacity`, `status`) VALUES (@id, @md, @cp, @st) ON DUPLICATE KEY UPDATE `model`=@md, `capacity`=@cp, `status`=@st;"
                     Using cmd As New MySqlCommand(sql, conn)
                         cmd.Parameters.AddWithValue("@id", a.AircraftId)
@@ -591,10 +630,10 @@ ON DUPLICATE KEY UPDATE `status` = @st;
         End Sub
 
         Public Sub SavePilotToDatabase(p As Pilot)
-            If Not IsDatabaseConnected Then Return
             Try
                 Using conn = GetConnection()
                     conn.Open()
+                    IsDatabaseConnected = True
                     Dim sql = "INSERT INTO `pilots` (`pilot_id`, `name`, `assigned_flight`, `status`) VALUES (@id, @nm, @af, @st) ON DUPLICATE KEY UPDATE `name`=@nm, `assigned_flight`=@af, `status`=@st;"
                     Using cmd As New MySqlCommand(sql, conn)
                         cmd.Parameters.AddWithValue("@id", p.PilotId)
@@ -609,10 +648,10 @@ ON DUPLICATE KEY UPDATE `status` = @st;
         End Sub
 
         Public Sub SaveFlightToDatabase(f As FlightSchedule)
-            If Not IsDatabaseConnected Then Return
             Try
                 Using conn = GetConnection()
                     conn.Open()
+                    IsDatabaseConnected = True
                     Dim sql = "INSERT INTO `flights` (`flight_id`, `origin`, `destination`, `flight_date`, `departure_time`, `arrival_time`, `duration`, `flight_type`, `base_fare`, `status`, `aircraft_model`) VALUES (@id, @og, @ds, @fd, @dt, @at, @dr, @ft, @bf, @st, @am) ON DUPLICATE KEY UPDATE `status`=@st, `base_fare`=@bf;"
                     Using cmd As New MySqlCommand(sql, conn)
                         cmd.Parameters.AddWithValue("@id", f.FlightId)

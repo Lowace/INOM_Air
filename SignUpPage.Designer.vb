@@ -72,6 +72,7 @@ Partial Class SignUpPage
         txtRegPassword = New Guna.UI2.WinForms.Guna2TextBox()
         lblConfirmPass = New Label()
         txtRegConfirmPassword = New Guna.UI2.WinForms.Guna2TextBox()
+        chkShowSignupPassword = New Guna.UI2.WinForms.Guna2CheckBox()
         btnNextStep = New Guna.UI2.WinForms.Guna2Button()
         btnBackToStart = New Guna.UI2.WinForms.Guna2Button()
         pnlStep2 = New Guna.UI2.WinForms.Guna2Panel()
@@ -163,6 +164,7 @@ Partial Class SignUpPage
         pnlStep1.Controls.Add(txtRegPassword)
         pnlStep1.Controls.Add(lblConfirmPass)
         pnlStep1.Controls.Add(txtRegConfirmPassword)
+        pnlStep1.Controls.Add(chkShowSignupPassword)
         pnlStep1.Controls.Add(btnNextStep)
         pnlStep1.Controls.Add(btnBackToStart)
         pnlStep1.CustomizableEdges = CustomizableEdges16
@@ -251,6 +253,18 @@ Partial Class SignUpPage
         txtRegConfirmPassword.ShadowDecoration.CustomizableEdges = CustomizableEdges11
         txtRegConfirmPassword.Size = New Size(355, 44)
         txtRegConfirmPassword.TabIndex = 8
+        chkShowSignupPassword.AutoSize = True
+        chkShowSignupPassword.CheckedState.BorderColor = Color.FromArgb(CByte(1), CByte(123), CByte(128))
+        chkShowSignupPassword.CheckedState.BorderRadius = 4
+        chkShowSignupPassword.CheckedState.BorderThickness = 0
+        chkShowSignupPassword.CheckedState.FillColor = Color.FromArgb(CByte(1), CByte(123), CByte(128))
+        chkShowSignupPassword.Font = New Font("Segoe UI", 9.0F)
+        chkShowSignupPassword.ForeColor = Color.FromArgb(CByte(70), CByte(75), CByte(85))
+        chkShowSignupPassword.Location = New Point(38, 328)
+        chkShowSignupPassword.Name = "chkShowSignupPassword"
+        chkShowSignupPassword.Size = New Size(116, 19)
+        chkShowSignupPassword.TabIndex = 9
+        chkShowSignupPassword.Text = "Show Passwords"
         btnNextStep.Animated = True
         btnNextStep.BorderRadius = 16
         btnNextStep.Cursor = Cursors.Hand
@@ -573,6 +587,7 @@ Partial Class SignUpPage
     Friend WithEvents txtRegPassword As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents lblConfirmPass As Label
     Friend WithEvents txtRegConfirmPassword As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents chkShowSignupPassword As Guna.UI2.WinForms.Guna2CheckBox
     Friend WithEvents btnNextStep As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents btnBackToStart As Guna.UI2.WinForms.Guna2Button
 

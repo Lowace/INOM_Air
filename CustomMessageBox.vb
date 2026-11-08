@@ -29,6 +29,12 @@ Partial Public Class CustomMessageBox
 
     Public Sub New()
         InitializeComponent()
+        Me.TopMost = True
+        AddHandler Me.Shown, Sub(s, e)
+                                 Me.TopMost = True
+                                 Me.BringToFront()
+                                 Me.Activate()
+                             End Sub
     End Sub
 
     Private Sub Header_MouseDown(sender As Object, e As MouseEventArgs) Handles pnlHeader.MouseDown, lblTitle.MouseDown
