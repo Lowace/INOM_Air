@@ -87,13 +87,14 @@ Public Class AdminPanel
     End Sub
 
     Private Sub btnAddNewPlane_Click(sender As Object, e As EventArgs) Handles btnAddNewPlane.Click
-        Dim id = InputBox("Enter Aircraft ID (e.g. P005):", "Add New Aircraft", "P00" & (AppState.Aircrafts.Count + 1))
+        Dim id = CustomMessageBox.ShowInput("Enter Aircraft ID (e.g. P005):", "Add New Aircraft", "P00" & (AppState.Aircrafts.Count + 1), Me)
         If String.IsNullOrWhiteSpace(id) Then Return
 
-        Dim model = InputBox("Enter Aircraft Model (e.g. Boeing 787 Dreamliner):", "Add New Aircraft", "Boeing 787")
+        Dim model = CustomMessageBox.ShowInput("Enter Aircraft Model (e.g. Boeing 787 Dreamliner):", "Add New Aircraft", "Boeing 787", Me)
         If String.IsNullOrWhiteSpace(model) Then Return
 
-        Dim capStr = InputBox("Enter Passenger Capacity:", "Add New Aircraft", "250")
+        Dim capStr = CustomMessageBox.ShowInput("Enter Passenger Capacity:", "Add New Aircraft", "250", Me)
+        If String.IsNullOrWhiteSpace(capStr) Then Return
         Dim cap As Integer = 200
         Integer.TryParse(capStr, cap)
 
@@ -143,13 +144,14 @@ Public Class AdminPanel
     End Sub
 
     Private Sub btnAddNewCustomer_Click(sender As Object, e As EventArgs) Handles btnAddNewCustomer.Click
-        Dim username = InputBox("Enter New Customer Username:", "Add Customer", "customer" & (AppState.Users.Count + 1))
+        Dim username = CustomMessageBox.ShowInput("Enter New Customer Username:", "Add Customer", "customer" & (AppState.Users.Count + 1), Me)
         If String.IsNullOrWhiteSpace(username) Then Return
 
-        Dim name = InputBox("Enter Full Name:", "Add Customer", "John Doe")
+        Dim name = CustomMessageBox.ShowInput("Enter Full Name:", "Add Customer", "John Doe", Me)
         If String.IsNullOrWhiteSpace(name) Then Return
 
-        Dim contact = InputBox("Enter Contact Number:", "Add Customer", "+63 9123456789")
+        Dim contact = CustomMessageBox.ShowInput("Enter Contact Number:", "Add Customer", "+63 9123456789", Me)
+        If String.IsNullOrWhiteSpace(contact) Then Return
 
         Dim newUser As New UserAccount With {
             .Username = username,
@@ -195,13 +197,14 @@ Public Class AdminPanel
     End Sub
 
     Private Sub btnAddNewPilot_Click(sender As Object, e As EventArgs) Handles btnAddNewPilot.Click
-        Dim id = InputBox("Enter Pilot ID (e.g. PT005):", "Add New Pilot", "PT00" & (AppState.Pilots.Count + 1))
+        Dim id = CustomMessageBox.ShowInput("Enter Pilot ID (e.g. PT005):", "Add New Pilot", "PT00" & (AppState.Pilots.Count + 1), Me)
         If String.IsNullOrWhiteSpace(id) Then Return
 
-        Dim name = InputBox("Enter Pilot Full Name:", "Add New Pilot", "Capt. New Pilot")
+        Dim name = CustomMessageBox.ShowInput("Enter Pilot Full Name:", "Add New Pilot", "Capt. New Pilot", Me)
         If String.IsNullOrWhiteSpace(name) Then Return
 
-        Dim flight = InputBox("Enter Assigned Flight (e.g. F001):", "Add New Pilot", "F001")
+        Dim flight = CustomMessageBox.ShowInput("Enter Assigned Flight (e.g. F001):", "Add New Pilot", "F001", Me)
+        If String.IsNullOrWhiteSpace(flight) Then Return
 
         Dim newPilot As New Pilot With {
             .PilotId = id,
@@ -249,13 +252,14 @@ Public Class AdminPanel
     End Sub
 
     Private Sub btnAddNewSchedule_Click(sender As Object, e As EventArgs) Handles btnAddNewSchedule.Click
-        Dim id = InputBox("Enter Flight ID (e.g. F006):", "Add Flight Schedule", "F00" & (AppState.Flights.Count + 1))
+        Dim id = CustomMessageBox.ShowInput("Enter Flight ID (e.g. F006):", "Add Flight Schedule", "F00" & (AppState.Flights.Count + 1), Me)
         If String.IsNullOrWhiteSpace(id) Then Return
 
-        Dim dest = InputBox("Enter Destination City / Country (Philippines or Asia):", "Add Flight Schedule", "Hong Kong")
+        Dim dest = CustomMessageBox.ShowInput("Enter Destination City / Country (Philippines or Asia):", "Add Flight Schedule", "Hong Kong", Me)
         If String.IsNullOrWhiteSpace(dest) Then Return
 
-        Dim fareStr = InputBox("Enter Base Fare (PHP):", "Add Flight Schedule", "4500")
+        Dim fareStr = CustomMessageBox.ShowInput("Enter Base Fare (PHP):", "Add Flight Schedule", "4500", Me)
+        If String.IsNullOrWhiteSpace(fareStr) Then Return
         Dim fare As Decimal = 4500D
         Decimal.TryParse(fareStr, fare)
 

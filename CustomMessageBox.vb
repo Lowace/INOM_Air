@@ -108,6 +108,7 @@ Partial Public Class CustomMessageBox
         lblTitle.Text = If(String.IsNullOrWhiteSpace(title), "INOM Air", title)
         lblScrollHint.Visible = False
         btnPrimary.Enabled = True
+        txtInput.Visible = False
 
         Dim lines = message.Split(New String() {vbCrLf, vbLf}, StringSplitOptions.None)
         Dim isLong = (message.Length > 280) OrElse (lines.Length > 6)
@@ -219,6 +220,7 @@ Partial Public Class CustomMessageBox
 
     Private Sub ConfigureTermsAndConditions(title As String, customTerms As String, requireAccept As Boolean)
         lblTitle.Text = If(String.IsNullOrWhiteSpace(title), "INOM Air - Terms & Conditions", title)
+        txtInput.Visible = False
 
         rtbScrollMessage.Visible = True
         lblMessage.Visible = False
@@ -328,6 +330,76 @@ Partial Public Class CustomMessageBox
         btnCloseHeader.Location = New Point(calculatedWidth - 42, 12)
     End Sub
 
+    Private Sub ConfigureInput(prompt As String, title As String, defaultValue As String)
+        lblTitle.Text = If(String.IsNullOrWhiteSpace(title), "INOM Air", title)
+        lblScrollHint.Visible = False
+        rtbScrollMessage.Visible = False
+        lblMessage.Visible = True
+        iconCircle.Visible = True
+        txtInput.Visible = True
+        btnPrimary.Enabled = True
+
+        iconCircle.FillColor = Color.FromArgb(230, 246, 245)
+        lblIconSymbol.ForeColor = Color.FromArgb(1, 123, 128)
+        lblIconSymbol.Text = "+"
+
+        lblMessage.Text = prompt
+        txtInput.Text = If(defaultValue, "")
+
+        Dim calculatedWidth = 520
+        Dim promptHeight = Math.Max(24, lblMessage.PreferredHeight)
+        Dim calculatedHeight = Math.Max(220, 50 + promptHeight + 16 + 38 + 24 + 1 + 58)
+
+        Me.ClientSize = New Size(calculatedWidth, calculatedHeight)
+
+        lblMessage.Location = New Point(82, 16)
+        lblMessage.MaximumSize = New Size(calculatedWidth - 110, 0)
+
+        txtInput.Location = New Point(82, 16 + promptHeight + 12)
+        txtInput.Size = New Size(calculatedWidth - 110, 38)
+
+        btnPrimary.Text = "OK"
+        btnSecondary.Text = "Cancel"
+        btnSecondary.Visible = True
+
+        AddHandler btnPrimary.Click, Sub(s, e)
+                                         Me.DialogResult = DialogResult.OK
+                                         Me.Close()
+                                     End Sub
+        AddHandler btnSecondary.Click, Sub(s, e)
+                                           Me.DialogResult = DialogResult.Cancel
+                                           Me.Close()
+                                       End Sub
+        AddHandler btnCloseHeader.Click, Sub(s, e)
+                                             Me.DialogResult = DialogResult.Cancel
+                                             Me.Close()
+                                         End Sub
+
+        AddHandler txtInput.KeyDown, Sub(s, e)
+                                         If e.KeyCode = Keys.Enter Then
+                                             e.SuppressKeyPress = True
+                                             Me.DialogResult = DialogResult.OK
+                                             Me.Close()
+                                         ElseIf e.KeyCode = Keys.Escape Then
+                                             e.SuppressKeyPress = True
+                                             Me.DialogResult = DialogResult.Cancel
+                                             Me.Close()
+                                         End If
+                                     End Sub
+
+        Me.AcceptButton = btnPrimary
+        Me.CancelButton = btnSecondary
+
+        btnCloseHeader.Location = New Point(calculatedWidth - 42, 12)
+        btnPrimary.Location = New Point(calculatedWidth - 116, 11)
+        btnSecondary.Location = New Point(calculatedWidth - 216, 11)
+
+        AddHandler Me.Shown, Sub(s, e)
+                                 txtInput.Focus()
+                                 txtInput.SelectAll()
+                             End Sub
+    End Sub
+
     Public Shadows Shared Function Show(message As String, Optional title As String = "INOM Air", Optional buttons As MessageBoxButtons = MessageBoxButtons.OK, Optional icon As MessageBoxIcon = MessageBoxIcon.Information) As DialogResult
         Dim active = Form.ActiveForm
         Using dlg As New CustomMessageBox()
@@ -389,6 +461,35 @@ Partial Public Class CustomMessageBox
                 Return dlg.ShowDialog()
             End If
         End Using
+    End Function
+
+    Public Shadows Shared Function ShowInput(prompt As String, Optional title As String = "INOM Air", Optional defaultValue As String = "", Optional owner As IWin32Window = Nothing) As String
+        Using dlg As New CustomMessageBox()
+            dlg.ConfigureInput(prompt, title, defaultValue)
+            Dim targetOwner = owner
+            If targetOwner Is Nothing Then
+                Dim active = Form.ActiveForm
+                If active IsNot Nothing AndAlso Not active.IsDisposed AndAlso active.Visible Then
+                    targetOwner = active
+                End If
+            End If
+            Dim res As DialogResult
+            If targetOwner IsNot Nothing Then
+                res = dlg.ShowDialog(targetOwner)
+            Else
+                dlg.StartPosition = FormStartPosition.CenterScreen
+                res = dlg.ShowDialog()
+            End If
+            If res = DialogResult.OK Then
+                Return dlg.txtInput.Text.Trim()
+            Else
+                Return ""
+            End If
+        End Using
+    End Function
+
+    Public Shadows Shared Function ShowInput(owner As IWin32Window, prompt As String, Optional title As String = "INOM Air", Optional defaultValue As String = "") As String
+        Return ShowInput(prompt, title, defaultValue, owner)
     End Function
 
     Private Sub btnPrimary_Click(sender As Object, e As EventArgs) Handles btnPrimary.Click

@@ -259,7 +259,7 @@ Partial Class AdminPanel
         btnClose.Size = New Size(30, 30)
         btnClose.TabIndex = 2
         btnClose.Text = "✕"
-        pnlSidebar.BackColor = Color.FromArgb(CByte(220), CByte(225), CByte(235))
+        pnlSidebar.BackColor = Color.White
         pnlSidebar.Controls.Add(btnNavDashboard)
         pnlSidebar.Controls.Add(btnNavPlanes)
         pnlSidebar.Controls.Add(btnNavCustomers)
@@ -268,7 +268,7 @@ Partial Class AdminPanel
         pnlSidebar.Controls.Add(btnSidebarLogout)
         pnlSidebar.CustomizableEdges = CustomizableEdges89
         pnlSidebar.Dock = DockStyle.Left
-        pnlSidebar.FillColor = Color.FromArgb(CByte(220), CByte(225), CByte(235))
+        pnlSidebar.FillColor = Color.White
         pnlSidebar.Location = New Point(0, 56)
         pnlSidebar.Name = "pnlSidebar"
         pnlSidebar.ShadowDecoration.CustomizableEdges = CustomizableEdges90

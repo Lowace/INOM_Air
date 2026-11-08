@@ -27,10 +27,13 @@ Partial Class CustomMessageBox
         Dim CustomizableEdges16 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges17 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges18 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges19 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges20 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(CustomMessageBox))
         pnlBorder = New Guna.UI2.WinForms.Guna2Panel()
         pnlBody = New Panel()
         rtbScrollMessage = New RichTextBox()
+        txtInput = New Guna.UI2.WinForms.Guna2TextBox()
         lblMessage = New Label()
         iconCircle = New Guna.UI2.WinForms.Guna2Panel()
         lblIconSymbol = New Label()
@@ -66,6 +69,7 @@ Partial Class CustomMessageBox
         pnlBorder.Size = New Size(500, 220)
         pnlBorder.TabIndex = 0
         pnlBody.BackColor = Color.White
+        pnlBody.Controls.Add(txtInput)
         pnlBody.Controls.Add(rtbScrollMessage)
         pnlBody.Controls.Add(lblMessage)
         pnlBody.Controls.Add(iconCircle)
@@ -74,6 +78,25 @@ Partial Class CustomMessageBox
         pnlBody.Name = "pnlBody"
         pnlBody.Size = New Size(500, 111)
         pnlBody.TabIndex = 1
+        txtInput.BorderColor = Color.FromArgb(CByte(215), CByte(218), CByte(225))
+        txtInput.BorderRadius = 10
+        txtInput.Cursor = Cursors.IBeam
+        txtInput.CustomizableEdges = CustomizableEdges19
+        txtInput.DefaultText = ""
+        txtInput.FocusedState.BorderColor = Color.FromArgb(CByte(1), CByte(123), CByte(128))
+        txtInput.Font = New Font("Segoe UI", 10.0F)
+        txtInput.ForeColor = Color.FromArgb(CByte(45), CByte(50), CByte(58))
+        txtInput.HoverState.BorderColor = Color.FromArgb(CByte(1), CByte(123), CByte(128))
+        txtInput.Location = New Point(82, 50)
+        txtInput.Name = "txtInput"
+        txtInput.PasswordChar = ChrW(0)
+        txtInput.PlaceholderForeColor = Color.FromArgb(CByte(160), CByte(165), CByte(175))
+        txtInput.PlaceholderText = ""
+        txtInput.SelectedText = ""
+        txtInput.ShadowDecoration.CustomizableEdges = CustomizableEdges20
+        txtInput.Size = New Size(390, 38)
+        txtInput.TabIndex = 4
+        txtInput.Visible = False
         rtbScrollMessage.BackColor = Color.White
         rtbScrollMessage.BorderStyle = BorderStyle.None
         rtbScrollMessage.Font = New Font("Segoe UI", 9.5F)
@@ -240,6 +263,7 @@ Partial Class CustomMessageBox
     Friend WithEvents lblIconSymbol As Label
     Friend WithEvents lblMessage As Label
     Friend WithEvents rtbScrollMessage As RichTextBox
+    Friend WithEvents txtInput As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents pnlDivider As Panel
     Friend WithEvents pnlFooter As Panel
     Friend WithEvents lblScrollHint As Label
