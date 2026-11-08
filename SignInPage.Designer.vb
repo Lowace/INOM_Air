@@ -44,7 +44,6 @@ Partial Class SignInPage
         txtUsername = New Guna.UI2.WinForms.Guna2TextBox()
         lblPasswordTitle = New Label()
         txtPassword = New Guna.UI2.WinForms.Guna2TextBox()
-        chkShowLoginPassword = New Guna.UI2.WinForms.Guna2CheckBox()
         btnLogin = New Guna.UI2.WinForms.Guna2Button()
         btnBack = New Guna.UI2.WinForms.Guna2Button()
         lblDemoHint = New Label()
@@ -85,7 +84,6 @@ Partial Class SignInPage
         pnlMainCard.Controls.Add(txtUsername)
         pnlMainCard.Controls.Add(lblPasswordTitle)
         pnlMainCard.Controls.Add(txtPassword)
-        pnlMainCard.Controls.Add(chkShowLoginPassword)
         pnlMainCard.Controls.Add(btnLogin)
         pnlMainCard.Controls.Add(btnBack)
         pnlMainCard.Controls.Add(lblDemoHint)
@@ -155,6 +153,8 @@ Partial Class SignInPage
         txtPassword.Font = New Font("Segoe UI", 11F)
         txtPassword.ForeColor = Color.FromArgb(CByte(105), CByte(105), CByte(105))
         txtPassword.HoverState.BorderColor = Color.FromArgb(CByte(1), CByte(123), CByte(128))
+        txtPassword.IconRightCursor = Cursors.Hand
+        txtPassword.IconRightSize = New Size(20, 20)
         txtPassword.Location = New Point(40, 245)
         txtPassword.Name = "txtPassword"
         txtPassword.PasswordChar = "●"c
@@ -164,18 +164,6 @@ Partial Class SignInPage
         txtPassword.ShadowDecoration.CustomizableEdges = CustomizableEdges9
         txtPassword.Size = New Size(340, 48)
         txtPassword.TabIndex = 5
-        chkShowLoginPassword.AutoSize = True
-        chkShowLoginPassword.CheckedState.BorderColor = Color.FromArgb(CByte(1), CByte(123), CByte(128))
-        chkShowLoginPassword.CheckedState.BorderRadius = 4
-        chkShowLoginPassword.CheckedState.BorderThickness = 0
-        chkShowLoginPassword.CheckedState.FillColor = Color.FromArgb(CByte(1), CByte(123), CByte(128))
-        chkShowLoginPassword.Font = New Font("Segoe UI", 9.0F)
-        chkShowLoginPassword.ForeColor = Color.FromArgb(CByte(70), CByte(75), CByte(85))
-        chkShowLoginPassword.Location = New Point(42, 298)
-        chkShowLoginPassword.Name = "chkShowLoginPassword"
-        chkShowLoginPassword.Size = New Size(108, 19)
-        chkShowLoginPassword.TabIndex = 6
-        chkShowLoginPassword.Text = "Show Password"
         btnLogin.Animated = True
         btnLogin.BorderRadius = 16
         btnLogin.Cursor = Cursors.Hand
@@ -267,7 +255,6 @@ Partial Class SignInPage
     Friend WithEvents txtUsername As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents lblPasswordTitle As Label
     Friend WithEvents txtPassword As Guna.UI2.WinForms.Guna2TextBox
-    Friend WithEvents chkShowLoginPassword As Guna.UI2.WinForms.Guna2CheckBox
     Friend WithEvents btnLogin As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents btnBack As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents lblDemoHint As Label

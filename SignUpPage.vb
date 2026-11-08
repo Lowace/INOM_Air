@@ -2,9 +2,13 @@
 
 Public Class SignUpPage
     Private termsAccepted As Boolean = False
+    Private isRegPasswordVisible As Boolean = False
+    Private isRegConfirmPasswordVisible As Boolean = False
 
     Private Sub SignUpPage_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         btnSubmitSignup.Enabled = termsAccepted
+        txtRegPassword.IconRight = AppState.GetEyeIcon(False)
+        txtRegConfirmPassword.IconRight = AppState.GetEyeIcon(False)
     End Sub
 
     Private Sub btnNextStep_Click(sender As Object, e As EventArgs) Handles btnNextStep.Click
@@ -114,13 +118,25 @@ Public Class SignUpPage
         Me.Close()
     End Sub
 
-    Private Sub chkShowSignupPassword_CheckedChanged(sender As Object, e As EventArgs) Handles chkShowSignupPassword.CheckedChanged
-        If chkShowSignupPassword.Checked Then
+    Private Sub txtRegPassword_IconRightClick(sender As Object, e As EventArgs) Handles txtRegPassword.IconRightClick
+        isRegPasswordVisible = Not isRegPasswordVisible
+        If isRegPasswordVisible Then
             txtRegPassword.PasswordChar = ChrW(0)
-            txtRegConfirmPassword.PasswordChar = ChrW(0)
+            txtRegPassword.IconRight = AppState.GetEyeIcon(True)
         Else
             txtRegPassword.PasswordChar = "●"c
+            txtRegPassword.IconRight = AppState.GetEyeIcon(False)
+        End If
+    End Sub
+
+    Private Sub txtRegConfirmPassword_IconRightClick(sender As Object, e As EventArgs) Handles txtRegConfirmPassword.IconRightClick
+        isRegConfirmPasswordVisible = Not isRegConfirmPasswordVisible
+        If isRegConfirmPasswordVisible Then
+            txtRegConfirmPassword.PasswordChar = ChrW(0)
+            txtRegConfirmPassword.IconRight = AppState.GetEyeIcon(True)
+        Else
             txtRegConfirmPassword.PasswordChar = "●"c
+            txtRegConfirmPassword.IconRight = AppState.GetEyeIcon(False)
         End If
     End Sub
 

@@ -1,5 +1,7 @@
 ﻿Imports System.Collections.Generic
 Imports System.Data
+Imports System.Drawing
+Imports System.Drawing.Drawing2D
 Imports MySql.Data.MySqlClient
 
 Namespace Global.INOM_Air
@@ -86,6 +88,55 @@ Namespace Global.INOM_Air
     End Class
 
     Public Module AppState
+
+        Private _cachedEyeOpen As Bitmap = Nothing
+        Private _cachedEyeClosed As Bitmap = Nothing
+
+        Public Function GetEyeIcon(isOpen As Boolean) As Bitmap
+            If isOpen Then
+                If _cachedEyeOpen Is Nothing Then
+                    _cachedEyeOpen = CreateEyeBitmap(True)
+                End If
+                Return _cachedEyeOpen
+            Else
+                If _cachedEyeClosed Is Nothing Then
+                    _cachedEyeClosed = CreateEyeBitmap(False)
+                End If
+                Return _cachedEyeClosed
+            End If
+        End Function
+
+        Private Function CreateEyeBitmap(isOpen As Boolean) As Bitmap
+            Dim size As Integer = 24
+            Dim bmp As New Bitmap(size, size)
+            Using g As Graphics = Graphics.FromImage(bmp)
+                g.SmoothingMode = SmoothingMode.AntiAlias
+                g.PixelOffsetMode = PixelOffsetMode.HighQuality
+                g.Clear(Color.Transparent)
+
+                Dim strokeColor As Color = If(isOpen, Color.FromArgb(1, 123, 128), Color.FromArgb(140, 145, 155))
+                Using pen As New Pen(strokeColor, 1.8F) With {.StartCap = LineCap.Round, .EndCap = LineCap.Round}
+                    Using brush As New SolidBrush(strokeColor)
+                        Using path As New GraphicsPath()
+                            path.AddBezier(New PointF(2.5F, 12.0F), New PointF(7.5F, 5.0F), New PointF(16.5F, 5.0F), New PointF(21.5F, 12.0F))
+                            path.AddBezier(New PointF(21.5F, 12.0F), New PointF(16.5F, 19.0F), New PointF(7.5F, 19.0F), New PointF(2.5F, 12.0F))
+                            path.CloseFigure()
+                            g.DrawPath(pen, path)
+
+                            g.DrawEllipse(pen, 9.0F, 9.0F, 6.0F, 6.0F)
+                            g.FillEllipse(brush, 10.5F, 10.5F, 3.0F, 3.0F)
+
+                            If Not isOpen Then
+                                Using slashPen As New Pen(strokeColor, 1.85F) With {.StartCap = LineCap.Round, .EndCap = LineCap.Round}
+                                    g.DrawLine(slashPen, 4.0F, 4.0F, 20.0F, 20.0F)
+                                End Using
+                            End If
+                        End Using
+                    End Using
+                End Using
+            End Using
+            Return bmp
+        End Function
 
         Public ReadOnly ColorPrimary As Color = Color.FromArgb(1, 123, 128)
         Public ReadOnly ColorAccent As Color = Color.FromArgb(254, 115, 73)

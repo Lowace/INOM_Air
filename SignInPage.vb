@@ -2,6 +2,12 @@
 
 Public Class SignInPage
 
+    Private isPasswordVisible As Boolean = False
+
+    Private Sub SignInPage_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        txtPassword.IconRight = AppState.GetEyeIcon(False)
+    End Sub
+
     Private Sub btnLogin_Click(sender As Object, e As EventArgs) Handles btnLogin.Click
         AppState.ReloadAllFromDatabase()
 
@@ -48,11 +54,14 @@ Public Class SignInPage
         Me.Close()
     End Sub
 
-    Private Sub chkShowLoginPassword_CheckedChanged(sender As Object, e As EventArgs) Handles chkShowLoginPassword.CheckedChanged
-        If chkShowLoginPassword.Checked Then
+    Private Sub txtPassword_IconRightClick(sender As Object, e As EventArgs) Handles txtPassword.IconRightClick
+        isPasswordVisible = Not isPasswordVisible
+        If isPasswordVisible Then
             txtPassword.PasswordChar = ChrW(0)
+            txtPassword.IconRight = AppState.GetEyeIcon(True)
         Else
             txtPassword.PasswordChar = "●"c
+            txtPassword.IconRight = AppState.GetEyeIcon(False)
         End If
     End Sub
 
