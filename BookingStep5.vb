@@ -53,12 +53,6 @@ Public Class BookingStep5
         seatPicker.SelectedSeatCode = AppState.ActiveBooking.SeatNumber
         If seatPicker.ShowDialog() = DialogResult.OK Then
             txtB5SeatDisplay.Text = "Seat " & AppState.ActiveBooking.SeatNumber
-            Dim seat = AppState.ActiveBooking.SeatNumber
-            If seat.StartsWith("1") OrElse seat.StartsWith("2") Then
-                AppState.ActiveBooking.CabinClass = "Business Class"
-            Else
-                AppState.ActiveBooking.CabinClass = "Economy Class"
-            End If
             RecalculateCurrentPrice()
         End If
     End Sub

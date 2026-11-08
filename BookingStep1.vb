@@ -36,7 +36,7 @@ Public Class BookingStep1
         AppState.ActiveBooking = New BookingRecord With {
             .Username = AppState.CurrentUser.Username,
             .PassengerName = AppState.CurrentUser.FullName,
-            .SeatNumber = "1A"
+            .SeatNumber = "3A"
         }
         AppState.SearchOrigin = origin
         AppState.SearchDest = dest

@@ -125,7 +125,17 @@ Public Class BookingStep2
 
     Private Sub SelectFlightAndProceed(flight As FlightSchedule)
         AppState.ActiveBooking.Flight = flight
-        AppState.ActiveBooking.CabinClass = cmbB2CabinClass.SelectedItem.ToString()
+        Dim isBusiness = cmbB2CabinClass.SelectedItem IsNot Nothing AndAlso cmbB2CabinClass.SelectedItem.ToString().Contains("Business")
+        AppState.ActiveBooking.CabinClass = If(isBusiness, "Business Class", "Economy Class")
+        If isBusiness Then
+            If Not (AppState.ActiveBooking.SeatNumber.StartsWith("1") OrElse AppState.ActiveBooking.SeatNumber.StartsWith("2")) Then
+                AppState.ActiveBooking.SeatNumber = "1A"
+            End If
+        Else
+            If AppState.ActiveBooking.SeatNumber.StartsWith("1") OrElse AppState.ActiveBooking.SeatNumber.StartsWith("2") Then
+                AppState.ActiveBooking.SeatNumber = "3A"
+            End If
+        End If
 
         Dim u = AppState.CurrentUser
         AppState.GuestGivenName = u.GivenName

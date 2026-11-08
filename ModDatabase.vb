@@ -903,7 +903,7 @@ ON DUPLICATE KEY UPDATE `status` = @st;
             If ActiveBooking.Flight Is Nothing Then Return
 
             Dim base = ActiveBooking.Flight.BaseFare
-            Dim isBusiness = ActiveBooking.CabinClass IsNot Nothing AndAlso (ActiveBooking.CabinClass.IndexOf("Business", StringComparison.OrdinalIgnoreCase) >= 0 OrElse ActiveBooking.SeatNumber.StartsWith("1") OrElse ActiveBooking.SeatNumber.StartsWith("2"))
+            Dim isBusiness = ActiveBooking.CabinClass IsNot Nothing AndAlso ActiveBooking.CabinClass.IndexOf("Business", StringComparison.OrdinalIgnoreCase) >= 0
             Dim cabinMultiplier = If(isBusiness, 1.8D, 1.0D)
             Dim adjustedBase = base * cabinMultiplier
 

@@ -17,7 +17,7 @@ Public Class CheckoutForm
         lblCheckoutStats.Text = b.Flight.FlightDate & " | " & b.Flight.TimeDisplay & " | " & b.Flight.FlightType
         lblCheckoutPassenger.Text = "Passenger: " & b.PassengerName & " | Seat: " & b.SeatNumber
 
-        Dim isBusiness = b.CabinClass IsNot Nothing AndAlso (b.CabinClass.IndexOf("Business", StringComparison.OrdinalIgnoreCase) >= 0 OrElse b.SeatNumber.StartsWith("1") OrElse b.SeatNumber.StartsWith("2"))
+        Dim isBusiness = b.CabinClass IsNot Nothing AndAlso b.CabinClass.IndexOf("Business", StringComparison.OrdinalIgnoreCase) >= 0
         Dim base = b.Flight.BaseFare * If(isBusiness, 1.8D, 1.0D)
         lblCkBaseFare.Text = "Base fare:                                PHP " & base.ToString("N2")
         lblCkTaxes.Text = "Taxes & surcharges:                 PHP " & b.TaxesAndSurcharges.ToString("N2")
