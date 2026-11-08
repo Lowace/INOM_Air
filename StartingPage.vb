@@ -23,4 +23,8 @@
     Private Sub lblVersion_Click(sender As Object, e As EventArgs) Handles lblVersion.Click
         AppState.ReconnectDatabase(True)
     End Sub
+
+    Private Sub btnStartingTerms_Click(sender As Object, e As EventArgs) Handles btnStartingTerms.Click
+        CustomMessageBox.ShowTermsAndConditions(Me, requireAccept:=False)
+    End Sub
 End Class

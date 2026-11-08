@@ -48,4 +48,8 @@ Public Class BookingStep6
     Private Sub btnCloseX_Click(sender As Object, e As EventArgs) Handles btnCloseX.Click
         Application.Exit()
     End Sub
+
+    Private Sub btnB6Terms_Click(sender As Object, e As EventArgs) Handles btnB6Terms.Click
+        CustomMessageBox.ShowTermsAndConditions(Me, requireAccept:=False)
+    End Sub
 End Class

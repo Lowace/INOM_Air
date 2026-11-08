@@ -30,17 +30,21 @@ Partial Class CustomMessageBox
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(CustomMessageBox))
         Guna2BorderlessForm1 = New Guna.UI2.WinForms.Guna2BorderlessForm(components)
         pnlBorder = New Guna.UI2.WinForms.Guna2Panel()
+        pnlBody = New Panel()
+        rtbScrollMessage = New RichTextBox()
         lblMessage = New Label()
         iconCircle = New Guna.UI2.WinForms.Guna2Panel()
         lblIconSymbol = New Label()
         pnlDivider = New Panel()
         pnlFooter = New Panel()
+        lblScrollHint = New Label()
         btnSecondary = New Guna.UI2.WinForms.Guna2Button()
         btnPrimary = New Guna.UI2.WinForms.Guna2Button()
         pnlHeader = New Panel()
         lblTitle = New Label()
         btnCloseHeader = New Guna.UI2.WinForms.Guna2CircleButton()
         pnlBorder.SuspendLayout()
+        pnlBody.SuspendLayout()
         iconCircle.SuspendLayout()
         pnlFooter.SuspendLayout()
         pnlHeader.SuspendLayout()
@@ -53,8 +57,7 @@ Partial Class CustomMessageBox
         pnlBorder.BorderColor = Color.FromArgb(CByte(220), CByte(224), CByte(230))
         pnlBorder.BorderRadius = 18
         pnlBorder.BorderThickness = 1
-        pnlBorder.Controls.Add(lblMessage)
-        pnlBorder.Controls.Add(iconCircle)
+        pnlBorder.Controls.Add(pnlBody)
         pnlBorder.Controls.Add(pnlDivider)
         pnlBorder.Controls.Add(pnlFooter)
         pnlBorder.Controls.Add(pnlHeader)
@@ -66,11 +69,32 @@ Partial Class CustomMessageBox
         pnlBorder.ShadowDecoration.CustomizableEdges = CustomizableEdges9
         pnlBorder.Size = New Size(500, 220)
         pnlBorder.TabIndex = 0
+        pnlBody.BackColor = Color.White
+        pnlBody.Controls.Add(rtbScrollMessage)
+        pnlBody.Controls.Add(lblMessage)
+        pnlBody.Controls.Add(iconCircle)
+        pnlBody.Dock = DockStyle.Fill
+        pnlBody.Location = New Point(0, 50)
+        pnlBody.Name = "pnlBody"
+        pnlBody.Size = New Size(500, 111)
+        pnlBody.TabIndex = 1
+        rtbScrollMessage.BackColor = Color.White
+        rtbScrollMessage.BorderStyle = BorderStyle.None
+        rtbScrollMessage.Font = New Font("Segoe UI", 9.5F)
+        rtbScrollMessage.ForeColor = Color.FromArgb(CByte(45), CByte(50), CByte(58))
+        rtbScrollMessage.Location = New Point(24, 10)
+        rtbScrollMessage.Name = "rtbScrollMessage"
+        rtbScrollMessage.ReadOnly = True
+        rtbScrollMessage.ScrollBars = RichTextBoxScrollBars.Vertical
+        rtbScrollMessage.Size = New Size(452, 92)
+        rtbScrollMessage.TabIndex = 3
+        rtbScrollMessage.Text = ""
+        rtbScrollMessage.Visible = False
         lblMessage.AutoSize = True
         lblMessage.BackColor = Color.Transparent
         lblMessage.Font = New Font("Segoe UI", 9.75F)
         lblMessage.ForeColor = Color.FromArgb(CByte(45), CByte(50), CByte(58))
-        lblMessage.Location = New Point(82, 64)
+        lblMessage.Location = New Point(82, 16)
         lblMessage.MaximumSize = New Size(400, 0)
         lblMessage.Name = "lblMessage"
         lblMessage.Size = New Size(61, 17)
@@ -81,7 +105,7 @@ Partial Class CustomMessageBox
         iconCircle.Controls.Add(lblIconSymbol)
         iconCircle.CustomizableEdges = CustomizableEdges1
         iconCircle.FillColor = Color.FromArgb(CByte(230), CByte(246), CByte(245))
-        iconCircle.Location = New Point(24, 62)
+        iconCircle.Location = New Point(24, 14)
         iconCircle.Name = "iconCircle"
         iconCircle.ShadowDecoration.CustomizableEdges = CustomizableEdges2
         iconCircle.Size = New Size(44, 44)
@@ -101,15 +125,26 @@ Partial Class CustomMessageBox
         pnlDivider.Location = New Point(0, 161)
         pnlDivider.Name = "pnlDivider"
         pnlDivider.Size = New Size(500, 1)
-        pnlDivider.TabIndex = 3
+        pnlDivider.TabIndex = 2
         pnlFooter.BackColor = Color.FromArgb(CByte(250), CByte(251), CByte(253))
+        pnlFooter.Controls.Add(lblScrollHint)
         pnlFooter.Controls.Add(btnSecondary)
         pnlFooter.Controls.Add(btnPrimary)
         pnlFooter.Dock = DockStyle.Bottom
         pnlFooter.Location = New Point(0, 162)
         pnlFooter.Name = "pnlFooter"
         pnlFooter.Size = New Size(500, 58)
-        pnlFooter.TabIndex = 4
+        pnlFooter.TabIndex = 3
+        lblScrollHint.AutoSize = True
+        lblScrollHint.BackColor = Color.Transparent
+        lblScrollHint.Font = New Font("Segoe UI", 9.0F, FontStyle.Italic)
+        lblScrollHint.ForeColor = Color.FromArgb(CByte(140), CByte(145), CByte(155))
+        lblScrollHint.Location = New Point(24, 20)
+        lblScrollHint.Name = "lblScrollHint"
+        lblScrollHint.Size = New Size(240, 15)
+        lblScrollHint.TabIndex = 2
+        lblScrollHint.Text = "⬇ Please scroll to the bottom to accept"
+        lblScrollHint.Visible = False
         btnSecondary.Anchor = AnchorStyles.Bottom Or AnchorStyles.Right
         btnSecondary.Animated = True
         btnSecondary.BorderColor = Color.FromArgb(CByte(215), CByte(218), CByte(225))
@@ -132,6 +167,9 @@ Partial Class CustomMessageBox
         btnPrimary.BorderRadius = 10
         btnPrimary.Cursor = Cursors.Hand
         btnPrimary.CustomizableEdges = CustomizableEdges5
+        btnPrimary.DisabledState.BorderColor = Color.FromArgb(CByte(215), CByte(218), CByte(225))
+        btnPrimary.DisabledState.FillColor = Color.FromArgb(CByte(220), CByte(224), CByte(230))
+        btnPrimary.DisabledState.ForeColor = Color.FromArgb(CByte(140), CByte(145), CByte(155))
         btnPrimary.FillColor = Color.FromArgb(CByte(1), CByte(123), CByte(128))
         btnPrimary.Font = New Font("Segoe UI", 9.5F, FontStyle.Bold)
         btnPrimary.ForeColor = Color.White
@@ -150,6 +188,7 @@ Partial Class CustomMessageBox
         pnlHeader.Size = New Size(500, 50)
         pnlHeader.TabIndex = 0
         lblTitle.AutoSize = True
+        lblTitle.UseMnemonic = False
         lblTitle.BackColor = Color.Transparent
         lblTitle.Font = New Font("Segoe UI", 11.5F, FontStyle.Bold)
         lblTitle.ForeColor = Color.FromArgb(CByte(1), CByte(123), CByte(128))
@@ -184,7 +223,8 @@ Partial Class CustomMessageBox
         StartPosition = FormStartPosition.CenterParent
         Text = "INOM Air"
         pnlBorder.ResumeLayout(False)
-        pnlBorder.PerformLayout()
+        pnlBody.ResumeLayout(False)
+        pnlBody.PerformLayout()
         iconCircle.ResumeLayout(False)
         pnlFooter.ResumeLayout(False)
         pnlHeader.ResumeLayout(False)
@@ -197,11 +237,14 @@ Partial Class CustomMessageBox
     Friend WithEvents pnlHeader As Panel
     Friend WithEvents lblTitle As Label
     Friend WithEvents btnCloseHeader As Guna.UI2.WinForms.Guna2CircleButton
+    Friend WithEvents pnlBody As Panel
     Friend WithEvents iconCircle As Guna.UI2.WinForms.Guna2Panel
     Friend WithEvents lblIconSymbol As Label
     Friend WithEvents lblMessage As Label
+    Friend WithEvents rtbScrollMessage As RichTextBox
     Friend WithEvents pnlDivider As Panel
     Friend WithEvents pnlFooter As Panel
+    Friend WithEvents lblScrollHint As Label
     Friend WithEvents btnPrimary As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents btnSecondary As Guna.UI2.WinForms.Guna2Button
 End Class

@@ -23,8 +23,8 @@ Partial Class SignUpPage
         Dim CustomizableEdges3 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges4 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges5 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges36 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges37 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges38 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges39 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges16 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges17 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges6 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
@@ -37,8 +37,8 @@ Partial Class SignUpPage
         Dim CustomizableEdges13 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges14 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges15 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges34 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges35 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges36 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges37 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges18 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges19 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges20 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
@@ -55,6 +55,8 @@ Partial Class SignUpPage
         Dim CustomizableEdges31 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges32 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges33 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges34 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges35 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(SignUpPage))
         Guna2BorderlessForm1 = New Guna.UI2.WinForms.Guna2BorderlessForm(components)
         pnlDecoGold = New Guna.UI2.WinForms.Guna2Panel()
@@ -90,6 +92,7 @@ Partial Class SignUpPage
         lblPrefixText = New Label()
         txtContactNumber = New Guna.UI2.WinForms.Guna2TextBox()
         chkSeniorPwd = New Guna.UI2.WinForms.Guna2CheckBox()
+        btnSignupTerms = New Guna.UI2.WinForms.Guna2Button()
         btnBackToStep1 = New Guna.UI2.WinForms.Guna2Button()
         btnSubmitSignup = New Guna.UI2.WinForms.Guna2Button()
         pnlMainCard.SuspendLayout()
@@ -116,7 +119,7 @@ Partial Class SignUpPage
         pnlDecoBlue.BorderRadius = 50
         pnlDecoBlue.CustomizableEdges = CustomizableEdges3
         pnlDecoBlue.FillColor = Color.FromArgb(CByte(254), CByte(115), CByte(73))
-        pnlDecoBlue.Location = New Point(406, 491)
+        pnlDecoBlue.Location = New Point(422, 567)
         pnlDecoBlue.Name = "pnlDecoBlue"
         pnlDecoBlue.ShadowDecoration.CustomizableEdges = CustomizableEdges4
         pnlDecoBlue.Size = New Size(120, 120)
@@ -125,7 +128,7 @@ Partial Class SignUpPage
         btnClose.BackColor = Color.Transparent
         btnClose.Cursor = Cursors.Hand
         btnClose.FillColor = Color.FromArgb(CByte(220), CByte(53), CByte(69))
-        btnClose.Font = New Font("Segoe UI", 11F, FontStyle.Bold)
+        btnClose.Font = New Font("Segoe UI", 11.0F, FontStyle.Bold)
         btnClose.ForeColor = Color.White
         btnClose.Location = New Point(436, 16)
         btnClose.Name = "btnClose"
@@ -140,13 +143,13 @@ Partial Class SignUpPage
         pnlMainCard.BorderThickness = 1
         pnlMainCard.Controls.Add(pnlStep1)
         pnlMainCard.Controls.Add(pnlStep2)
-        pnlMainCard.CustomizableEdges = CustomizableEdges36
+        pnlMainCard.CustomizableEdges = CustomizableEdges38
         pnlMainCard.FillColor = Color.White
         pnlMainCard.Location = New Point(28, 55)
         pnlMainCard.Name = "pnlMainCard"
         pnlMainCard.ShadowDecoration.BorderRadius = 24
         pnlMainCard.ShadowDecoration.Color = Color.FromArgb(CByte(180), CByte(180), CByte(190))
-        pnlMainCard.ShadowDecoration.CustomizableEdges = CustomizableEdges37
+        pnlMainCard.ShadowDecoration.CustomizableEdges = CustomizableEdges39
         pnlMainCard.ShadowDecoration.Depth = 15
         pnlMainCard.ShadowDecoration.Enabled = True
         pnlMainCard.Size = New Size(428, 540)
@@ -176,7 +179,7 @@ Partial Class SignUpPage
         PictureBox1.SizeMode = PictureBoxSizeMode.StretchImage
         PictureBox1.TabIndex = 11
         PictureBox1.TabStop = False
-        lblBrandName1.Font = New Font("Segoe UI", 13F, FontStyle.Bold)
+        lblBrandName1.Font = New Font("Segoe UI", 13.0F, FontStyle.Bold)
         lblBrandName1.ForeColor = Color.FromArgb(CByte(105), CByte(105), CByte(105))
         lblBrandName1.Location = New Point(135, 30)
         lblBrandName1.Name = "lblBrandName1"
@@ -184,7 +187,7 @@ Partial Class SignUpPage
         lblBrandName1.TabIndex = 1
         lblBrandName1.Text = "International" & vbCrLf & "NOM Air"
         lblUser1.AutoSize = True
-        lblUser1.Font = New Font("Segoe UI", 10F)
+        lblUser1.Font = New Font("Segoe UI", 10.0F)
         lblUser1.ForeColor = Color.FromArgb(CByte(60), CByte(60), CByte(70))
         lblUser1.Location = New Point(35, 95)
         lblUser1.Name = "lblUser1"
@@ -205,7 +208,7 @@ Partial Class SignUpPage
         txtRegUsername.Size = New Size(355, 44)
         txtRegUsername.TabIndex = 4
         lblPass1.AutoSize = True
-        lblPass1.Font = New Font("Segoe UI", 10F)
+        lblPass1.Font = New Font("Segoe UI", 10.0F)
         lblPass1.ForeColor = Color.FromArgb(CByte(60), CByte(60), CByte(70))
         lblPass1.Location = New Point(35, 175)
         lblPass1.Name = "lblPass1"
@@ -227,7 +230,7 @@ Partial Class SignUpPage
         txtRegPassword.Size = New Size(355, 44)
         txtRegPassword.TabIndex = 6
         lblConfirmPass.AutoSize = True
-        lblConfirmPass.Font = New Font("Segoe UI", 10F)
+        lblConfirmPass.Font = New Font("Segoe UI", 10.0F)
         lblConfirmPass.ForeColor = Color.FromArgb(CByte(60), CByte(60), CByte(70))
         lblConfirmPass.Location = New Point(35, 255)
         lblConfirmPass.Name = "lblConfirmPass"
@@ -253,7 +256,7 @@ Partial Class SignUpPage
         btnNextStep.Cursor = Cursors.Hand
         btnNextStep.CustomizableEdges = CustomizableEdges12
         btnNextStep.FillColor = Color.FromArgb(CByte(1), CByte(123), CByte(128))
-        btnNextStep.Font = New Font("Segoe UI", 12F, FontStyle.Bold)
+        btnNextStep.Font = New Font("Segoe UI", 12.0F, FontStyle.Bold)
         btnNextStep.ForeColor = Color.White
         btnNextStep.Location = New Point(80, 360)
         btnNextStep.Name = "btnNextStep"
@@ -268,7 +271,7 @@ Partial Class SignUpPage
         btnBackToStart.Cursor = Cursors.Hand
         btnBackToStart.CustomizableEdges = CustomizableEdges14
         btnBackToStart.FillColor = Color.FromArgb(CByte(237), CByte(229), CByte(216))
-        btnBackToStart.Font = New Font("Segoe UI", 10F, FontStyle.Bold)
+        btnBackToStart.Font = New Font("Segoe UI", 10.0F, FontStyle.Bold)
         btnBackToStart.ForeColor = Color.FromArgb(CByte(80), CByte(80), CByte(90))
         btnBackToStart.Location = New Point(135, 425)
         btnBackToStart.Name = "btnBackToStart"
@@ -292,13 +295,14 @@ Partial Class SignUpPage
         pnlStep2.Controls.Add(pnlPrefix)
         pnlStep2.Controls.Add(txtContactNumber)
         pnlStep2.Controls.Add(chkSeniorPwd)
+        pnlStep2.Controls.Add(btnSignupTerms)
         pnlStep2.Controls.Add(btnBackToStep1)
         pnlStep2.Controls.Add(btnSubmitSignup)
-        pnlStep2.CustomizableEdges = CustomizableEdges34
+        pnlStep2.CustomizableEdges = CustomizableEdges36
         pnlStep2.Dock = DockStyle.Fill
         pnlStep2.Location = New Point(0, 0)
         pnlStep2.Name = "pnlStep2"
-        pnlStep2.ShadowDecoration.CustomizableEdges = CustomizableEdges35
+        pnlStep2.ShadowDecoration.CustomizableEdges = CustomizableEdges37
         pnlStep2.Size = New Size(428, 540)
         pnlStep2.TabIndex = 1
         pnlStep2.Visible = False
@@ -313,7 +317,7 @@ Partial Class SignUpPage
         pnlHeaderLogo2.Size = New Size(50, 50)
         pnlHeaderLogo2.TabIndex = 0
         lblPlane2.Dock = DockStyle.Fill
-        lblPlane2.Font = New Font("Segoe UI Emoji", 20F)
+        lblPlane2.Font = New Font("Segoe UI Emoji", 20.0F)
         lblPlane2.ForeColor = Color.FromArgb(CByte(1), CByte(123), CByte(128))
         lblPlane2.Location = New Point(0, 0)
         lblPlane2.Name = "lblPlane2"
@@ -321,7 +325,7 @@ Partial Class SignUpPage
         lblPlane2.TabIndex = 0
         lblPlane2.Text = "✈"
         lblPlane2.TextAlign = ContentAlignment.MiddleCenter
-        lblBrandName2.Font = New Font("Segoe UI", 12F, FontStyle.Bold)
+        lblBrandName2.Font = New Font("Segoe UI", 12.0F, FontStyle.Bold)
         lblBrandName2.ForeColor = Color.FromArgb(CByte(105), CByte(105), CByte(105))
         lblBrandName2.Location = New Point(95, 14)
         lblBrandName2.Name = "lblBrandName2"
@@ -329,7 +333,7 @@ Partial Class SignUpPage
         lblBrandName2.TabIndex = 1
         lblBrandName2.Text = "International" & vbCrLf & "NOM Air"
         lblStepIndicator2.AutoSize = True
-        lblStepIndicator2.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
+        lblStepIndicator2.Font = New Font("Segoe UI", 9.0F, FontStyle.Bold)
         lblStepIndicator2.ForeColor = Color.FromArgb(CByte(1), CByte(123), CByte(128))
         lblStepIndicator2.Location = New Point(310, 22)
         lblStepIndicator2.Name = "lblStepIndicator2"
@@ -341,7 +345,7 @@ Partial Class SignUpPage
         rbMale.CheckedState.BorderColor = Color.FromArgb(CByte(1), CByte(123), CByte(128))
         rbMale.CheckedState.BorderThickness = 0
         rbMale.CheckedState.FillColor = Color.FromArgb(CByte(1), CByte(123), CByte(128))
-        rbMale.Font = New Font("Segoe UI", 10F)
+        rbMale.Font = New Font("Segoe UI", 10.0F)
         rbMale.ForeColor = Color.FromArgb(CByte(40), CByte(40), CByte(50))
         rbMale.Location = New Point(35, 70)
         rbMale.Name = "rbMale"
@@ -354,7 +358,7 @@ Partial Class SignUpPage
         rbFemale.CheckedState.BorderColor = Color.FromArgb(CByte(1), CByte(123), CByte(128))
         rbFemale.CheckedState.BorderThickness = 0
         rbFemale.CheckedState.FillColor = Color.FromArgb(CByte(1), CByte(123), CByte(128))
-        rbFemale.Font = New Font("Segoe UI", 10F)
+        rbFemale.Font = New Font("Segoe UI", 10.0F)
         rbFemale.ForeColor = Color.FromArgb(CByte(40), CByte(40), CByte(50))
         rbFemale.Location = New Point(125, 70)
         rbFemale.Name = "rbFemale"
@@ -374,7 +378,7 @@ Partial Class SignUpPage
         txtGivenName.BorderRadius = 14
         txtGivenName.CustomizableEdges = CustomizableEdges20
         txtGivenName.DefaultText = ""
-        txtGivenName.Font = New Font("Segoe UI", 10F)
+        txtGivenName.Font = New Font("Segoe UI", 10.0F)
         txtGivenName.HoverState.BorderColor = Color.FromArgb(CByte(1), CByte(123), CByte(128))
         txtGivenName.Location = New Point(35, 120)
         txtGivenName.Name = "txtGivenName"
@@ -395,7 +399,7 @@ Partial Class SignUpPage
         txtSurname.BorderRadius = 14
         txtSurname.CustomizableEdges = CustomizableEdges22
         txtSurname.DefaultText = ""
-        txtSurname.Font = New Font("Segoe UI", 10F)
+        txtSurname.Font = New Font("Segoe UI", 10.0F)
         txtSurname.HoverState.BorderColor = Color.FromArgb(CByte(1), CByte(123), CByte(128))
         txtSurname.Location = New Point(35, 188)
         txtSurname.Name = "txtSurname"
@@ -418,7 +422,7 @@ Partial Class SignUpPage
         dtpBirthDate.Checked = True
         dtpBirthDate.CustomizableEdges = CustomizableEdges24
         dtpBirthDate.FillColor = Color.White
-        dtpBirthDate.Font = New Font("Segoe UI", 10F)
+        dtpBirthDate.Font = New Font("Segoe UI", 10.0F)
         dtpBirthDate.ForeColor = Color.FromArgb(CByte(105), CByte(105), CByte(105))
         dtpBirthDate.Format = DateTimePickerFormat.Short
         dtpBirthDate.Location = New Point(35, 255)
@@ -449,7 +453,7 @@ Partial Class SignUpPage
         pnlPrefix.Size = New Size(65, 40)
         pnlPrefix.TabIndex = 12
         lblPrefixText.Dock = DockStyle.Fill
-        lblPrefixText.Font = New Font("Segoe UI", 10F, FontStyle.Bold)
+        lblPrefixText.Font = New Font("Segoe UI", 10.0F, FontStyle.Bold)
         lblPrefixText.ForeColor = Color.FromArgb(CByte(50), CByte(50), CByte(60))
         lblPrefixText.Location = New Point(0, 0)
         lblPrefixText.Name = "lblPrefixText"
@@ -461,7 +465,7 @@ Partial Class SignUpPage
         txtContactNumber.BorderRadius = 14
         txtContactNumber.CustomizableEdges = CustomizableEdges28
         txtContactNumber.DefaultText = ""
-        txtContactNumber.Font = New Font("Segoe UI", 10F)
+        txtContactNumber.Font = New Font("Segoe UI", 10.0F)
         txtContactNumber.HoverState.BorderColor = Color.FromArgb(CByte(1), CByte(123), CByte(128))
         txtContactNumber.Location = New Point(110, 325)
         txtContactNumber.Name = "txtContactNumber"
@@ -475,7 +479,7 @@ Partial Class SignUpPage
         chkSeniorPwd.CheckedState.BorderRadius = 4
         chkSeniorPwd.CheckedState.BorderThickness = 0
         chkSeniorPwd.CheckedState.FillColor = Color.FromArgb(CByte(1), CByte(123), CByte(128))
-        chkSeniorPwd.Font = New Font("Segoe UI", 9F)
+        chkSeniorPwd.Font = New Font("Segoe UI", 9.0F)
         chkSeniorPwd.ForeColor = Color.FromArgb(CByte(60), CByte(60), CByte(70))
         chkSeniorPwd.Location = New Point(35, 380)
         chkSeniorPwd.Name = "chkSeniorPwd"
@@ -484,18 +488,31 @@ Partial Class SignUpPage
         chkSeniorPwd.Text = "I am a Senior Citizen (60+) or Person with Disability (PWD)"
         chkSeniorPwd.UncheckedState.BorderRadius = 0
         chkSeniorPwd.UncheckedState.BorderThickness = 0
+        btnSignupTerms.Animated = True
+        btnSignupTerms.Cursor = Cursors.Hand
+        btnSignupTerms.CustomizableEdges = CustomizableEdges30
+        btnSignupTerms.FillColor = Color.Transparent
+        btnSignupTerms.Font = New Font("Segoe UI", 8.5F, FontStyle.Bold Or FontStyle.Underline)
+        btnSignupTerms.ForeColor = Color.FromArgb(CByte(1), CByte(123), CByte(128))
+        btnSignupTerms.Location = New Point(35, 404)
+        btnSignupTerms.Name = "btnSignupTerms"
+        btnSignupTerms.ShadowDecoration.CustomizableEdges = CustomizableEdges31
+        btnSignupTerms.Size = New Size(355, 24)
+        btnSignupTerms.TabIndex = 15
+        btnSignupTerms.Text = "📄 Review and Accept Terms to Enable Signup"
+        btnSignupTerms.TextAlign = HorizontalAlignment.Left
         btnBackToStep1.Animated = True
         btnBackToStep1.BorderColor = Color.FromArgb(CByte(210), CByte(210), CByte(215))
         btnBackToStep1.BorderRadius = 16
         btnBackToStep1.BorderThickness = 1
         btnBackToStep1.Cursor = Cursors.Hand
-        btnBackToStep1.CustomizableEdges = CustomizableEdges30
+        btnBackToStep1.CustomizableEdges = CustomizableEdges32
         btnBackToStep1.FillColor = Color.FromArgb(CByte(237), CByte(229), CByte(216))
-        btnBackToStep1.Font = New Font("Segoe UI", 11F, FontStyle.Bold)
+        btnBackToStep1.Font = New Font("Segoe UI", 11.0F, FontStyle.Bold)
         btnBackToStep1.ForeColor = Color.FromArgb(CByte(80), CByte(80), CByte(90))
         btnBackToStep1.Location = New Point(35, 435)
         btnBackToStep1.Name = "btnBackToStep1"
-        btnBackToStep1.ShadowDecoration.CustomizableEdges = CustomizableEdges31
+        btnBackToStep1.ShadowDecoration.CustomizableEdges = CustomizableEdges33
         btnBackToStep1.Size = New Size(160, 48)
         btnBackToStep1.TabIndex = 15
         btnBackToStep1.Text = "Back"
@@ -504,13 +521,17 @@ Partial Class SignUpPage
         btnSubmitSignup.BorderRadius = 16
         btnSubmitSignup.BorderThickness = 2
         btnSubmitSignup.Cursor = Cursors.Hand
-        btnSubmitSignup.CustomizableEdges = CustomizableEdges32
+        btnSubmitSignup.CustomizableEdges = CustomizableEdges34
+        btnSubmitSignup.DisabledState.BorderColor = Color.FromArgb(CByte(210), CByte(215), CByte(220))
+        btnSubmitSignup.DisabledState.FillColor = Color.FromArgb(CByte(225), CByte(228), CByte(232))
+        btnSubmitSignup.DisabledState.ForeColor = Color.FromArgb(CByte(150), CByte(155), CByte(165))
+        btnSubmitSignup.Enabled = False
         btnSubmitSignup.FillColor = Color.FromArgb(CByte(254), CByte(115), CByte(73))
         btnSubmitSignup.Font = New Font("Segoe UI", 11.5F, FontStyle.Bold)
         btnSubmitSignup.ForeColor = Color.FromArgb(CByte(105), CByte(105), CByte(105))
         btnSubmitSignup.Location = New Point(210, 435)
         btnSubmitSignup.Name = "btnSubmitSignup"
-        btnSubmitSignup.ShadowDecoration.CustomizableEdges = CustomizableEdges33
+        btnSubmitSignup.ShadowDecoration.CustomizableEdges = CustomizableEdges35
         btnSubmitSignup.Size = New Size(180, 48)
         btnSubmitSignup.TabIndex = 16
         btnSubmitSignup.Text = "Signup"
@@ -573,6 +594,7 @@ Partial Class SignUpPage
     Friend WithEvents lblPrefixText As Label
     Friend WithEvents txtContactNumber As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents chkSeniorPwd As Guna.UI2.WinForms.Guna2CheckBox
+    Friend WithEvents btnSignupTerms As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents btnBackToStep1 As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents btnSubmitSignup As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents PictureBox1 As PictureBox

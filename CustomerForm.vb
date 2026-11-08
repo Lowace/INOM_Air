@@ -83,6 +83,10 @@ Public Class CustomerForm
                               "• PWD: " & If(u.IsPwd, "Yes", "No"), "Profile Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
     End Sub
 
+    Private Sub btnCustomerTerms_Click(sender As Object, e As EventArgs) Handles btnCustomerTerms.Click
+        CustomMessageBox.ShowTermsAndConditions(Me, requireAccept:=False)
+    End Sub
+
     Private Sub btnLogout_Click(sender As Object, e As EventArgs) Handles btnLogout.Click
         Dim startForm As New StartingPage()
         startForm.Show()

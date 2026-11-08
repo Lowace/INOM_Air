@@ -38,6 +38,8 @@ Partial Class BookingStep6
         Dim CustomizableEdges10 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges11 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges12 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges20 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges21 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Guna2BorderlessForm1 = New Guna.UI2.WinForms.Guna2BorderlessForm(components)
         pnlTopBar = New Guna.UI2.WinForms.Guna2Panel()
         lblPlaneLogo = New Label()
@@ -57,6 +59,7 @@ Partial Class BookingStep6
         pnlNoticeCard = New Guna.UI2.WinForms.Guna2Panel()
         lblNoticeHeader = New Label()
         lblNoticeText = New Label()
+        btnB6Terms = New Guna.UI2.WinForms.Guna2Button()
         pnlB6RightSummary = New Guna.UI2.WinForms.Guna2Panel()
         PictureBox1 = New PictureBox()
         lblB6SummaryHeader = New Label()
@@ -246,6 +249,7 @@ Partial Class BookingStep6
         pnlNoticeCard.BorderRadius = 10
         pnlNoticeCard.Controls.Add(lblNoticeHeader)
         pnlNoticeCard.Controls.Add(lblNoticeText)
+        pnlNoticeCard.Controls.Add(btnB6Terms)
         pnlNoticeCard.CustomizableEdges = CustomizableEdges5
         pnlNoticeCard.FillColor = Color.FromArgb(CByte(237), CByte(229), CByte(216))
         pnlNoticeCard.Location = New Point(30, 305)
@@ -263,11 +267,26 @@ Partial Class BookingStep6
         lblNoticeHeader.Text = "Cancellation Policy:"
         lblNoticeText.Font = New Font("Segoe UI", 9F)
         lblNoticeText.ForeColor = Color.FromArgb(CByte(105), CByte(105), CByte(105))
-        lblNoticeText.Location = New Point(15, 38)
+        lblNoticeText.Location = New Point(15, 34)
         lblNoticeText.Name = "lblNoticeText"
-        lblNoticeText.Size = New Size(530, 105)
+        lblNoticeText.Size = New Size(530, 75)
         lblNoticeText.TabIndex = 1
         lblNoticeText.Text = resources.GetString("lblNoticeText.Text")
+        btnB6Terms.Animated = True
+        btnB6Terms.BorderColor = Color.FromArgb(CByte(1), CByte(123), CByte(128))
+        btnB6Terms.BorderRadius = 8
+        btnB6Terms.BorderThickness = 1
+        btnB6Terms.Cursor = Cursors.Hand
+        btnB6Terms.CustomizableEdges = CustomizableEdges20
+        btnB6Terms.FillColor = Color.White
+        btnB6Terms.Font = New Font("Segoe UI", 8.5F, FontStyle.Bold)
+        btnB6Terms.ForeColor = Color.FromArgb(CByte(1), CByte(123), CByte(128))
+        btnB6Terms.Location = New Point(15, 116)
+        btnB6Terms.Name = "btnB6Terms"
+        btnB6Terms.ShadowDecoration.CustomizableEdges = CustomizableEdges21
+        btnB6Terms.Size = New Size(240, 28)
+        btnB6Terms.TabIndex = 2
+        btnB6Terms.Text = "📄 View Full Terms & Conditions"
         pnlB6RightSummary.BackColor = Color.Transparent
         pnlB6RightSummary.BorderRadius = 18
         pnlB6RightSummary.Controls.Add(PictureBox1)
@@ -425,6 +444,7 @@ Partial Class BookingStep6
     Friend WithEvents pnlNoticeCard As Guna.UI2.WinForms.Guna2Panel
     Friend WithEvents lblNoticeHeader As Label
     Friend WithEvents lblNoticeText As Label
+    Friend WithEvents btnB6Terms As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents pnlB6RightSummary As Guna.UI2.WinForms.Guna2Panel
     Friend WithEvents lblB6SummaryHeader As Label
     Friend WithEvents lblB6SummaryDate As Label

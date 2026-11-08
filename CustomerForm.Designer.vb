@@ -18,15 +18,15 @@ Partial Class CustomerForm
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         components = New ComponentModel.Container()
+        Dim CustomizableEdges34 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges35 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges31 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges32 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges33 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges29 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges30 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges31 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges27 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges28 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges25 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges26 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges1 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges2 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges3 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
@@ -47,10 +47,12 @@ Partial Class CustomerForm
         Dim CustomizableEdges16 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges17 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges18 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges23 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges24 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges25 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges26 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges21 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges22 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges23 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges24 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(CustomerForm))
         Guna2BorderlessForm1 = New Guna.UI2.WinForms.Guna2BorderlessForm(components)
         pnlTopBar = New Guna.UI2.WinForms.Guna2Panel()
@@ -94,6 +96,7 @@ Partial Class CustomerForm
         lblInfoContact = New Label()
         lblInfoGender = New Label()
         btnViewProfileInfo = New Guna.UI2.WinForms.Guna2Button()
+        btnCustomerTerms = New Guna.UI2.WinForms.Guna2Button()
         Guna2Elipse1 = New Guna.UI2.WinForms.Guna2Elipse(components)
         pnlTopBar.SuspendLayout()
         pnlContentContainer.SuspendLayout()
@@ -117,12 +120,12 @@ Partial Class CustomerForm
         pnlTopBar.Controls.Add(lblBrandHeader)
         pnlTopBar.Controls.Add(btnLogout)
         pnlTopBar.Controls.Add(btnClose)
-        pnlTopBar.CustomizableEdges = CustomizableEdges32
+        pnlTopBar.CustomizableEdges = CustomizableEdges34
         pnlTopBar.Dock = DockStyle.Top
         pnlTopBar.FillColor = Color.FromArgb(CByte(1), CByte(123), CByte(128))
         pnlTopBar.Location = New Point(0, 0)
         pnlTopBar.Name = "pnlTopBar"
-        pnlTopBar.ShadowDecoration.CustomizableEdges = CustomizableEdges33
+        pnlTopBar.ShadowDecoration.CustomizableEdges = CustomizableEdges35
         pnlTopBar.Size = New Size(1100, 56)
         pnlTopBar.TabIndex = 0
         lblBrandHeader.AutoSize = True
@@ -138,13 +141,13 @@ Partial Class CustomerForm
         btnLogout.BorderRadius = 14
         btnLogout.BorderThickness = 1
         btnLogout.Cursor = Cursors.Hand
-        btnLogout.CustomizableEdges = CustomizableEdges29
+        btnLogout.CustomizableEdges = CustomizableEdges31
         btnLogout.FillColor = Color.FromArgb(CByte(40), CByte(255), CByte(255), CByte(255))
         btnLogout.Font = New Font("Segoe UI", 9.5F, FontStyle.Bold)
         btnLogout.ForeColor = Color.White
         btnLogout.Location = New Point(950, 12)
         btnLogout.Name = "btnLogout"
-        btnLogout.ShadowDecoration.CustomizableEdges = CustomizableEdges30
+        btnLogout.ShadowDecoration.CustomizableEdges = CustomizableEdges32
         btnLogout.Size = New Size(90, 32)
         btnLogout.TabIndex = 2
         btnLogout.Text = "Log out"
@@ -156,19 +159,19 @@ Partial Class CustomerForm
         btnClose.ForeColor = Color.White
         btnClose.Location = New Point(1055, 13)
         btnClose.Name = "btnClose"
-        btnClose.ShadowDecoration.CustomizableEdges = CustomizableEdges31
+        btnClose.ShadowDecoration.CustomizableEdges = CustomizableEdges33
         btnClose.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle
         btnClose.Size = New Size(30, 30)
         btnClose.TabIndex = 3
         btnClose.Text = "✕"
         pnlContentContainer.BackColor = Color.FromArgb(CByte(237), CByte(229), CByte(216))
         pnlContentContainer.Controls.Add(pnlProfileDashboard)
-        pnlContentContainer.CustomizableEdges = CustomizableEdges27
+        pnlContentContainer.CustomizableEdges = CustomizableEdges29
         pnlContentContainer.Dock = DockStyle.Fill
         pnlContentContainer.FillColor = Color.FromArgb(CByte(237), CByte(229), CByte(216))
         pnlContentContainer.Location = New Point(0, 56)
         pnlContentContainer.Name = "pnlContentContainer"
-        pnlContentContainer.ShadowDecoration.CustomizableEdges = CustomizableEdges28
+        pnlContentContainer.ShadowDecoration.CustomizableEdges = CustomizableEdges30
         pnlContentContainer.Size = New Size(1100, 644)
         pnlContentContainer.TabIndex = 1
         pnlProfileDashboard.BackColor = Color.Transparent
@@ -179,11 +182,11 @@ Partial Class CustomerForm
         pnlProfileDashboard.Controls.Add(pnlBannerPromo)
         pnlProfileDashboard.Controls.Add(pnlMiddleActionCard)
         pnlProfileDashboard.Controls.Add(pnlUserInfoCard)
-        pnlProfileDashboard.CustomizableEdges = CustomizableEdges25
+        pnlProfileDashboard.CustomizableEdges = CustomizableEdges27
         pnlProfileDashboard.Dock = DockStyle.Fill
         pnlProfileDashboard.Location = New Point(0, 0)
         pnlProfileDashboard.Name = "pnlProfileDashboard"
-        pnlProfileDashboard.ShadowDecoration.CustomizableEdges = CustomizableEdges26
+        pnlProfileDashboard.ShadowDecoration.CustomizableEdges = CustomizableEdges28
         pnlProfileDashboard.Size = New Size(1100, 644)
         pnlProfileDashboard.TabIndex = 0
         pnlWelcomeCard.BackColor = Color.Transparent
@@ -491,13 +494,14 @@ Partial Class CustomerForm
         pnlUserInfoCard.Controls.Add(lblInfoContact)
         pnlUserInfoCard.Controls.Add(lblInfoGender)
         pnlUserInfoCard.Controls.Add(btnViewProfileInfo)
-        pnlUserInfoCard.CustomizableEdges = CustomizableEdges23
+        pnlUserInfoCard.Controls.Add(btnCustomerTerms)
+        pnlUserInfoCard.CustomizableEdges = CustomizableEdges25
         pnlUserInfoCard.FillColor = Color.White
         pnlUserInfoCard.Location = New Point(835, 240)
         pnlUserInfoCard.Name = "pnlUserInfoCard"
         pnlUserInfoCard.ShadowDecoration.BorderRadius = 18
         pnlUserInfoCard.ShadowDecoration.Color = Color.FromArgb(CByte(190), CByte(190), CByte(200))
-        pnlUserInfoCard.ShadowDecoration.CustomizableEdges = CustomizableEdges24
+        pnlUserInfoCard.ShadowDecoration.CustomizableEdges = CustomizableEdges26
         pnlUserInfoCard.ShadowDecoration.Enabled = True
         pnlUserInfoCard.Size = New Size(235, 360)
         pnlUserInfoCard.TabIndex = 6
@@ -531,18 +535,33 @@ Partial Class CustomerForm
         lblInfoGender.TabIndex = 3
         lblInfoGender.Text = "Gender:" & vbCrLf & "Male"
         btnViewProfileInfo.Animated = True
-        btnViewProfileInfo.BorderRadius = 12
+        btnViewProfileInfo.BorderRadius = 10
         btnViewProfileInfo.Cursor = Cursors.Hand
         btnViewProfileInfo.CustomizableEdges = CustomizableEdges21
         btnViewProfileInfo.FillColor = Color.FromArgb(CByte(237), CByte(229), CByte(216))
-        btnViewProfileInfo.Font = New Font("Segoe UI", 10F, FontStyle.Bold)
+        btnViewProfileInfo.Font = New Font("Segoe UI", 9.5F, FontStyle.Bold)
         btnViewProfileInfo.ForeColor = Color.FromArgb(CByte(1), CByte(123), CByte(128))
-        btnViewProfileInfo.Location = New Point(55, 290)
+        btnViewProfileInfo.Location = New Point(20, 270)
         btnViewProfileInfo.Name = "btnViewProfileInfo"
         btnViewProfileInfo.ShadowDecoration.CustomizableEdges = CustomizableEdges22
-        btnViewProfileInfo.Size = New Size(125, 38)
+        btnViewProfileInfo.Size = New Size(195, 34)
         btnViewProfileInfo.TabIndex = 4
         btnViewProfileInfo.Text = "View Profile"
+        btnCustomerTerms.Animated = True
+        btnCustomerTerms.BorderColor = Color.FromArgb(CByte(1), CByte(123), CByte(128))
+        btnCustomerTerms.BorderRadius = 10
+        btnCustomerTerms.BorderThickness = 1
+        btnCustomerTerms.Cursor = Cursors.Hand
+        btnCustomerTerms.CustomizableEdges = CustomizableEdges23
+        btnCustomerTerms.FillColor = Color.White
+        btnCustomerTerms.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
+        btnCustomerTerms.ForeColor = Color.FromArgb(CByte(1), CByte(123), CByte(128))
+        btnCustomerTerms.Location = New Point(20, 312)
+        btnCustomerTerms.Name = "btnCustomerTerms"
+        btnCustomerTerms.ShadowDecoration.CustomizableEdges = CustomizableEdges24
+        btnCustomerTerms.Size = New Size(195, 34)
+        btnCustomerTerms.TabIndex = 5
+        btnCustomerTerms.Text = "Terms  &  Conditions"
         Guna2Elipse1.BorderRadius = 40
         Guna2Elipse1.TargetControl = lblAvatarCircle
         AutoScaleDimensions = New SizeF(7F, 15F)
@@ -622,6 +641,7 @@ Partial Class CustomerForm
     Friend WithEvents lblInfoContact As Label
     Friend WithEvents lblInfoGender As Label
     Friend WithEvents btnViewProfileInfo As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents btnCustomerTerms As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents Guna2Elipse1 As Guna.UI2.WinForms.Guna2Elipse
 

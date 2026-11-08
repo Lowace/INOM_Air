@@ -31,6 +31,8 @@ Partial Class StartingPage
         Dim CustomizableEdges13 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges14 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges15 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges18 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges19 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges3 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges4 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges1 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
@@ -47,6 +49,7 @@ Partial Class StartingPage
         btnLogin = New Guna.UI2.WinForms.Guna2Button()
         btnSignup = New Guna.UI2.WinForms.Guna2Button()
         btnExit = New Guna.UI2.WinForms.Guna2Button()
+        btnStartingTerms = New Guna.UI2.WinForms.Guna2Button()
         lblVersion = New Label()
         Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
         Guna2Panel2 = New Guna.UI2.WinForms.Guna2Panel()
@@ -102,6 +105,7 @@ Partial Class StartingPage
         pnlMainCard.Controls.Add(btnLogin)
         pnlMainCard.Controls.Add(btnSignup)
         pnlMainCard.Controls.Add(btnExit)
+        pnlMainCard.Controls.Add(btnStartingTerms)
         pnlMainCard.CustomizableEdges = CustomizableEdges16
         pnlMainCard.FillColor = Color.FromArgb(CByte(237), CByte(229), CByte(216))
         pnlMainCard.Location = New Point(32, 60)
@@ -179,6 +183,18 @@ Partial Class StartingPage
         btnExit.Size = New Size(160, 48)
         btnExit.TabIndex = 5
         btnExit.Text = "Exit"
+        btnStartingTerms.Animated = True
+        btnStartingTerms.Cursor = Cursors.Hand
+        btnStartingTerms.CustomizableEdges = CustomizableEdges18
+        btnStartingTerms.FillColor = Color.Transparent
+        btnStartingTerms.Font = New Font("Segoe UI", 9.0F, FontStyle.Underline)
+        btnStartingTerms.ForeColor = Color.FromArgb(CByte(1), CByte(123), CByte(128))
+        btnStartingTerms.Location = New Point(110, 460)
+        btnStartingTerms.Name = "btnStartingTerms"
+        btnStartingTerms.ShadowDecoration.CustomizableEdges = CustomizableEdges19
+        btnStartingTerms.Size = New Size(200, 28)
+        btnStartingTerms.TabIndex = 6
+        btnStartingTerms.Text = "📄 Terms & Conditions"
         lblVersion.Font = New Font("Segoe UI", 8F)
         lblVersion.ForeColor = Color.FromArgb(CByte(140), CByte(140), CByte(150))
         lblVersion.Location = New Point(32, 595)
@@ -236,6 +252,7 @@ Partial Class StartingPage
     Friend WithEvents btnLogin As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents btnSignup As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents btnExit As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents btnStartingTerms As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents lblVersion As Label
     Friend WithEvents Guna2Panel2 As Guna.UI2.WinForms.Guna2Panel
     Friend WithEvents Guna2Panel1 As Guna.UI2.WinForms.Guna2Panel

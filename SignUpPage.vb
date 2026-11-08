@@ -1,6 +1,11 @@
 ﻿Imports System.Linq
 
 Public Class SignUpPage
+    Private termsAccepted As Boolean = False
+
+    Private Sub SignUpPage_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        btnSubmitSignup.Enabled = termsAccepted
+    End Sub
 
     Private Sub btnNextStep_Click(sender As Object, e As EventArgs) Handles btnNextStep.Click
         Dim username = txtRegUsername.Text.Trim()
@@ -25,6 +30,7 @@ Public Class SignUpPage
         pnlStep1.Visible = False
         pnlStep2.Visible = True
         pnlStep2.BringToFront()
+        btnSubmitSignup.Enabled = termsAccepted
     End Sub
 
     Private Sub btnBackToStart_Click(sender As Object, e As EventArgs) Handles btnBackToStart.Click
@@ -44,6 +50,11 @@ Public Class SignUpPage
     End Sub
 
     Private Sub btnSubmitSignup_Click(sender As Object, e As EventArgs) Handles btnSubmitSignup.Click
+        If Not termsAccepted Then
+            CustomMessageBox.Show("Please review and accept the Terms & Conditions before creating your account.", "Terms Required", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return
+        End If
+
         Dim givenName = txtGivenName.Text.Trim()
         Dim surname = txtSurname.Text.Trim()
         Dim contact = txtContactNumber.Text.Trim()
@@ -84,5 +95,16 @@ Public Class SignUpPage
         custForm.Show()
         Me.Close()
     End Sub
+
+    Private Sub btnSignupTerms_Click(sender As Object, e As EventArgs) Handles btnSignupTerms.Click
+        Dim res = CustomMessageBox.ShowTermsAndConditions(Me, requireAccept:=True)
+        If res = DialogResult.OK Then
+            termsAccepted = True
+            btnSubmitSignup.Enabled = True
+            btnSignupTerms.Text = "✓ Terms and Conditions Accepted (Click to re-read)"
+            btnSignupTerms.ForeColor = Color.FromArgb(1, 123, 128)
+        End If
+    End Sub
+
 
 End Class

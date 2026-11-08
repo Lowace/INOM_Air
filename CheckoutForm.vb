@@ -60,6 +60,10 @@ Public Class CheckoutForm
         f.Show()
     End Sub
 
+    Private Sub btnCheckoutTerms_Click(sender As Object, e As EventArgs) Handles btnCheckoutTerms.Click
+        CustomMessageBox.ShowTermsAndConditions(Me)
+    End Sub
+
     Private Sub btnCloseX_Click(sender As Object, e As EventArgs) Handles btnCloseX.Click
         Application.Exit()
     End Sub

@@ -37,6 +37,8 @@ Partial Class CheckoutForm
         Dim CustomizableEdges10 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges11 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges12 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges20 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges21 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(CheckoutForm))
         Guna2BorderlessForm1 = New Guna.UI2.WinForms.Guna2BorderlessForm(components)
         pnlTopBar = New Guna.UI2.WinForms.Guna2Panel()
@@ -76,6 +78,7 @@ Partial Class CheckoutForm
         lblSecureBadge = New Label()
         lblRightTotalLabel = New Label()
         lblRightTotal = New Label()
+        btnCheckoutTerms = New Guna.UI2.WinForms.Guna2Button()
         btnContinueToPayment = New Guna.UI2.WinForms.Guna2Button()
         btnCheckoutBack = New Guna.UI2.WinForms.Guna2Button()
         pnlTopBar.SuspendLayout()
@@ -401,6 +404,7 @@ Partial Class CheckoutForm
         pnlCheckoutRight.Controls.Add(lblSecureBadge)
         pnlCheckoutRight.Controls.Add(lblRightTotalLabel)
         pnlCheckoutRight.Controls.Add(lblRightTotal)
+        pnlCheckoutRight.Controls.Add(btnCheckoutTerms)
         pnlCheckoutRight.Controls.Add(btnContinueToPayment)
         pnlCheckoutRight.Controls.Add(btnCheckoutBack)
         pnlCheckoutRight.CustomizableEdges = CustomizableEdges13
@@ -445,6 +449,21 @@ Partial Class CheckoutForm
         lblRightTotal.Size = New Size(203, 41)
         lblRightTotal.TabIndex = 3
         lblRightTotal.Text = "PHP 3,690.00"
+        btnCheckoutTerms.Animated = True
+        btnCheckoutTerms.BorderColor = Color.FromArgb(CByte(1), CByte(123), CByte(128))
+        btnCheckoutTerms.BorderRadius = 12
+        btnCheckoutTerms.BorderThickness = 1
+        btnCheckoutTerms.Cursor = Cursors.Hand
+        btnCheckoutTerms.CustomizableEdges = CustomizableEdges20
+        btnCheckoutTerms.FillColor = Color.White
+        btnCheckoutTerms.Font = New Font("Segoe UI", 9.5F, FontStyle.Bold)
+        btnCheckoutTerms.ForeColor = Color.FromArgb(CByte(1), CByte(123), CByte(128))
+        btnCheckoutTerms.Location = New Point(25, 330)
+        btnCheckoutTerms.Name = "btnCheckoutTerms"
+        btnCheckoutTerms.ShadowDecoration.CustomizableEdges = CustomizableEdges21
+        btnCheckoutTerms.Size = New Size(280, 42)
+        btnCheckoutTerms.TabIndex = 4
+        btnCheckoutTerms.Text = "📋 Review Terms & Conditions"
         btnContinueToPayment.Animated = True
         btnContinueToPayment.BorderRadius = 14
         btnContinueToPayment.Cursor = Cursors.Hand
@@ -522,6 +541,7 @@ Partial Class CheckoutForm
     Friend WithEvents lblSecureBadge As Label
     Friend WithEvents lblRightTotalLabel As Label
     Friend WithEvents lblRightTotal As Label
+    Friend WithEvents btnCheckoutTerms As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents btnContinueToPayment As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents btnCheckoutBack As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents pnlBreakdownModal As Guna.UI2.WinForms.Guna2Panel
