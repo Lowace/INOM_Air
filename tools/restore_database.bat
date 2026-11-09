@@ -19,6 +19,12 @@ if %MYSQL%=="" (
 )
 
 set SQL_FILE="%~dp0..\inomairtest_db.sql"
+if exist "%~dp0..\inomairtest_db_backup.sql" (
+    set SQL_FILE="%~dp0..\inomairtest_db_backup.sql"
+    echo [FOUND] Using latest backup file: inomairtest_db_backup.sql
+) else (
+    echo [FOUND] Using default schema file: inomairtest_db.sql
+)
 
 if not exist %SQL_FILE% (
     echo [ERROR] Could not find inomairtest_db.sql at %SQL_FILE%!
@@ -40,3 +46,4 @@ if %errorlevel% equ 0 (
 )
 echo.
 pause
+

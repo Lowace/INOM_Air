@@ -39,3 +39,4 @@ echo [SUCCESS] Database is 100% ONLINE and OPERATIONAL!
 echo You can show this terminal directly to your instructor/panelists.
 echo ======================================================================
 pause
+

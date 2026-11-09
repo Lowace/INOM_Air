@@ -19,6 +19,12 @@ save you in seconds:
    - You can show this directly to your panel/instructor to prove the database
      is live and working without needing Apache or phpMyAdmin!
 
-4. restore_database.bat
-   - 1-click import of inomairtest_db.sql into MySQL if the database is ever
-     wiped, reset, or running on a fresh PC.
+4. backup_current_database.bat
+   - 1-click snapshot exporter using mysqldump.
+   - Saves your current live MySQL database (with all your real bookings,
+     customers, aircrafts, and flights) into a safe backup file.
+
+5. restore_database.bat
+   - 1-click import to restore your database back to MySQL if it gets
+     accidentally deleted or corrupted.
+

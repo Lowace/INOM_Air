@@ -27,3 +27,4 @@ echo (Keep this window OPEN while running INOM Air!)
 echo.
 %MYSQLD% --standalone --console
 pause
+
