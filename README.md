@@ -54,7 +54,8 @@
 - **Frontend Development:** Built all user and administrative interfaces utilizing **Guna.UI2 WinForms**, seamless multi-step reservation flows, interactive seat map selector, and clean component architecture.
 - **Backend Architecture:** Programmed the entire application logic in **Visual Basic .NET**, fare calculation engine, passenger age and concession logic (RA 9994 Senior & RA 10754 PWD), and booking state management.
 - **Database Engineering:** Designed, integrated, and synchronized the **MySQL (`inomairtest_db`)** database, automatic migrations, real-time CRUD operations, DBNull-safe data parsing, and offline fallback.
-- **UI/UX Design:** Formulated the brand design language, vector-rendered in-textbox eye password toggles, borderless drag-enabled forms, and custom top-most notification dialogs (`CustomMessageBox`).
+- **Official Brand Logo & Identity:** Designed and illustrated the official **INOM Air** airline logo, featuring the stylized teal airplane silhouette emblem, typography, and visual brand assets.
+- **UI/UX Design:** Formulated the comprehensive brand design language, vector-rendered in-textbox eye password toggles, borderless drag-enabled forms, and custom top-most notification dialogs (`CustomMessageBox`).
 
 ---
 
@@ -63,7 +64,7 @@ Developed and submitted for **Case Study in Computer Programming 3** under the g
 
 | Member Name | Case Study Contribution |
 | :--- | :--- |
-| **Magdangal, Luis Antonio** | **Full-Stack Software Development & UI/UX Design** |
+| **Magdangal, Luis Antonio** | **Full-Stack Software Development, Official Logo Creation & UI/UX Design** |
 | **Manuel, Quervin Kherjie T.** | Project Lead / Case Study Planning & Coordination |
 | **Bautista, Neil Patrick** | Academic Documentation & Analysis |
 | **Mallari, Ashley Jamilla** | Workflow & Task Analysis |
@@ -235,6 +236,6 @@ In accordance with the **Tarlac State University (TSU) CCS Case Study**:
 ---
 
 <p align="center">
-  Developed & Designed with ❤️ by <strong>Luis Antonio Magdangal</strong><br/>
+  Software & Logo Created with ❤️ by <strong>Luis Antonio Magdangal</strong><br/>
   <strong>College of Computer Studies • Tarlac State University</strong>
 </p>
